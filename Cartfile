@@ -1,0 +1,24 @@
+# A Swift Reactive Programming Kit
+# https://github.com/ReactiveKit/ReactiveKit
+github "ReactiveKit/ReactiveKit"
+
+# A Swift binding framework
+# https://github.com/ReactiveKit/Bond
+github "ReactiveKit/Bond"
+
+# Fast, simple and complete library for Ethereum in Objective-C.
+# Custom fork that works with Carthage
+# https://github.com/zweigraf/ethers.objc
+github "zweigraf/ethers.objc" "3797eb283ba5fa0aa11457186ad55c25f77a0018"
+
+# Arbitrary-precision arithmetic in pure Swift
+# https://github.com/attaswift/BigInt
+github "attaswift/BigInt" ~> 3.0
+
+# Simple Swift wrapper for Keychain that works on iOS, watchOS, tvOS and macOS.
+# https://github.com/kishikawakatsumi/KeychainAccess
+github "kishikawakatsumi/KeychainAccess"
+
+# The ultimate API for iOS & OS X Auto Layout — impressively simple, immensely powerful. Objective-C and Swift compatible.
+# https://github.com/PureLayout/PureLayout
+github "PureLayout/PureLayout"

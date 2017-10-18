@@ -1,0 +1,8 @@
+github "tonyarnold/Differ" "1.0.2"
+github "kishikawakatsumi/KeychainAccess" "v3.1.0"
+github "PureLayout/PureLayout" "v3.0.2"
+github "ReactiveKit/ReactiveKit" "v3.7.5"
+github "attaswift/SipHash" "v1.2.0"
+github "zweigraf/ethers.objc" "3797eb283ba5fa0aa11457186ad55c25f77a0018"
+github "attaswift/BigInt" "v3.0.1"
+github "ReactiveKit/Bond" "6.5.0"
