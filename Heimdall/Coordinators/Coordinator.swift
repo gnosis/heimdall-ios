@@ -25,7 +25,7 @@ class Coordinator {
 
 // MARK: - Equatable
 extension Coordinator: Equatable {
-    static func ==(lhs: Coordinator, rhs: Coordinator) -> Bool {
+    static func == (lhs: Coordinator, rhs: Coordinator) -> Bool {
         // We do not really care about content equality, so we just check for reference equality.
         return lhs === rhs
     }

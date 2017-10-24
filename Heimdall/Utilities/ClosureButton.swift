@@ -23,7 +23,8 @@ class ClosureButton: UIButton {
         closure = handler
     }
 
-    @objc func didTouchUpInside(sender: UIButton) {
+    @objc
+    func didTouchUpInside(sender: UIButton) {
         if let handler = closure {
             handler()
         }

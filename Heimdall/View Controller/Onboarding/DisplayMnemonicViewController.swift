@@ -32,7 +32,12 @@ class DisplayMnemonicViewController: UIViewController {
         guard let phrase = account.mnemonicPhrase else {
             die("DisplayMnemonicViewController presented with an account without mnemonic phrase")
         }
-        ui.mnemonicLabel.text = "This is the mnemonic phrase that you can use to restore your account. Please write it down and store it safely.\nPhrase: \(phrase)"
+        ui.mnemonicLabel.text = """
+            This is the mnemonic phrase that you can use to restore your account.
+            Please write it down and store it safely.
+
+            Phrase: \(phrase)
+            """
 
         ui.gotItButton.addEventHandler { [weak self]  in
             guard let `self` = self else { return }

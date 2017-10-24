@@ -6,8 +6,8 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
-import XCTest
 @testable import Heimdall
+import XCTest
 
 class HeimdallTests: XCTestCase {
 
