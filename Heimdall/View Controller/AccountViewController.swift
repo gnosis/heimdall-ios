@@ -27,7 +27,6 @@ class AccountViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         ui.accountLabel.text = "This is your account. It has the address: \(account.address) and the private key: \(account.privateKey)"
     }
 
