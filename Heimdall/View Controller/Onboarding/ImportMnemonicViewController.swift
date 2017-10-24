@@ -13,22 +13,22 @@ import PureLayout
 
 class ImportMnemonicViewController: UIViewController {
     let ui = ImportMnemonicViewControllerUI()
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         die("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         edgesForExtendedLayout = []
-        
+
         title = "Enter Mnemonic Phrase"
-        
+
         ui.importButton.addEventHandler { [weak self] in
             guard let `self` = self,
                 let phrase = self.ui.mnemonicTextField.text,
@@ -41,9 +41,9 @@ class ImportMnemonicViewController: UIViewController {
                 let window = appDelegate.window else { return }
             window.rootViewController = viewController
         }
-        
+
     }
-    
+
     override func loadView() {
         view = ui.view
     }
@@ -61,11 +61,11 @@ class ImportMnemonicViewControllerUI: ViewControllerUI {
         let importButton = self.importButton
         view.addSubview(importButton)
         importButton.autoAlignAxis(toSuperviewAxis: .vertical)
-        
+
         importButton.autoPinEdge(.top, to: .bottom, of: mnemonicTextField, withOffset: 32)
         return view
     }()
-    
+
     lazy var mnemonicTextField: UITextView = {
         let field = UITextView()
         field.backgroundColor = .schemeBackground
@@ -74,6 +74,6 @@ class ImportMnemonicViewControllerUI: ViewControllerUI {
         field.font = .systemFont(ofSize: 24)
         return field
     }()
-    
+
     lazy var importButton = StyleKit.button(with: "Import")
 }

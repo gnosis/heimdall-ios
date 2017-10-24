@@ -9,11 +9,10 @@
 import Foundation
 import ethers
 
-fileprivate let provider = InfuraProvider(chainId: ChainId.ChainIdKovan, url: URL(string: "")!)
+private let provider = InfuraProvider(chainId: ChainId.ChainIdKovan, url: URL(string: "")!)
 
-func fetchBlockNumber(completion: @escaping (Int)->()) {
+func fetchBlockNumber(completion: @escaping (Int) -> Void) {
     provider?.getBlockNumber().onCompletion { promise in
         completion(promise!.value)
     }
 }
-

@@ -14,34 +14,34 @@ import PureLayout
 class DisplayMnemonicViewController: UIViewController {
     let ui = DisplayMnemonicViewControllerUI()
     let account: Account
-    
+
     init(account anAccount: Account) {
         account = anAccount
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         die("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         edgesForExtendedLayout = []
-        
+
         guard let phrase = account.mnemonicPhrase else {
             die("DisplayMnemonicViewController presented with an account without mnemonic phrase")
         }
         ui.mnemonicLabel.text = "This is the mnemonic phrase that you can use to restore your account. Please write it down and store it safely.\nPhrase: \(phrase)"
-        
+
         ui.gotItButton.addEventHandler { [weak self]  in
             guard let `self` = self else { return }
             let viewController = ImportMnemonicViewController()
             self.navigationController?.pushViewController(viewController, animated: true)
         }
-        
+
     }
-    
+
     override func loadView() {
         view = ui.view
     }
@@ -55,14 +55,14 @@ class DisplayMnemonicViewControllerUI: ViewControllerUI {
         mnemonicLabel.autoPinEdge(toSuperviewEdge: .leading)
         mnemonicLabel.autoPinEdge(toSuperviewEdge: .trailing)
         mnemonicLabel.autoPinEdge(toSuperviewEdge: .top, withInset: 32)
-        
+
         let gotItButton = self.gotItButton
         view.addSubview(gotItButton)
         gotItButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 32)
         gotItButton.autoAlignAxis(toSuperviewAxis: .vertical)
         return view
     }()
-    
+
     lazy var mnemonicLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
@@ -71,8 +71,8 @@ class DisplayMnemonicViewControllerUI: ViewControllerUI {
         label.font = .systemFont(ofSize: 24)
         return label
     }()
-    
+
     lazy var gotItButton: ClosureButton = {
-        return StyleKit.button(with: "Got It")
+        StyleKit.button(with: "Got It")
     }()
 }

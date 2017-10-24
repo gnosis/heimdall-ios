@@ -11,15 +11,15 @@ import PureLayout
 
 class OnboardingViewController: UIViewController {
     let ui = OnboardingViewControllerUI()
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         die("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         edgesForExtendedLayout = []
@@ -27,7 +27,7 @@ class OnboardingViewController: UIViewController {
             die("OnboardingViewController presented without navigationController")
         }
         title = "Setup Account"
-        
+
         // TODO: figure out event handling
         ui.newAccountButton.addEventHandler { [weak self] in
             guard let `self` = self else { return }
@@ -42,7 +42,7 @@ class OnboardingViewController: UIViewController {
             self.navigationController?.pushViewController(newVC, animated: true)
         }
     }
-    
+
     override func loadView() {
         view = ui.view
     }
@@ -51,7 +51,7 @@ class OnboardingViewController: UIViewController {
 class OnboardingViewControllerUI: ViewControllerUI {
     lazy var view: UIView = {
         let view = StyleKit.controllerView()
-        
+
         let newAccountButton = self.newAccountButton
         view.addSubview(newAccountButton)
         newAccountButton.autoAlignAxis(toSuperviewAxis: .vertical)
@@ -62,7 +62,7 @@ class OnboardingViewControllerUI: ViewControllerUI {
         importMnemonicButton.autoPinEdge(toSuperviewEdge: .bottom, withInset: 32)
         return view
     }()
-    
+
     // FIXME: strings
     let newAccountButton = StyleKit.button(with: "Create a new account")
     let importMnemonicButton = StyleKit.button(with: "Enter Mnemonic Phrase")

@@ -8,16 +8,16 @@
 
 class Coordinator {
     var childCoordinators: [Coordinator] = []
-    
+
     func add(_ childCoordinator: Coordinator) {
         childCoordinators.append(childCoordinator)
     }
-    
+
     func remove(_ childCoordinator: Coordinator) {
         guard let index = childCoordinators.index(of: childCoordinator) else { return }
         childCoordinators.remove(at: index)
     }
-    
+
     func start() {
         die("Coordinator.start() needs to be overridden.")
     }

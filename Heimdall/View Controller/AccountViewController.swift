@@ -15,22 +15,22 @@ class AccountViewController: UIViewController {
     let ui = AccountViewControllerUI()
     // FIXME: change to wrapper class or something, in case we switch from ethers lib
     let account: Account
-    
+
     init(with anAccount: Account) {
         account = anAccount
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         die("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         ui.accountLabel.text = "This is your account. It has the address: \(account.address) and the private key: \(account.privateKey)"
     }
-    
+
     override func loadView() {
         view = ui.view
     }
@@ -43,7 +43,7 @@ class AccountViewControllerUI: ViewControllerUI {
         self.accountLabel.autoPinEdgesToSuperviewMargins()
         return view
     }()
-    
+
     lazy var accountLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0

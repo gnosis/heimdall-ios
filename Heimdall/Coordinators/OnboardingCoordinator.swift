@@ -10,11 +10,11 @@ import UIKit
 
 class OnboardingCoordinator: Coordinator {
     let navigationController: UINavigationController
-    
+
     init(with rootViewController: UINavigationController) {
         navigationController = rootViewController
     }
-    
+
     override func start() {
         let vc = OnboardingViewController()
         navigationController.pushViewController(vc, animated: false)
