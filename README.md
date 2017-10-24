@@ -1,4 +1,4 @@
-# heimdall-ios
+# heimdall-ios [![Build Status](https://travis-ci.org/gnosis/heimdall-ios.svg?branch=master)](https://travis-ci.org/gnosis/heimdall-ios)
 🔐 App to manage and interact with Gnosis MultiSig Wallets https://wallet.gnosis.pm
 
 ## Getting Started
@@ -18,7 +18,7 @@ See [here](https://github.com/Carthage/Carthage#installing-carthage) for install
 
 #### [SwiftLint](https://github.com/realm/SwiftLint)
 
-SwiftLint is run via Mint in an Xcode build phase. No need to install anything apart from Mint.
+SwiftLint is run via Mint in an Xcode build phase. No need to install anything apart from Mint. We are currently using version 0.23.1 (specified in build phase). The first build will take significantly longer, as Mint is downloading and compiling SwiftLint.
 
 ### Style Guide
 
