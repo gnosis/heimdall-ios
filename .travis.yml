@@ -1,0 +1,5 @@
+osx_image: xcode9
+language: objective-c
+xcode_project: Heimdall.xcodeproj
+xcode_scheme: Heimdall
+install: carthage bootstrap --platform iOS
