@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A50EFE3F1FA0B76100FC6114 /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50EFE3E1FA0B76100FC6114 /* Disk.framework */; };
 		A51180CA1F9C9B7B008FC2DB /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180BF1F9C9B65008FC2DB /* AccountManager.swift */; };
 		A51180CC1F9C9B80008FC2DB /* EtherRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C01F9C9B65008FC2DB /* EtherRPC.swift */; };
 		A51180CD1F9C9B84008FC2DB /* ViewControllerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180BD1F9C9B64008FC2DB /* ViewControllerUI.swift */; };
@@ -74,6 +75,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A50EFE3E1FA0B76100FC6114 /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		A51180BD1F9C9B64008FC2DB /* ViewControllerUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUI.swift; sourceTree = "<group>"; };
 		A51180BF1F9C9B65008FC2DB /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		A51180C01F9C9B65008FC2DB /* EtherRPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherRPC.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				A544B2B51F9A518C001B2C07 /* BigInt.framework in Frameworks */,
 				A5946B881F9DDEAF004760A0 /* PureLayout.framework in Frameworks */,
 				A5946B891F9DDEAF004760A0 /* KeychainAccess.framework in Frameworks */,
+				A50EFE3F1FA0B76100FC6114 /* Disk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,6 +345,7 @@
 		A566D9CB1F97A22400DBEB9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A50EFE3E1FA0B76100FC6114 /* Disk.framework */,
 				A5946B871F9DDEAF004760A0 /* KeychainAccess.framework */,
 				A5946B861F9DDEAF004760A0 /* PureLayout.framework */,
 				A544B2B41F9A518C001B2C07 /* BigInt.framework */,
@@ -490,6 +494,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SipHash.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/PureLayout.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Disk.framework",
 			);
 			name = "Carthage: Copy Frameworks";
 			outputPaths = (
@@ -501,6 +506,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SipHash.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PureLayout.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/KeychainAccess.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Disk.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
