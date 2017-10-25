@@ -9,11 +9,12 @@
 import Foundation
 import ethers
 
-fileprivate let provider = InfuraProvider(chainId: ChainId.ChainIdKovan, url: URL(string: "")!)
+// swiftlint:disable:next force_unwrapping
+private let provider = InfuraProvider(chainId: ChainId.ChainIdKovan, url: URL(string: "")!)
 
-func fetchBlockNumber(completion: @escaping (Int)->()) {
+func fetchBlockNumber(completion: @escaping (Int) -> Void) {
     provider?.getBlockNumber().onCompletion { promise in
+        // swiftlint:disable:next force_unwrapping
         completion(promise!.value)
     }
 }
-

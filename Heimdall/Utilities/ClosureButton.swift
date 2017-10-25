@@ -18,12 +18,13 @@ class ClosureButton: UIButton {
             }
         }
     }
-    
+
     func addEventHandler(handler: @escaping (() -> Void)) {
         closure = handler
     }
-    
-    @objc func didTouchUpInside(sender: UIButton) {
+
+    @objc
+    func didTouchUpInside(sender: UIButton) {
         if let handler = closure {
             handler()
         }

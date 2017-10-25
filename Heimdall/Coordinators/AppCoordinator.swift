@@ -10,11 +10,11 @@ import UIKit
 
 class AppCoordinator: Coordinator {
     let navigationController: UINavigationController
-    
+
     init(with rootViewController: UINavigationController) {
         navigationController = rootViewController
     }
-    
+
     override func start() {
         if AccountManager.hasStoredAccount {
             let coordinator = LoggedInCoordinator(with: navigationController)

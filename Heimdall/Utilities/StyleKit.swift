@@ -15,7 +15,7 @@ struct StyleKit {
         view.backgroundColor = .schemeBackground
         return view
     }
-    
+
     static func button(with title: String) -> ClosureButton {
         let button = ClosureButton(type: .system)
         button.setTitle(title, for: .normal)

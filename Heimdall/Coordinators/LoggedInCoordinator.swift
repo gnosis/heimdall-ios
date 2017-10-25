@@ -10,11 +10,11 @@ import UIKit
 
 class LoggedInCoordinator: Coordinator {
     let navigationController: UINavigationController
-    
+
     init(with rootViewController: UINavigationController) {
         navigationController = rootViewController
     }
-    
+
     override func start() {
         guard let account = AccountManager.storedAccount else {
             die("LoggedInCoordinator.start() without Stored Account")

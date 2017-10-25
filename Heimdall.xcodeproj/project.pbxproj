@@ -387,6 +387,7 @@
 				A566D9A51F97A1A000DBEB9A /* Frameworks */,
 				A566D9A61F97A1A000DBEB9A /* Resources */,
 				A566D9D41F97A23300DBEB9A /* Carthage: Copy Frameworks */,
+				A5AFE9DD1F9F667E00658022 /* Mint: Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -504,6 +505,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		A5AFE9DD1F9F667E00658022 /* Mint: Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Mint: Swiftlint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which mint >/dev/null; then\n    mint run realm/swiftlint@0.23.1\nelse\n    echo \"warning: Mint not installed, see README.md for install notes\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
