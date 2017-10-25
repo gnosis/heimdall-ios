@@ -7,22 +7,15 @@
 //
 
 @testable import Heimdall
-import XCTest
+import Nimble
+import Quick
 
-class HeimdallTests: XCTestCase {
-
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-
-    func testExample() {
-        let testString = "testString"
-        XCTAssert(testString == "testString")
+class HeimdallSpec: QuickSpec {
+    override func spec() {
+        describe("Heimdall") {
+            it("should be able to run Quick test") {
+                expect(3).toNot(be(5))
+            }
+        }
     }
 }

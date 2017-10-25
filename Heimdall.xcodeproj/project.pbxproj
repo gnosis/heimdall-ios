@@ -10,6 +10,9 @@
 		A50EFE3F1FA0B76100FC6114 /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50EFE3E1FA0B76100FC6114 /* Disk.framework */; };
 		A50EFE441FA0C2C300FC6114 /* SecureDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50EFE431FA0C2C300FC6114 /* SecureDataStore.swift */; };
 		A50EFE461FA0C30700FC6114 /* DiskDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50EFE451FA0C30700FC6114 /* DiskDataStore.swift */; };
+		A50EFE711FA0DB2F00FC6114 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50EFE6F1FA0DB1800FC6114 /* Quick.framework */; };
+		A50EFE731FA0DB3300FC6114 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50EFE721FA0DB3300FC6114 /* Nimble.framework */; };
+		A50EFE761FA0DDF300FC6114 /* DataStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50EFE751FA0DDF300FC6114 /* DataStoreSpec.swift */; };
 		A51180CA1F9C9B7B008FC2DB /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180BF1F9C9B65008FC2DB /* AccountManager.swift */; };
 		A51180CC1F9C9B80008FC2DB /* EtherRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C01F9C9B65008FC2DB /* EtherRPC.swift */; };
 		A51180CD1F9C9B84008FC2DB /* ViewControllerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180BD1F9C9B64008FC2DB /* ViewControllerUI.swift */; };
@@ -81,6 +84,9 @@
 		A50EFE3E1FA0B76100FC6114 /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		A50EFE431FA0C2C300FC6114 /* SecureDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureDataStore.swift; sourceTree = "<group>"; };
 		A50EFE451FA0C30700FC6114 /* DiskDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskDataStore.swift; sourceTree = "<group>"; };
+		A50EFE6F1FA0DB1800FC6114 /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		A50EFE721FA0DB3300FC6114 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		A50EFE751FA0DDF300FC6114 /* DataStoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreSpec.swift; sourceTree = "<group>"; };
 		A51180BD1F9C9B64008FC2DB /* ViewControllerUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUI.swift; sourceTree = "<group>"; };
 		A51180BF1F9C9B65008FC2DB /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		A51180C01F9C9B65008FC2DB /* EtherRPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherRPC.swift; sourceTree = "<group>"; };
@@ -163,6 +169,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A50EFE711FA0DB2F00FC6114 /* Quick.framework in Frameworks */,
+				A50EFE731FA0DB3300FC6114 /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -355,6 +363,7 @@
 			children = (
 				A566D9C01F97A1A000DBEB9A /* HeimdallTests.swift */,
 				A566D9C21F97A1A000DBEB9A /* Info.plist */,
+				A50EFE751FA0DDF300FC6114 /* DataStoreSpec.swift */,
 			);
 			path = HeimdallTests;
 			sourceTree = "<group>";
@@ -362,6 +371,8 @@
 		A566D9CB1F97A22400DBEB9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A50EFE721FA0DB3300FC6114 /* Nimble.framework */,
+				A50EFE6F1FA0DB1800FC6114 /* Quick.framework */,
 				A50EFE3E1FA0B76100FC6114 /* Disk.framework */,
 				A5946B871F9DDEAF004760A0 /* KeychainAccess.framework */,
 				A5946B861F9DDEAF004760A0 /* PureLayout.framework */,
@@ -426,6 +437,7 @@
 				A566D9B81F97A1A000DBEB9A /* Sources */,
 				A566D9B91F97A1A000DBEB9A /* Frameworks */,
 				A566D9BA1F97A1A000DBEB9A /* Resources */,
+				A50EFE741FA0DB4600FC6114 /* Carthage: Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -497,6 +509,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		A50EFE741FA0DB4600FC6114 /* Carthage: Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+			);
+			name = "Carthage: Copy Frameworks";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Quick.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Nimble.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		A566D9D41F97A23300DBEB9A /* Carthage: Copy Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -603,6 +633,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A50EFE761FA0DDF300FC6114 /* DataStoreSpec.swift in Sources */,
 				A566D9C11F97A1A000DBEB9A /* HeimdallTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,6 +809,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HeimdallTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pm.gnosis.HeimdallTests;
@@ -794,6 +829,10 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = HeimdallTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pm.gnosis.HeimdallTests;

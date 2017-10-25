@@ -37,4 +37,8 @@ extension SecureDataStore: DataStore {
         let object = try decoder.decode(T.self, from: json)
         return object
     }
+    
+    func delete(key: String) throws {
+        try keychain.remove(key)
+    }
 }

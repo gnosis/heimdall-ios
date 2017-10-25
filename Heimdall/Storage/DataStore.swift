@@ -24,6 +24,8 @@ protocol DataStore {
     /// - Returns: The object associated with that key.
     /// - Throws: When fetching fails or no object is associated with that key.
     func fetch<T>(key: String) throws -> T where T: Codable
+    
+    func delete(key: String) throws
 }
 
 /// Describes errors that can occur when storing & fetching objects.
