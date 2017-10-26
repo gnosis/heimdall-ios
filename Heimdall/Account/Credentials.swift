@@ -17,7 +17,7 @@ struct Credentials: Codable {
     let address: String
     /// Private Key as a Hex String
     let privateKey: String
-    
+
     private init(account: Account) {
         privateKey = account.privateKey
         guard let addressString = account.address?.description else {

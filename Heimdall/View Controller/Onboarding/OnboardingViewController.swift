@@ -17,7 +17,7 @@ protocol OnboardingViewControllerDelegate: class {
 class OnboardingViewController: UIViewController {
     let ui = OnboardingViewControllerUI()
     weak var delegate: OnboardingViewControllerDelegate?
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }

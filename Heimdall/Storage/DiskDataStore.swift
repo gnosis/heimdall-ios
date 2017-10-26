@@ -35,7 +35,7 @@ extension DiskDataStore: DataStore {
         let filename = try fileName(from: key)
         return try Disk.retrieve(filename, from: directory, as: T.self)
     }
-    
+
     func delete(key: String) throws {
         let filename = try fileName(from: key)
         try Disk.remove(filename, from: directory)

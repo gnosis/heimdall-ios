@@ -23,12 +23,12 @@ extension TestData: Equatable {
 
 class DataStoreSpec: QuickSpec {
     let key = "testKey1"
-    
+
     override func spec() {
         describe("DocumentsDataStore") {
             beforeEach {
                 // Clear Documents directory before tests
-                
+
             }
             it("should be able to retrieve and store test data") {
                 let data = TestData(field1: "testString1", field2: 234_567_890)

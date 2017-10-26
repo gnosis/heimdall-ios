@@ -15,7 +15,7 @@ struct MnemonicPhrase {
         }
         return phrase
     }
-    
+
     static func isValid(_ phrase: String) -> Bool {
         return Account.isValidMnemonicPhrase(phrase)
     }
