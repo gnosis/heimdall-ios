@@ -13,7 +13,7 @@
 		A50EFE711FA0DB2F00FC6114 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50EFE6F1FA0DB1800FC6114 /* Quick.framework */; };
 		A50EFE731FA0DB3300FC6114 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50EFE721FA0DB3300FC6114 /* Nimble.framework */; };
 		A50EFE761FA0DDF300FC6114 /* DataStoreSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50EFE751FA0DDF300FC6114 /* DataStoreSpec.swift */; };
-		A51180CA1F9C9B7B008FC2DB /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180BF1F9C9B65008FC2DB /* AccountManager.swift */; };
+		A51180CA1F9C9B7B008FC2DB /* CredentialsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180BF1F9C9B65008FC2DB /* CredentialsStore.swift */; };
 		A51180CC1F9C9B80008FC2DB /* EtherRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C01F9C9B65008FC2DB /* EtherRPC.swift */; };
 		A51180CD1F9C9B84008FC2DB /* ViewControllerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180BD1F9C9B64008FC2DB /* ViewControllerUI.swift */; };
 		A51180CE1F9C9B88008FC2DB /* Fatal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C21F9C9B65008FC2DB /* Fatal.swift */; };
@@ -22,6 +22,8 @@
 		A51180D11F9C9B94008FC2DB /* ImportMnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C71F9C9B65008FC2DB /* ImportMnemonicViewController.swift */; };
 		A51180D21F9C9B96008FC2DB /* DisplayMnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C81F9C9B65008FC2DB /* DisplayMnemonicViewController.swift */; };
 		A51180D31F9C9B98008FC2DB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C91F9C9B65008FC2DB /* OnboardingViewController.swift */; };
+		A53D14071FA1EA5E003BB29C /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D14061FA1EA5E003BB29C /* Credentials.swift */; };
+		A53D14091FA1EA77003BB29C /* MnemonicPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D14081FA1EA77003BB29C /* MnemonicPhrase.swift */; };
 		A53F6DC61FA0B480002C53B0 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F6DC51FA0B480002C53B0 /* DataStore.swift */; };
 		A544B2701F99ECF4001B2C07 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544B26F1F99ECF4001B2C07 /* Coordinator.swift */; };
 		A544B2961F9A4B68001B2C07 /* Solidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544B2751F9A4B45001B2C07 /* Solidity.swift */; };
@@ -88,7 +90,7 @@
 		A50EFE721FA0DB3300FC6114 /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
 		A50EFE751FA0DDF300FC6114 /* DataStoreSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStoreSpec.swift; sourceTree = "<group>"; };
 		A51180BD1F9C9B64008FC2DB /* ViewControllerUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerUI.swift; sourceTree = "<group>"; };
-		A51180BF1F9C9B65008FC2DB /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		A51180BF1F9C9B65008FC2DB /* CredentialsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsStore.swift; sourceTree = "<group>"; };
 		A51180C01F9C9B65008FC2DB /* EtherRPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherRPC.swift; sourceTree = "<group>"; };
 		A51180C21F9C9B65008FC2DB /* Fatal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fatal.swift; sourceTree = "<group>"; };
 		A51180C31F9C9B65008FC2DB /* StyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
@@ -96,6 +98,8 @@
 		A51180C71F9C9B65008FC2DB /* ImportMnemonicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportMnemonicViewController.swift; sourceTree = "<group>"; };
 		A51180C81F9C9B65008FC2DB /* DisplayMnemonicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMnemonicViewController.swift; sourceTree = "<group>"; };
 		A51180C91F9C9B65008FC2DB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		A53D14061FA1EA5E003BB29C /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		A53D14081FA1EA77003BB29C /* MnemonicPhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhrase.swift; sourceTree = "<group>"; };
 		A53F6DC51FA0B480002C53B0 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		A544B26F1F99ECF4001B2C07 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A544B2751F9A4B45001B2C07 /* Solidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solidity.swift; sourceTree = "<group>"; };
@@ -205,7 +209,6 @@
 		A51180BE1F9C9B65008FC2DB /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				A51180BF1F9C9B65008FC2DB /* AccountManager.swift */,
 				A51180C01F9C9B65008FC2DB /* EtherRPC.swift */,
 			);
 			path = Networking;
@@ -238,6 +241,16 @@
 				A51180C91F9C9B65008FC2DB /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		A53D14051FA1EA38003BB29C /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				A51180BF1F9C9B65008FC2DB /* CredentialsStore.swift */,
+				A53D14061FA1EA5E003BB29C /* Credentials.swift */,
+				A53D14081FA1EA77003BB29C /* MnemonicPhrase.swift */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		A544B2731F9A4B45001B2C07 /* Solidity */ = {
@@ -345,6 +358,7 @@
 		A566D9AA1F97A1A000DBEB9A /* Heimdall */ = {
 			isa = PBXGroup;
 			children = (
+				A53D14051FA1EA38003BB29C /* Account */,
 				A50EFE421FA0BF0C00FC6114 /* Storage */,
 				A5946B851F9DDD4C004760A0 /* Other */,
 				A566D9D91F97B1AF00DBEB9A /* Coordinators */,
@@ -604,8 +618,10 @@
 				A544B2B01F9A4B7F001B2C07 /* SolidityCodable.swift in Sources */,
 				A50EFE441FA0C2C300FC6114 /* SecureDataStore.swift in Sources */,
 				A566D9DB1F97B21B00DBEB9A /* AppCoordinator.swift in Sources */,
+				A53D14091FA1EA77003BB29C /* MnemonicPhrase.swift in Sources */,
 				A51180CF1F9C9B8B008FC2DB /* StyleKit.swift in Sources */,
 				A544B2A91F9A4B77001B2C07 /* BytesX-Generated.swift in Sources */,
+				A53D14071FA1EA5E003BB29C /* Credentials.swift in Sources */,
 				A5946B821F9DDB03004760A0 /* OnboardingCoordinator.swift in Sources */,
 				A544B2A21F9A4B71001B2C07 /* BigIntExtension.swift in Sources */,
 				A51180D31F9C9B98008FC2DB /* OnboardingViewController.swift in Sources */,
@@ -614,7 +630,7 @@
 				A544B2A51F9A4B73001B2C07 /* DailyLimitException.swift in Sources */,
 				A544B2A81F9A4B77001B2C07 /* UIntX-Generated.swift in Sources */,
 				A566D9AC1F97A1A000DBEB9A /* AppDelegate.swift in Sources */,
-				A51180CA1F9C9B7B008FC2DB /* AccountManager.swift in Sources */,
+				A51180CA1F9C9B7B008FC2DB /* CredentialsStore.swift in Sources */,
 				A544B29F1F9A4B68001B2C07 /* IntX.swift in Sources */,
 				A544B2991F9A4B68001B2C07 /* ArrayX.swift in Sources */,
 				A544B2A41F9A4B71001B2C07 /* StringExtension.swift in Sources */,

@@ -10,13 +10,16 @@ import UIKit
 
 class AppCoordinator: Coordinator {
     let navigationController: UINavigationController
+    let secureStore = SecureDataStore()
+    let credentialsStore: CredentialsStore
 
     init(with rootViewController: UINavigationController) {
         navigationController = rootViewController
+        credentialsStore = CredentialsStore(store: secureStore)
     }
 
     override func start() {
-        if AccountManager.hasStoredAccount {
+        if credentialsStore.hasStoredCredentials {
             let coordinator = LoggedInCoordinator(with: navigationController)
             add(coordinator)
             coordinator.start()

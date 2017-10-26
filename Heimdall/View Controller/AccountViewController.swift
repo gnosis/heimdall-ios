@@ -7,17 +7,15 @@
 //
 
 import UIKit
-// TODO: these imports should not be here, viewmodel and stuff
-import ethers
 import PureLayout
 
 class AccountViewController: UIViewController {
     let ui = AccountViewControllerUI()
-    // FIXME: change to wrapper class or something, in case we switch from ethers lib
-    let account: Account
+    // FIXME: Use ViewModel
+    let credentials: Credentials
 
-    init(with anAccount: Account) {
-        account = anAccount
+    init(with credentials: Credentials) {
+        self.credentials = credentials
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -27,7 +25,7 @@ class AccountViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ui.accountLabel.text = "This is your account. It has the address: \(account.address) and the private key: \(account.privateKey)"
+        ui.accountLabel.text = "This is your account. It has the address: \(credentials.address) and the private key: \(credentials.privateKey)"
     }
 
     override func loadView() {

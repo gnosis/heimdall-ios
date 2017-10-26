@@ -11,7 +11,8 @@ import UIKit
 class LoggedInCoordinator: Coordinator {
     let navigationController: UINavigationController
 
-    init(with rootViewController: UINavigationController) {
+    init(with rootViewController: UINavigationController,
+         credentials: Credentials) {
         navigationController = rootViewController
     }
 

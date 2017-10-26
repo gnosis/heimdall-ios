@@ -7,14 +7,13 @@
 //
 
 import UIKit
-// FIXME: this import should not be here
-import ethers
 import PureLayout
 
 class ImportMnemonicViewController: UIViewController {
     let ui = ImportMnemonicViewControllerUI()
-
-    init() {
+    let credentialsStore: CredentialsStore
+    
+    init(store: CredentialsStore) {
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -32,9 +31,8 @@ class ImportMnemonicViewController: UIViewController {
         ui.importButton.addEventHandler { [weak self] in
             guard let `self` = self,
                 let phrase = self.ui.mnemonicTextField.text,
-                Account.isValidMnemonicPhrase(phrase) else { return }
-            let account = AccountManager.account(from: phrase)
-            AccountManager.store(account: account)
+                let credentials = try? Credentials(from: phrase) else { return }
+            try credentialsStore.store(credentials: credentials)
             // FIXME: bla bla router
             let viewController = AccountViewController(with: account)
             guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
