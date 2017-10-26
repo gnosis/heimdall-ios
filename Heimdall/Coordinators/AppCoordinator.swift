@@ -19,14 +19,24 @@ class AppCoordinator: Coordinator {
     }
 
     override func start() {
-        if credentialsStore.hasStoredCredentials {
-            let coordinator = LoggedInCoordinator(with: navigationController)
+        if credentialsStore.hasStoredCredentials,
+            let credentials = try? credentialsStore.fetchCredentials() {
+            let coordinator = LoggedInCoordinator(with: navigationController,
+                                                  credentials: credentials)
             add(coordinator)
             coordinator.start()
         } else {
-            let coordinator = OnboardingCoordinator(with: navigationController)
+            let coordinator = OnboardingCoordinator(with: navigationController,
+                                                    credentialsStore: credentialsStore)
+            coordinator.delegate = self
             add(coordinator)
             coordinator.start()
         }
+    }
+}
+
+extension AppCoordinator: OnboardingCoordinatorDelegate {
+    func finishedOnboarding() {
+        start()
     }
 }

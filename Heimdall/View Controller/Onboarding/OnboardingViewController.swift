@@ -9,9 +9,15 @@
 import UIKit
 import PureLayout
 
+protocol OnboardingViewControllerDelegate: class {
+    func newAccountTapped()
+    func importMnemonicTapped()
+}
+
 class OnboardingViewController: UIViewController {
     let ui = OnboardingViewControllerUI()
-
+    weak var delegate: OnboardingViewControllerDelegate?
+    
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -28,18 +34,13 @@ class OnboardingViewController: UIViewController {
         }
         title = "Setup Account"
 
-        // TODO: figure out event handling
         ui.newAccountButton.addEventHandler { [weak self] in
             guard let `self` = self else { return }
-            let newAccount = AccountManager.account()
-            // FIXME: mediator/router pattern
-            let newVC = DisplayMnemonicViewController(account: newAccount)
-            self.navigationController?.pushViewController(newVC, animated: true)
+            self.delegate?.newAccountTapped()
         }
         ui.importMnemonicButton.addEventHandler { [weak self] in
             guard let `self` = self else { return }
-            let newVC = ImportMnemonicViewController()
-            self.navigationController?.pushViewController(newVC, animated: true)
+            self.delegate?.importMnemonicTapped()
         }
     }
 

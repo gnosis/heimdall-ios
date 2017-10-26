@@ -10,17 +10,16 @@ import UIKit
 
 class LoggedInCoordinator: Coordinator {
     let navigationController: UINavigationController
+    let credentials: Credentials
 
     init(with rootViewController: UINavigationController,
          credentials: Credentials) {
         navigationController = rootViewController
+        self.credentials = credentials
     }
 
     override func start() {
-        guard let account = AccountManager.storedAccount else {
-            die("LoggedInCoordinator.start() without Stored Account")
-        }
-        let vc = AccountViewController(with: account)
+        let vc = AccountViewController(with: credentials)
         navigationController.pushViewController(vc, animated: false)
     }
 }

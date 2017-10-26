@@ -7,16 +7,19 @@
 //
 
 import UIKit
-// FIXME: this import should not be here
-import ethers
 import PureLayout
+
+protocol DisplayMnemonicViewControllerDelegate: class {
+    func gotItTapped()
+}
 
 class DisplayMnemonicViewController: UIViewController {
     let ui = DisplayMnemonicViewControllerUI()
-    let account: Account
+    let phrase: String
+    weak var delegate: DisplayMnemonicViewControllerDelegate?
 
-    init(account anAccount: Account) {
-        account = anAccount
+    init(mnemonicPhrase: String) {
+        phrase = mnemonicPhrase
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -29,9 +32,6 @@ class DisplayMnemonicViewController: UIViewController {
 
         edgesForExtendedLayout = []
 
-        guard let phrase = account.mnemonicPhrase else {
-            die("DisplayMnemonicViewController presented with an account without mnemonic phrase")
-        }
         ui.mnemonicLabel.text = """
             This is the mnemonic phrase that you can use to restore your account.
             Please write it down and store it safely.
@@ -41,8 +41,7 @@ class DisplayMnemonicViewController: UIViewController {
 
         ui.gotItButton.addEventHandler { [weak self]  in
             guard let `self` = self else { return }
-            let viewController = ImportMnemonicViewController()
-            self.navigationController?.pushViewController(viewController, animated: true)
+            self.delegate?.gotItTapped()
         }
 
     }

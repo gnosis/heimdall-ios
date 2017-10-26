@@ -9,11 +9,17 @@
 import UIKit
 import PureLayout
 
+protocol ImportMnemonicViewControllerDelegate: class {
+    func importTapped(phrase: String)
+}
+
 class ImportMnemonicViewController: UIViewController {
     let ui = ImportMnemonicViewControllerUI()
     let credentialsStore: CredentialsStore
-    
+    weak var delegate: ImportMnemonicViewControllerDelegate?
+
     init(store: CredentialsStore) {
+        credentialsStore = store
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -30,14 +36,8 @@ class ImportMnemonicViewController: UIViewController {
 
         ui.importButton.addEventHandler { [weak self] in
             guard let `self` = self,
-                let phrase = self.ui.mnemonicTextField.text,
-                let credentials = try? Credentials(from: phrase) else { return }
-            try credentialsStore.store(credentials: credentials)
-            // FIXME: bla bla router
-            let viewController = AccountViewController(with: account)
-            guard let appDelegate = UIApplication.shared.delegate as? AppDelegate,
-                let window = appDelegate.window else { return }
-            window.rootViewController = viewController
+                let phrase = self.ui.mnemonicTextField.text else { return }
+            self.delegate?.importTapped(phrase: phrase)
         }
 
     }

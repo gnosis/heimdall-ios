@@ -12,7 +12,7 @@ struct Credentials: Codable {
     enum CredentialsError: Error {
         case invalidMnemonicPhrase
     }
-    
+
     /// Address of this account
     let address: String
     /// Private Key as a Hex String
@@ -25,7 +25,7 @@ struct Credentials: Codable {
         }
         address = addressString
     }
-    
+
     init(from mnemonicPhrase: String) throws {
         guard MnemonicPhrase.isValid(mnemonicPhrase),
             let account = Account(mnemonicPhrase: mnemonicPhrase) else {
