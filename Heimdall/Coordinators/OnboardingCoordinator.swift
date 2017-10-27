@@ -31,7 +31,7 @@ class OnboardingCoordinator: BaseCoordinator<Credentials> {
         }.dispose(in: disposeBag)
 
         onboardingStartViewModel.importMnemonicPhrase?.observeNext { [weak self] _ in
-            self?.importMnemonicTapped()
+            self?.importMnemonicPhrase()
         }.dispose(in: disposeBag)
 
         navigationController.rootViewController = onboardingStartViewController
@@ -50,28 +50,23 @@ extension OnboardingCoordinator {
         let viewController = DisplayMnemonicViewController(viewModel: viewModel)
 
         viewModel.gotIt?.observeNext { [weak self] _ in
-            self?.gotItTapped()
+            self?.importMnemonicPhrase()
         }.dispose(in: disposeBag)
 
         navigationController.pushViewController(viewController, animated: true)
     }
 
-    func importMnemonicTapped() {
-        let newVC = ImportMnemonicViewController(store: credentialsStore)
-        newVC.delegate = self
-        navigationController.pushViewController(newVC, animated: true)
-    }
-}
-
-extension OnboardingCoordinator {
-    func gotItTapped() {
-        let viewController = ImportMnemonicViewController(store: credentialsStore)
-        viewController.delegate = self
+    func importMnemonicPhrase() {
+        let viewModel = ImportMnemonicViewModel()
+        let viewController = ImportMnemonicViewController(viewModel: viewModel)
+        viewModel.importMnemonicPhrase?.observeNext { [weak self] phrase in
+            self?.importTapped(phrase: phrase)
+        }.dispose(in: disposeBag)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
 
-extension OnboardingCoordinator: ImportMnemonicViewControllerDelegate {
+extension OnboardingCoordinator {
     func importTapped(phrase: String) {
         guard let credentials = try? Credentials(from: phrase) else {
             // TODO: display error message somehow

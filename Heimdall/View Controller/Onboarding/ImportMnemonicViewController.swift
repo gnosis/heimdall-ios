@@ -6,21 +6,39 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
-import UIKit
+import Bond
 import PureLayout
+import ReactiveKit
+import UIKit
 
-protocol ImportMnemonicViewControllerDelegate: class {
-    func importTapped(phrase: String)
+class ImportMnemonicViewModel {
+    let importButtonTitle = Property("Import")
+    let currentMnemonicPhrase = Property<String?>(nil)
+
+    var importButtonTap: SafeSignal<Void>? {
+        didSet {
+            guard let signal = importButtonTap else {
+                importMnemonicPhrase = nil
+                return
+            }
+            importMnemonicPhrase = combineLatest(signal, currentMnemonicPhrase) { _, phrase in phrase ?? "" }
+        }
+    }
+    var importMnemonicPhrase: SafeSignal<String>?
 }
 
 class ImportMnemonicViewController: UIViewController {
     let ui = ImportMnemonicViewControllerUI()
-    let credentialsStore: CredentialsStore
-    weak var delegate: ImportMnemonicViewControllerDelegate?
+    let viewModel: ImportMnemonicViewModel
 
-    init(store: CredentialsStore) {
-        credentialsStore = store
+    init(viewModel: ImportMnemonicViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+
+        viewModel.importButtonTitle.bind(to: ui.importButton.reactive.title)
+        ui.mnemonicTextField.reactive.text.bidirectionalBind(to: viewModel.currentMnemonicPhrase)
+
+        viewModel.importButtonTap = ui.importButton.reactive.tap
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -33,13 +51,6 @@ class ImportMnemonicViewController: UIViewController {
         edgesForExtendedLayout = []
 
         title = "Enter Mnemonic Phrase"
-
-        ui.importButton.addEventHandler { [weak self] in
-            guard let `self` = self,
-                let phrase = self.ui.mnemonicTextField.text else { return }
-            self.delegate?.importTapped(phrase: phrase)
-        }
-
     }
 
     override func loadView() {
@@ -73,5 +84,5 @@ class ImportMnemonicViewControllerUI: ViewControllerUI {
         return field
     }()
 
-    lazy var importButton = StyleKit.button(with: "Import")
+    lazy var importButton = StyleKit.button(with: "")
 }
