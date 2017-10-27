@@ -46,9 +46,14 @@ class OnboardingCoordinator: BaseCoordinator<Credentials> {
 extension OnboardingCoordinator {
     func newAccountTapped() {
         let phrase = MnemonicPhrase.random
-        let newVC = DisplayMnemonicViewController(mnemonicPhrase: phrase)
-        newVC.delegate = self
-        navigationController.pushViewController(newVC, animated: true)
+        let viewModel = DisplayMnemonicViewModel(phrase: phrase)
+        let viewController = DisplayMnemonicViewController(viewModel: viewModel)
+
+        viewModel.gotIt?.observeNext { [weak self] _ in
+            self?.gotItTapped()
+        }.dispose(in: disposeBag)
+
+        navigationController.pushViewController(viewController, animated: true)
     }
 
     func importMnemonicTapped() {
@@ -58,7 +63,7 @@ extension OnboardingCoordinator {
     }
 }
 
-extension OnboardingCoordinator: DisplayMnemonicViewControllerDelegate {
+extension OnboardingCoordinator {
     func gotItTapped() {
         let viewController = ImportMnemonicViewController(store: credentialsStore)
         viewController.delegate = self

@@ -6,21 +6,39 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
-import UIKit
+import Bond
 import PureLayout
+import ReactiveKit
+import UIKit
 
-protocol DisplayMnemonicViewControllerDelegate: class {
-    func gotItTapped()
+class DisplayMnemonicViewModel {
+    let mnemonicLabelText: Property<String>
+    let gotItButtonTitle = Property("Got It")
+
+    var gotIt: SafeSignal<Void>?
+
+    init(phrase: String) {
+        self.mnemonicLabelText = Property("""
+            This is the mnemonic phrase that you can use to restore your account.
+            Please write it down and store it safely.
+
+            Phrase: \(phrase)
+            """)
+    }
 }
 
 class DisplayMnemonicViewController: UIViewController {
     let ui = DisplayMnemonicViewControllerUI()
-    let phrase: String
-    weak var delegate: DisplayMnemonicViewControllerDelegate?
+    let viewModel: DisplayMnemonicViewModel
 
-    init(mnemonicPhrase: String) {
-        phrase = mnemonicPhrase
+    init(viewModel: DisplayMnemonicViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+
+        viewModel.mnemonicLabelText.bind(to: ui.mnemonicLabel.reactive.text)
+        viewModel.gotItButtonTitle.bind(to: ui.gotItButton.reactive.title)
+
+        viewModel.gotIt = ui.gotItButton.reactive.tap
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -31,19 +49,6 @@ class DisplayMnemonicViewController: UIViewController {
         super.viewDidLoad()
 
         edgesForExtendedLayout = []
-
-        ui.mnemonicLabel.text = """
-            This is the mnemonic phrase that you can use to restore your account.
-            Please write it down and store it safely.
-
-            Phrase: \(phrase)
-            """
-
-        ui.gotItButton.addEventHandler { [weak self]  in
-            guard let `self` = self else { return }
-            self.delegate?.gotItTapped()
-        }
-
     }
 
     override func loadView() {
@@ -77,6 +82,6 @@ class DisplayMnemonicViewControllerUI: ViewControllerUI {
     }()
 
     lazy var gotItButton: ClosureButton = {
-        StyleKit.button(with: "Got It")
+        StyleKit.button(with: "")
     }()
 }
