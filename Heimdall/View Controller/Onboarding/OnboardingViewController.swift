@@ -6,20 +6,34 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
-import UIKit
 import PureLayout
+import ReactiveKit
+import UIKit
 
-protocol OnboardingViewControllerDelegate: class {
-    func newAccountTapped()
-    func importMnemonicTapped()
+class OnboardingStartViewModel {
+    // VM -> V
+    // FIXME: strings
+    let newAccountButtonTitle = Property("Create a new account")
+    let enterMnemonicButtonTitle = Property("Enter Mnemonic Phrase")
+
+    // VM -> Coord
+    var createNewAccount: SafeSignal<Void>?
+    var importMnemonicPhrase: SafeSignal<Void>?
 }
 
 class OnboardingViewController: UIViewController {
     let ui = OnboardingViewControllerUI()
-    weak var delegate: OnboardingViewControllerDelegate?
+    let viewModel: OnboardingStartViewModel
 
-    init() {
+    init(viewModel: OnboardingStartViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+
+        viewModel.createNewAccount = ui.newAccountButton.reactive.tap
+        viewModel.importMnemonicPhrase = ui.importMnemonicButton.reactive.tap
+
+        viewModel.newAccountButtonTitle.bind(to: ui.newAccountButton.reactive.title)
+        viewModel.enterMnemonicButtonTitle.bind(to: ui.importMnemonicButton.reactive.title)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -33,15 +47,6 @@ class OnboardingViewController: UIViewController {
             die("OnboardingViewController presented without navigationController")
         }
         title = "Setup Account"
-
-        ui.newAccountButton.addEventHandler { [weak self] in
-            guard let `self` = self else { return }
-            self.delegate?.newAccountTapped()
-        }
-        ui.importMnemonicButton.addEventHandler { [weak self] in
-            guard let `self` = self else { return }
-            self.delegate?.importMnemonicTapped()
-        }
     }
 
     override func loadView() {
@@ -64,7 +69,6 @@ class OnboardingViewControllerUI: ViewControllerUI {
         return view
     }()
 
-    // FIXME: strings
-    let newAccountButton = StyleKit.button(with: "Create a new account")
-    let importMnemonicButton = StyleKit.button(with: "Enter Mnemonic Phrase")
+    let newAccountButton = StyleKit.button(with: "")
+    let importMnemonicButton = StyleKit.button(with: "")
 }

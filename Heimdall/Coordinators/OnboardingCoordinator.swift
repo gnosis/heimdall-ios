@@ -14,7 +14,7 @@ class OnboardingCoordinator: BaseCoordinator<Credentials> {
     let credentialsStore: CredentialsStore
     let navigationController = UINavigationController()
 
-    let testReturnSubject = SafePublishSubject<Credentials>()
+    private let onboardingFinishedSubject = SafePublishSubject<Credentials>()
 
     init(with window: UIWindow,
          credentialsStore: CredentialsStore) {
@@ -23,18 +23,27 @@ class OnboardingCoordinator: BaseCoordinator<Credentials> {
     }
 
     override func start() -> Signal<Credentials, NoError> {
-        let onboardingStartViewController = OnboardingViewController()
-        onboardingStartViewController.delegate = self
+        let onboardingStartViewModel = OnboardingStartViewModel()
+        let onboardingStartViewController = OnboardingViewController(viewModel: onboardingStartViewModel)
+
+        onboardingStartViewModel.createNewAccount?.observeNext { [weak self] _ in
+            self?.newAccountTapped()
+        }.dispose(in: disposeBag)
+
+        onboardingStartViewModel.importMnemonicPhrase?.observeNext { [weak self] _ in
+            self?.importMnemonicTapped()
+        }.dispose(in: disposeBag)
+
         navigationController.rootViewController = onboardingStartViewController
 
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
 
-        return testReturnSubject.toSignal()
+        return onboardingFinishedSubject.toSignal()
     }
 }
 
-extension OnboardingCoordinator: OnboardingViewControllerDelegate {
+extension OnboardingCoordinator {
     func newAccountTapped() {
         let phrase = MnemonicPhrase.random
         let newVC = DisplayMnemonicViewController(mnemonicPhrase: phrase)
@@ -70,6 +79,7 @@ extension OnboardingCoordinator: ImportMnemonicViewControllerDelegate {
             die("Could not store credentials")
         }
 
-        testReturnSubject.next(credentials)
+        onboardingFinishedSubject.next(credentials)
+        onboardingFinishedSubject.completed()
     }
 }
