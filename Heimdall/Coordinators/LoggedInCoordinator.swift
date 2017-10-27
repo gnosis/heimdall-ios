@@ -7,19 +7,24 @@
 //
 
 import UIKit
+import ReactiveKit
 
-class LoggedInCoordinator: Coordinator {
-    let navigationController: UINavigationController
+class LoggedInCoordinator: BaseCoordinator<Void> {
+    let window: UIWindow
     let credentials: Credentials
 
-    init(with rootViewController: UINavigationController,
-         credentials: Credentials) {
-        navigationController = rootViewController
+    init(with window: UIWindow, credentials: Credentials) {
+        self.window = window
         self.credentials = credentials
     }
 
-    override func start() {
-        let vc = AccountViewController(with: credentials)
-        navigationController.pushViewController(vc, animated: false)
+    override func start() -> Signal<Void, NoError> {
+        let accountViewController = AccountViewController(with: credentials)
+        let navigationController = UINavigationController(rootViewController: accountViewController)
+
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+
+        return Signal.never()
     }
 }

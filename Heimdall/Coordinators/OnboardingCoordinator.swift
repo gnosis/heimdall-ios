@@ -6,27 +6,31 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
+import ReactiveKit
 import UIKit
 
-protocol OnboardingCoordinatorDelegate: class {
-    func finishedOnboarding()
-}
-
-class OnboardingCoordinator: Coordinator {
-    let navigationController: UINavigationController
+class OnboardingCoordinator: BaseCoordinator<Credentials> {
+    let window: UIWindow
     let credentialsStore: CredentialsStore
-    weak var delegate: OnboardingCoordinatorDelegate?
+    let navigationController = UINavigationController()
 
-    init(with rootViewController: UINavigationController,
+    let testReturnSubject = SafePublishSubject<Credentials>()
+
+    init(with window: UIWindow,
          credentialsStore: CredentialsStore) {
-        navigationController = rootViewController
+        self.window = window
         self.credentialsStore = credentialsStore
     }
 
-    override func start() {
-        let vc = OnboardingViewController()
-        vc.delegate = self
-        navigationController.pushViewController(vc, animated: false)
+    override func start() -> Signal<Credentials, NoError> {
+        let onboardingStartViewController = OnboardingViewController()
+        onboardingStartViewController.delegate = self
+        navigationController.rootViewController = onboardingStartViewController
+
+        window.rootViewController = navigationController
+        window.makeKeyAndVisible()
+
+        return testReturnSubject.toSignal()
     }
 }
 
@@ -66,6 +70,6 @@ extension OnboardingCoordinator: ImportMnemonicViewControllerDelegate {
             die("Could not store credentials")
         }
 
-        delegate?.finishedOnboarding()
+        testReturnSubject.next(credentials)
     }
 }

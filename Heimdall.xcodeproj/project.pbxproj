@@ -24,6 +24,7 @@
 		A51180D31F9C9B98008FC2DB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C91F9C9B65008FC2DB /* OnboardingViewController.swift */; };
 		A53D14071FA1EA5E003BB29C /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D14061FA1EA5E003BB29C /* Credentials.swift */; };
 		A53D14091FA1EA77003BB29C /* MnemonicPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D14081FA1EA77003BB29C /* MnemonicPhrase.swift */; };
+		A53D140B1FA354CE003BB29C /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D140A1FA354CD003BB29C /* UINavigationControllerExtension.swift */; };
 		A53F6DC61FA0B480002C53B0 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F6DC51FA0B480002C53B0 /* DataStore.swift */; };
 		A544B2701F99ECF4001B2C07 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544B26F1F99ECF4001B2C07 /* Coordinator.swift */; };
 		A544B2961F9A4B68001B2C07 /* Solidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544B2751F9A4B45001B2C07 /* Solidity.swift */; };
@@ -100,6 +101,7 @@
 		A51180C91F9C9B65008FC2DB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		A53D14061FA1EA5E003BB29C /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		A53D14081FA1EA77003BB29C /* MnemonicPhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhrase.swift; sourceTree = "<group>"; };
+		A53D140A1FA354CD003BB29C /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		A53F6DC51FA0B480002C53B0 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		A544B26F1F99ECF4001B2C07 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A544B2751F9A4B45001B2C07 /* Solidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solidity.swift; sourceTree = "<group>"; };
@@ -194,6 +196,7 @@
 		A51180BA1F9C9B64008FC2DB /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A53D140A1FA354CD003BB29C /* UINavigationControllerExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -594,6 +597,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A53D140B1FA354CE003BB29C /* UINavigationControllerExtension.swift in Sources */,
 				A5946B8B1F9DE022004760A0 /* ClosureButton.swift in Sources */,
 				A544B2A11F9A4B6B001B2C07 /* BivrostError.swift in Sources */,
 				A50EFE461FA0C30700FC6114 /* DiskDataStore.swift in Sources */,
