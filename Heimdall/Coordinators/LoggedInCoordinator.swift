@@ -6,8 +6,8 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
-import UIKit
 import ReactiveKit
+import UIKit
 
 class LoggedInCoordinator: BaseCoordinator<Void> {
     let window: UIWindow
@@ -19,7 +19,8 @@ class LoggedInCoordinator: BaseCoordinator<Void> {
     }
 
     override func start() -> Signal<Void, NoError> {
-        let accountViewController = AccountViewController(with: credentials)
+        let accountViewModel = AccountOverviewViewModel(credentials: credentials)
+        let accountViewController = AccountViewController(viewModel: accountViewModel)
         let navigationController = UINavigationController(rootViewController: accountViewController)
 
         window.rootViewController = navigationController

@@ -6,17 +6,37 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
-import UIKit
+import Bond
 import PureLayout
+import ReactiveKit
+import UIKit
+
+class AccountOverviewViewModel {
+    let accountLabelText: Property<String>
+
+    init(credentials: Credentials) {
+        accountLabelText = Property("""
+            This is your account.
+
+            It has the address
+                \(credentials.address)
+
+            and the private key
+                \(credentials.privateKey)
+            """)
+    }
+}
 
 class AccountViewController: UIViewController {
     let ui = AccountViewControllerUI()
-    // FIXME: Use ViewModel
-    let credentials: Credentials
+    let viewModel: AccountOverviewViewModel
 
-    init(with credentials: Credentials) {
-        self.credentials = credentials
+    init(viewModel: AccountOverviewViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+
+        // Setup Bindings
+        viewModel.accountLabelText.bind(to: ui.accountLabel.reactive.text)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -25,7 +45,7 @@ class AccountViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ui.accountLabel.text = "This is your account. It has the address: \(credentials.address) and the private key: \(credentials.privateKey)"
+
     }
 
     override func loadView() {
