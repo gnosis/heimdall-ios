@@ -9,17 +9,24 @@
 import ethers
 
 struct Credentials: Codable {
-    enum CredentialsError: Error {
+    enum Error: Swift.Error {
         case invalidMnemonicPhrase
     }
 
-    /// Address of this account
+    /// Address of this account with leading 0x
     let address: String
-    /// Private Key as a Hex String
-    let privateKey: String
+    /// Private key in binary form
+    let privateKeyData: Data
+    /// Private Key as a Hex String with leading 0x
+    var privateKey: String {
+        return "0x\(privateKeyData.hexEncodedString())"
+    }
 
     private init(account: Account) {
-        privateKey = account.privateKey
+        guard let privateKeyData = Data(fromHexEncodedString: String(account.privateKey.dropFirst(2))) else {
+            die("Credentials initialized with an Account with invalid private key")
+        }
+        self.privateKeyData = privateKeyData
         guard let addressString = account.address?.description else {
             die("Credentials initialized with an Account without address")
         }
@@ -29,7 +36,7 @@ struct Credentials: Codable {
     init(from mnemonicPhrase: String) throws {
         guard MnemonicPhrase.isValid(mnemonicPhrase),
             let account = Account(mnemonicPhrase: mnemonicPhrase) else {
-                throw CredentialsError.invalidMnemonicPhrase
+                throw Error.invalidMnemonicPhrase
         }
         self.init(account: account)
     }

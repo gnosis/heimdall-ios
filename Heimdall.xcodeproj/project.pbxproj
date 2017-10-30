@@ -57,6 +57,9 @@
 		A544B2B11F9A4B7F001B2C07 /* SolidityFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544B2951F9A4B45001B2C07 /* SolidityFunction.swift */; };
 		A544B2B31F9A5188001B2C07 /* SipHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A544B2B21F9A5188001B2C07 /* SipHash.framework */; };
 		A544B2B51F9A518C001B2C07 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A544B2B41F9A518C001B2C07 /* BigInt.framework */; };
+		A54817561FA75FF100CBC7CC /* CredentialsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817551FA75FF100CBC7CC /* CredentialsSpec.swift */; };
+		A54817581FA762A500CBC7CC /* NonceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817571FA762A500CBC7CC /* NonceProvider.swift */; };
+		A548175A1FA76EF900CBC7CC /* ChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817591FA76EF900CBC7CC /* ChainProvider.swift */; };
 		A566D9AC1F97A1A000DBEB9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A566D9AB1F97A1A000DBEB9A /* AppDelegate.swift */; };
 		A566D9B31F97A1A000DBEB9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A566D9B21F97A1A000DBEB9A /* Assets.xcassets */; };
 		A566D9B61F97A1A000DBEB9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A566D9B41F97A1A000DBEB9A /* LaunchScreen.storyboard */; };
@@ -71,6 +74,7 @@
 		A5946B881F9DDEAF004760A0 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5946B861F9DDEAF004760A0 /* PureLayout.framework */; };
 		A5946B891F9DDEAF004760A0 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5946B871F9DDEAF004760A0 /* KeychainAccess.framework */; };
 		A5946B8B1F9DE022004760A0 /* ClosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5946B8A1F9DE022004760A0 /* ClosureButton.swift */; };
+		A5DB1FD81FA733B900CC29DA /* StandardToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DB1FD71FA733B800CC29DA /* StandardToken.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,6 +138,9 @@
 		A544B2951F9A4B45001B2C07 /* SolidityFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidityFunction.swift; sourceTree = "<group>"; };
 		A544B2B21F9A5188001B2C07 /* SipHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SipHash.framework; path = Carthage/Build/iOS/SipHash.framework; sourceTree = "<group>"; };
 		A544B2B41F9A518C001B2C07 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BigInt.framework; path = Carthage/Build/iOS/BigInt.framework; sourceTree = "<group>"; };
+		A54817551FA75FF100CBC7CC /* CredentialsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsSpec.swift; sourceTree = "<group>"; };
+		A54817571FA762A500CBC7CC /* NonceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonceProvider.swift; sourceTree = "<group>"; };
+		A54817591FA76EF900CBC7CC /* ChainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainProvider.swift; sourceTree = "<group>"; };
 		A566D9A81F97A1A000DBEB9A /* Heimdall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heimdall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A566D9AB1F97A1A000DBEB9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A566D9B21F97A1A000DBEB9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -152,6 +159,7 @@
 		A5946B861F9DDEAF004760A0 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
 		A5946B871F9DDEAF004760A0 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		A5946B8A1F9DE022004760A0 /* ClosureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureButton.swift; sourceTree = "<group>"; };
+		A5DB1FD71FA733B800CC29DA /* StandardToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +221,8 @@
 			isa = PBXGroup;
 			children = (
 				A51180C01F9C9B65008FC2DB /* EtherRPC.swift */,
+				A54817571FA762A500CBC7CC /* NonceProvider.swift */,
+				A54817591FA76EF900CBC7CC /* ChainProvider.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -294,6 +304,7 @@
 				A544B2821F9A4B45001B2C07 /* DailyLimitException.swift */,
 				A544B2831F9A4B45001B2C07 /* GnosisSafe.swift */,
 				A544B2841F9A4B45001B2C07 /* GnosisSafeWithDescriptions.swift */,
+				A5DB1FD71FA733B800CC29DA /* StandardToken.swift */,
 			);
 			path = "Generated Contracts";
 			sourceTree = "<group>";
@@ -381,6 +392,7 @@
 				A566D9C01F97A1A000DBEB9A /* HeimdallTests.swift */,
 				A566D9C21F97A1A000DBEB9A /* Info.plist */,
 				A50EFE751FA0DDF300FC6114 /* DataStoreSpec.swift */,
+				A54817551FA75FF100CBC7CC /* CredentialsSpec.swift */,
 			);
 			path = HeimdallTests;
 			sourceTree = "<group>";
@@ -599,6 +611,7 @@
 			files = (
 				A53D140B1FA354CE003BB29C /* UINavigationControllerExtension.swift in Sources */,
 				A5946B8B1F9DE022004760A0 /* ClosureButton.swift in Sources */,
+				A5DB1FD81FA733B900CC29DA /* StandardToken.swift in Sources */,
 				A544B2A11F9A4B6B001B2C07 /* BivrostError.swift in Sources */,
 				A50EFE461FA0C30700FC6114 /* DiskDataStore.swift in Sources */,
 				A544B2A61F9A4B73001B2C07 /* GnosisSafe.swift in Sources */,
@@ -608,6 +621,7 @@
 				A51180D21F9C9B96008FC2DB /* DisplayMnemonicViewController.swift in Sources */,
 				A544B29E1F9A4B68001B2C07 /* Function.swift in Sources */,
 				A544B2AE1F9A4B7F001B2C07 /* DynamicType.swift in Sources */,
+				A548175A1FA76EF900CBC7CC /* ChainProvider.swift in Sources */,
 				A5946B841F9DDB9D004760A0 /* LoggedInCoordinator.swift in Sources */,
 				A544B2961F9A4B68001B2C07 /* Solidity.swift in Sources */,
 				A51180D11F9C9B94008FC2DB /* ImportMnemonicViewController.swift in Sources */,
@@ -615,6 +629,7 @@
 				A544B2B11F9A4B7F001B2C07 /* SolidityFunction.swift in Sources */,
 				A544B29C1F9A4B68001B2C07 /* Bool.swift in Sources */,
 				A544B2A31F9A4B71001B2C07 /* DataExtension.swift in Sources */,
+				A54817581FA762A500CBC7CC /* NonceProvider.swift in Sources */,
 				A544B29A1F9A4B68001B2C07 /* String.swift in Sources */,
 				A544B2A01F9A4B68001B2C07 /* Bytes.swift in Sources */,
 				A544B2AC1F9A4B7B001B2C07 /* BaseDecoder.swift in Sources */,
@@ -653,6 +668,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A54817561FA75FF100CBC7CC /* CredentialsSpec.swift in Sources */,
 				A50EFE761FA0DDF300FC6114 /* DataStoreSpec.swift in Sources */,
 				A566D9C11F97A1A000DBEB9A /* HeimdallTests.swift in Sources */,
 			);

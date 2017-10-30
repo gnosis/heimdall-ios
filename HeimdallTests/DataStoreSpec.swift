@@ -16,7 +16,7 @@ struct TestData: Codable {
 }
 
 extension TestData: Equatable {
-    public static func == (lhs: Self, rhs: Self) -> Bool {
+    public static func == (lhs: TestData, rhs: TestData) -> Bool {
         return lhs.field1 == rhs.field1 && lhs.field2 == rhs.field2
     }
 }
@@ -28,7 +28,7 @@ class DataStoreSpec: QuickSpec {
         describe("DocumentsDataStore") {
             beforeEach {
                 // Clear Documents directory before tests
-
+                
             }
             it("should be able to retrieve and store test data") {
                 let data = TestData(field1: "testString1", field2: 234_567_890)
