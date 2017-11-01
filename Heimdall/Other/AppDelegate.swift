@@ -25,7 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         appCoordinator = AppCoordinator(with: newWindow)
         appCoordinator?.start().observeNext {}.dispose(in: disposeBag)
 
-        print("INFURA SECRET: \(Secrets()[.infuraKey])")
         return true
     }
 

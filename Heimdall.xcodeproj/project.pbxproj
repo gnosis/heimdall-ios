@@ -60,7 +60,6 @@
 		A54817561FA75FF100CBC7CC /* CredentialsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817551FA75FF100CBC7CC /* CredentialsSpec.swift */; };
 		A54817581FA762A500CBC7CC /* NonceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817571FA762A500CBC7CC /* NonceProvider.swift */; };
 		A548175A1FA76EF900CBC7CC /* ChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817591FA76EF900CBC7CC /* ChainProvider.swift */; };
-		A5589A771FAA1A670007ADBC /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5589A761FAA1A670007ADBC /* Secrets.swift */; };
 		A566D9AC1F97A1A000DBEB9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A566D9AB1F97A1A000DBEB9A /* AppDelegate.swift */; };
 		A566D9B31F97A1A000DBEB9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A566D9B21F97A1A000DBEB9A /* Assets.xcassets */; };
 		A566D9B61F97A1A000DBEB9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A566D9B41F97A1A000DBEB9A /* LaunchScreen.storyboard */; };
@@ -75,6 +74,7 @@
 		A5946B841F9DDB9D004760A0 /* LoggedInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5946B831F9DDB9D004760A0 /* LoggedInCoordinator.swift */; };
 		A5946B881F9DDEAF004760A0 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5946B861F9DDEAF004760A0 /* PureLayout.framework */; };
 		A5946B891F9DDEAF004760A0 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5946B871F9DDEAF004760A0 /* KeychainAccess.framework */; };
+		A5B0E9F91FAA35CB002FF75E /* Secrets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9F81FAA35CA002FF75E /* Secrets.generated.swift */; };
 		A5DB1FD81FA733B900CC29DA /* StandardToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DB1FD71FA733B800CC29DA /* StandardToken.swift */; };
 /* End PBXBuildFile section */
 
@@ -142,7 +142,7 @@
 		A54817551FA75FF100CBC7CC /* CredentialsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsSpec.swift; sourceTree = "<group>"; };
 		A54817571FA762A500CBC7CC /* NonceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonceProvider.swift; sourceTree = "<group>"; };
 		A54817591FA76EF900CBC7CC /* ChainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainProvider.swift; sourceTree = "<group>"; };
-		A5589A761FAA1A670007ADBC /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		A5589A761FAA1A670007ADBC /* Secrets.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = Secrets.stencil; sourceTree = "<group>"; };
 		A566D9A81F97A1A000DBEB9A /* Heimdall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heimdall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A566D9AB1F97A1A000DBEB9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A566D9B21F97A1A000DBEB9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -161,6 +161,7 @@
 		A5946B831F9DDB9D004760A0 /* LoggedInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInCoordinator.swift; sourceTree = "<group>"; };
 		A5946B861F9DDEAF004760A0 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
 		A5946B871F9DDEAF004760A0 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
+		A5B0E9F81FAA35CA002FF75E /* Secrets.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.generated.swift; sourceTree = "<group>"; };
 		A5DB1FD71FA733B800CC29DA /* StandardToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -235,7 +236,6 @@
 			children = (
 				A51180C21F9C9B65008FC2DB /* Fatal.swift */,
 				A51180C31F9C9B65008FC2DB /* StyleKit.swift */,
-				A5589A761FAA1A670007ADBC /* Secrets.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -432,6 +432,8 @@
 		A5946B851F9DDD4C004760A0 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				A5B0E9F81FAA35CA002FF75E /* Secrets.generated.swift */,
+				A5589A761FAA1A670007ADBC /* Secrets.stencil */,
 				A566D9AB1F97A1A000DBEB9A /* AppDelegate.swift */,
 				A566D9B21F97A1A000DBEB9A /* Assets.xcassets */,
 				A566D9B41F97A1A000DBEB9A /* LaunchScreen.storyboard */,
@@ -447,6 +449,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A566D9C51F97A1A000DBEB9A /* Build configuration list for PBXNativeTarget "Heimdall" */;
 			buildPhases = (
+				A5B0E9F71FAA3137002FF75E /* Mint: Sourcery */,
 				A566D9A41F97A1A000DBEB9A /* Sources */,
 				A566D9A51F97A1A000DBEB9A /* Frameworks */,
 				A566D9A61F97A1A000DBEB9A /* Resources */,
@@ -605,6 +608,21 @@
 			shellPath = /bin/sh;
 			shellScript = "if which mint >/dev/null; then\n    mint run realm/swiftlint@0.23.1\nelse\n    echo \"warning: Mint not installed, see README.md for install notes\"\nfi";
 		};
+		A5B0E9F71FAA3137002FF75E /* Mint: Sourcery */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Mint: Sourcery";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\nmint run krzysztofzablocki/Sourcery \"sourcery --templates ./Heimdall/Other --sources . --output ./Heimdall/Other --args infurakey=$GNS_INFURA_KEY\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -643,7 +661,6 @@
 				A53D14091FA1EA77003BB29C /* MnemonicPhrase.swift in Sources */,
 				A51180CF1F9C9B8B008FC2DB /* StyleKit.swift in Sources */,
 				A544B2A91F9A4B77001B2C07 /* BytesX-Generated.swift in Sources */,
-				A5589A771FAA1A670007ADBC /* Secrets.swift in Sources */,
 				A53D14071FA1EA5E003BB29C /* Credentials.swift in Sources */,
 				A5946B821F9DDB03004760A0 /* OnboardingCoordinator.swift in Sources */,
 				A544B2A21F9A4B71001B2C07 /* BigIntExtension.swift in Sources */,
@@ -659,6 +676,7 @@
 				A544B2A41F9A4B71001B2C07 /* StringExtension.swift in Sources */,
 				A544B2AD1F9A4B7B001B2C07 /* BaseEncoder.swift in Sources */,
 				A53F6DC61FA0B480002C53B0 /* DataStore.swift in Sources */,
+				A5B0E9F91FAA35CB002FF75E /* Secrets.generated.swift in Sources */,
 				A51180CD1F9C9B84008FC2DB /* ViewControllerUI.swift in Sources */,
 				A544B2AF1F9A4B7F001B2C07 /* StaticType.swift in Sources */,
 				A544B2981F9A4B68001B2C07 /* UIntX.swift in Sources */,
@@ -816,7 +834,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				GNS_INFURA_KEY = asdfg;
 				INFOPLIST_FILE = "$(SRCROOT)/Heimdall/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pm.gnosis.Heimdall;
@@ -835,7 +852,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				GNS_INFURA_KEY = asdfg;
 				INFOPLIST_FILE = "$(SRCROOT)/Heimdall/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pm.gnosis.Heimdall;
