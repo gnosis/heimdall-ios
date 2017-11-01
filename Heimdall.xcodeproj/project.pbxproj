@@ -73,7 +73,6 @@
 		A5946B841F9DDB9D004760A0 /* LoggedInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5946B831F9DDB9D004760A0 /* LoggedInCoordinator.swift */; };
 		A5946B881F9DDEAF004760A0 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5946B861F9DDEAF004760A0 /* PureLayout.framework */; };
 		A5946B891F9DDEAF004760A0 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5946B871F9DDEAF004760A0 /* KeychainAccess.framework */; };
-		A5946B8B1F9DE022004760A0 /* ClosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5946B8A1F9DE022004760A0 /* ClosureButton.swift */; };
 		A5DB1FD81FA733B900CC29DA /* StandardToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DB1FD71FA733B800CC29DA /* StandardToken.swift */; };
 /* End PBXBuildFile section */
 
@@ -158,7 +157,6 @@
 		A5946B831F9DDB9D004760A0 /* LoggedInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInCoordinator.swift; sourceTree = "<group>"; };
 		A5946B861F9DDEAF004760A0 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
 		A5946B871F9DDEAF004760A0 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
-		A5946B8A1F9DE022004760A0 /* ClosureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClosureButton.swift; sourceTree = "<group>"; };
 		A5DB1FD71FA733B800CC29DA /* StandardToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -232,7 +230,6 @@
 			children = (
 				A51180C21F9C9B65008FC2DB /* Fatal.swift */,
 				A51180C31F9C9B65008FC2DB /* StyleKit.swift */,
-				A5946B8A1F9DE022004760A0 /* ClosureButton.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -610,7 +607,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A53D140B1FA354CE003BB29C /* UINavigationControllerExtension.swift in Sources */,
-				A5946B8B1F9DE022004760A0 /* ClosureButton.swift in Sources */,
 				A5DB1FD81FA733B900CC29DA /* StandardToken.swift in Sources */,
 				A544B2A11F9A4B6B001B2C07 /* BivrostError.swift in Sources */,
 				A50EFE461FA0C30700FC6114 /* DiskDataStore.swift in Sources */,

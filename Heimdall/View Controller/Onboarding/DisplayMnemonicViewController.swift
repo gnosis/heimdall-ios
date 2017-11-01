@@ -81,7 +81,7 @@ class DisplayMnemonicViewControllerUI: ViewControllerUI {
         return label
     }()
 
-    lazy var gotItButton: ClosureButton = {
+    lazy var gotItButton: UIButton = {
         StyleKit.button(with: "")
     }()
 }

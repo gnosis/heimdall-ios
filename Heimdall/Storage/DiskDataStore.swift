@@ -6,8 +6,8 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
-import Foundation
 import Disk
+import Foundation
 
 /// Base class for disk data stores. Not meant to be used directly, only for
 /// subclassing.

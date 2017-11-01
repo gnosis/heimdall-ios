@@ -21,6 +21,20 @@ extension TestData: Equatable {
     }
 }
 
+extension URL {
+    static var applicationDocumentsDirectory: URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).last!
+    }
+
+    func removeChildren() throws {
+        try FileManager.default
+            .contentsOfDirectory(at: self, includingPropertiesForKeys: [], options: [])
+            .forEach { url in
+                _ = try? FileManager.default.removeItem(at: url)
+        }
+    }
+}
+
 class DataStoreSpec: QuickSpec {
     let key = "testKey1"
 
@@ -28,7 +42,7 @@ class DataStoreSpec: QuickSpec {
         describe("DocumentsDataStore") {
             beforeEach {
                 // Clear Documents directory before tests
-                
+                _ = try? URL.applicationDocumentsDirectory.removeChildren()
             }
             it("should be able to retrieve and store test data") {
                 let data = TestData(field1: "testString1", field2: 234_567_890)
@@ -38,6 +52,16 @@ class DataStoreSpec: QuickSpec {
                     let data: TestData = try store.fetch(key: self.key)
                     return data
                 }.to(equal(data))
+            }
+
+            it("should not find deleted test data") {
+                let data = TestData(field1: "testString1", field2: 234_567_890)
+                let store = DocumentsDataStore()
+                expect { try store.store(data, for: self.key) }.toNot(throwError())
+                expect { try store.delete(key: self.key) }.toNot(throwError())
+                expect {
+                    try store.fetch(key: self.key)
+                }.to(throwError())
             }
         }
     }
