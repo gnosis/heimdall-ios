@@ -31,6 +31,7 @@ class EtherRPC {
     }
 }
 
+// MARK: - Reactive Contract Calling
 extension EtherRPC {
     func call<Function: SolidityFunction>(_ function: Function.Type,
                                           ofContractAt address: String,
@@ -48,8 +49,26 @@ extension EtherRPC {
             return NonDisposable.instance
         }
     }
+
+    func sendTransaction<Function: SolidityFunction>(for function: Function.Type,
+                                                     ofContractAt address: String,
+                                                     with arguments: Function.Arguments) -> Signal<Hash, Error> {
+        return Signal { observer in
+            self.sendTransaction(for: function,
+                                 ofContractAt: address,
+                                 with: arguments,
+                                 success: { hash in
+                                    observer.completed(with: hash)
+            },
+                                 failure: { error in
+                                    observer.failed(error)
+            })
+            return NonDisposable.instance
+        }
+    }
 }
 
+// MARK: - Private Contract Calling
 private extension EtherRPC {
     func call<Function: SolidityFunction>(_ function: Function.Type,
                                           ofContractAt address: String,
@@ -123,6 +142,7 @@ private extension EtherRPC {
         let callString = function.encodeCall(arguments: arguments)
         // Drop leading 0x in function call
         let callWithoutLeadingZeroX = String(callString.dropFirst(2))
+
         guard let callData = Data(fromHexEncodedString: callWithoutLeadingZeroX) else {
              throw Error.invalidCallData
         }
