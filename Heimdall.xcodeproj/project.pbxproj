@@ -69,6 +69,7 @@
 		A566D9D21F97A22400DBEB9A /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A566D9CE1F97A22400DBEB9A /* Bond.framework */; };
 		A566D9D31F97A22400DBEB9A /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A566D9CF1F97A22400DBEB9A /* ReactiveKit.framework */; };
 		A566D9DB1F97B21B00DBEB9A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A566D9DA1F97B1AF00DBEB9A /* AppCoordinator.swift */; };
+		A57402B51FA9FF24004387EC /* DispatchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57402B41FA9FF24004387EC /* DispatchExtension.swift */; };
 		A5946B821F9DDB03004760A0 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5946B811F9DDB03004760A0 /* OnboardingCoordinator.swift */; };
 		A5946B841F9DDB9D004760A0 /* LoggedInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5946B831F9DDB9D004760A0 /* LoggedInCoordinator.swift */; };
 		A5946B881F9DDEAF004760A0 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5946B861F9DDEAF004760A0 /* PureLayout.framework */; };
@@ -153,6 +154,7 @@
 		A566D9CE1F97A22400DBEB9A /* Bond.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bond.framework; path = Carthage/Build/iOS/Bond.framework; sourceTree = "<group>"; };
 		A566D9CF1F97A22400DBEB9A /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
 		A566D9DA1F97B1AF00DBEB9A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		A57402B41FA9FF24004387EC /* DispatchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchExtension.swift; sourceTree = "<group>"; };
 		A5946B811F9DDB03004760A0 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		A5946B831F9DDB9D004760A0 /* LoggedInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInCoordinator.swift; sourceTree = "<group>"; };
 		A5946B861F9DDEAF004760A0 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				A53D140A1FA354CD003BB29C /* UINavigationControllerExtension.swift */,
+				A57402B41FA9FF24004387EC /* DispatchExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -613,6 +616,7 @@
 				A544B2A61F9A4B73001B2C07 /* GnosisSafe.swift in Sources */,
 				A51180D01F9C9B90008FC2DB /* AccountViewController.swift in Sources */,
 				A544B29B1F9A4B68001B2C07 /* BytesX.swift in Sources */,
+				A57402B51FA9FF24004387EC /* DispatchExtension.swift in Sources */,
 				A544B2971F9A4B68001B2C07 /* Address.swift in Sources */,
 				A51180D21F9C9B96008FC2DB /* DisplayMnemonicViewController.swift in Sources */,
 				A544B29E1F9A4B68001B2C07 /* Function.swift in Sources */,

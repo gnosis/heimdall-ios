@@ -12,25 +12,22 @@ import ReactiveKit
 
 class EtherRPC {
     enum Error: Swift.Error {
-        case couldNotCreateProvider
         case invalidCallData
         case invalidCredentials
         case invalidReturnData
+        case transactionFailed
     }
 
     private let provider: JsonRpcProvider
     private let credentials: Credentials
     private let nonceProvider: NonceProvider
-    private let chainProvider: ChainProvider
 
     init(provider: JsonRpcProvider,
          credentials: Credentials,
-         nonceProvider: NonceProvider,
-         chainProvider: ChainProvider) {
+         nonceProvider: NonceProvider) {
         self.provider = provider
         self.credentials = credentials
         self.nonceProvider = nonceProvider
-        self.chainProvider = chainProvider
     }
 }
 
@@ -59,22 +56,78 @@ private extension EtherRPC {
                                           with arguments: Function.Arguments,
                                           success: @escaping (Function.Return) -> Void,
                                           failure: @escaping (Error) -> Void) {
+
+        do {
+            let transaction = try signedTransaction(for: function,
+                                                    ofContractAt: address,
+                                                    with: arguments)
+            provider.call(transaction)
+            .onCompletion { promise in
+                guard let data = promise?.value else {
+                    failure(.invalidReturnData)
+                    return
+                }
+                let returnString = data.hexEncodedString()
+                guard let returnValue = try? Function.decode(returnData: returnString) else {
+                    failure(.invalidReturnData)
+                    return
+                }
+                success(returnValue)
+            }
+        } catch let error as EtherRPC.Error {
+            async {
+                // Call this async as to not release Z̕A̶LG͏O
+                // http://blog.izs.me/post/59142742143/designing-apis-for-asynchrony
+                failure(error)
+            }
+        } catch {
+            die("Received an unknown error: \(error)")
+        }
+    }
+
+    func sendTransaction<Function: SolidityFunction>(for function: Function.Type,
+                                                     ofContractAt address: String,
+                                                     with arguments: Function.Arguments,
+                                                     success: @escaping (Hash) -> Void,
+                                                     failure: @escaping (Error) -> Void) {
+        // TODO: Complete process (not currently possible)
+        // 1. perform transaction
+        // 2. get hash
+        // 3. use hash to get receipt
+        // 4. then get the logs out of receipt
+        do {
+            let transaction = try signedTransaction(for: function,
+                                                ofContractAt: address,
+                                                with: arguments)
+            provider.sendTransaction(transaction.serialize())
+            .onCompletion { promise in
+                guard let hash = promise?.value else {
+                    failure(.transactionFailed)
+                    return
+                }
+                success(hash)
+            }
+        } catch let error as EtherRPC.Error {
+            async {
+                // Dispatch failure handler async so as to not release Hę w͘ho͟ W͡áít̛s ̨B̛ȩhi̢n̶d́ T̴he ́Wal͞l͘.
+                failure(error)
+            }
+        } catch {
+            die("Received an unknown error: \(error)")
+        }
+    }
+
+    func signedTransaction<Function: SolidityFunction>(for function: Function.Type,
+                                                       ofContractAt address: String,
+                                                       with arguments: Function.Arguments) throws -> Transaction {
         let callString = function.encodeCall(arguments: arguments)
         // Drop leading 0x in function call
         let callWithoutLeadingZeroX = String(callString.dropFirst(2))
         guard let callData = Data(fromHexEncodedString: callWithoutLeadingZeroX) else {
-            DispatchQueue.main.async {
-                // Call this async as to not release Z̕A̶LG͏O
-                failure(.invalidCallData)
-            }
-            return
+             throw Error.invalidCallData
         }
         guard let account = Account(privateKey: credentials.privateKeyData) else {
-            DispatchQueue.main.async {
-                // Call this async as to not release Th͏e Da҉rk Pońy Lo͘r͠d HE ́C͡OM̴E̸S
-                failure(.invalidCredentials)
-            }
-            return
+            throw Error.invalidCredentials
         }
 
         let transaction = Transaction(from: Address(string: credentials.address))
@@ -85,17 +138,7 @@ private extension EtherRPC {
         transaction.chainId = provider.chainId
 
         account.sign(transaction)
-        provider.call(transaction).onCompletion { promise in
-            guard let data = promise?.value else {
-                failure(.invalidReturnData)
-                return
-            }
-            let returnString = data.hexEncodedString()
-            guard let returnValue = try? Function.decode(returnData: returnString) else {
-                failure(.invalidReturnData)
-                return
-            }
-            success(returnValue)
-        }
+
+        return transaction
     }
 }
