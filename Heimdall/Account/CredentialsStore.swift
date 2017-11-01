@@ -10,6 +10,10 @@ class CredentialsStore {
     private let storeKey = "pm.gnosis.Heimdall.Credentials"
     private let store: DataStore
 
+    /// Creates a new credentials store by using the given store as a storage backend.
+    ///
+    /// - Parameter store: Underlying storage to use for the credentials.
+    ///     This should be a secure store, e.g. Keychain or `SecureDataStore`.
     init(store: DataStore) {
         self.store = store
     }

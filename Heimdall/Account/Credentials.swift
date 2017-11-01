@@ -46,7 +46,7 @@ struct Credentials: Codable {
 private extension Account {
     var privateKey: String {
         guard let key = self.value(forKey: "_privateKey") as? SecureData else {
-            die("NO PRIVATE KEY OR NO SECURE DATA")
+            die("Account.privateKey could not retrieve _privateKey")
         }
         return key.hexString()
     }
