@@ -116,8 +116,8 @@ private extension EtherRPC {
         // 4. then get the logs out of receipt
         do {
             let transaction = try signedTransaction(for: function,
-                                                ofContractAt: address,
-                                                with: arguments)
+                                                    ofContractAt: address,
+                                                    with: arguments)
             provider.sendTransaction(transaction.serialize())
             .onCompletion { promise in
                 guard let hash = promise?.value else {

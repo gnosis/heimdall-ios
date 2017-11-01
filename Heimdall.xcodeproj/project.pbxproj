@@ -60,6 +60,7 @@
 		A54817561FA75FF100CBC7CC /* CredentialsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817551FA75FF100CBC7CC /* CredentialsSpec.swift */; };
 		A54817581FA762A500CBC7CC /* NonceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817571FA762A500CBC7CC /* NonceProvider.swift */; };
 		A548175A1FA76EF900CBC7CC /* ChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817591FA76EF900CBC7CC /* ChainProvider.swift */; };
+		A5589A771FAA1A670007ADBC /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5589A761FAA1A670007ADBC /* Secrets.swift */; };
 		A566D9AC1F97A1A000DBEB9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A566D9AB1F97A1A000DBEB9A /* AppDelegate.swift */; };
 		A566D9B31F97A1A000DBEB9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A566D9B21F97A1A000DBEB9A /* Assets.xcassets */; };
 		A566D9B61F97A1A000DBEB9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A566D9B41F97A1A000DBEB9A /* LaunchScreen.storyboard */; };
@@ -141,6 +142,7 @@
 		A54817551FA75FF100CBC7CC /* CredentialsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsSpec.swift; sourceTree = "<group>"; };
 		A54817571FA762A500CBC7CC /* NonceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonceProvider.swift; sourceTree = "<group>"; };
 		A54817591FA76EF900CBC7CC /* ChainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainProvider.swift; sourceTree = "<group>"; };
+		A5589A761FAA1A670007ADBC /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		A566D9A81F97A1A000DBEB9A /* Heimdall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heimdall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A566D9AB1F97A1A000DBEB9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A566D9B21F97A1A000DBEB9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			children = (
 				A51180C21F9C9B65008FC2DB /* Fatal.swift */,
 				A51180C31F9C9B65008FC2DB /* StyleKit.swift */,
+				A5589A761FAA1A670007ADBC /* Secrets.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				A53D14091FA1EA77003BB29C /* MnemonicPhrase.swift in Sources */,
 				A51180CF1F9C9B8B008FC2DB /* StyleKit.swift in Sources */,
 				A544B2A91F9A4B77001B2C07 /* BytesX-Generated.swift in Sources */,
+				A5589A771FAA1A670007ADBC /* Secrets.swift in Sources */,
 				A53D14071FA1EA5E003BB29C /* Credentials.swift in Sources */,
 				A5946B821F9DDB03004760A0 /* OnboardingCoordinator.swift in Sources */,
 				A544B2A21F9A4B71001B2C07 /* BigIntExtension.swift in Sources */,
@@ -812,6 +816,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GNS_INFURA_KEY = asdfg;
 				INFOPLIST_FILE = "$(SRCROOT)/Heimdall/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pm.gnosis.Heimdall;
@@ -830,6 +835,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GNS_INFURA_KEY = asdfg;
 				INFOPLIST_FILE = "$(SRCROOT)/Heimdall/Other/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pm.gnosis.Heimdall;

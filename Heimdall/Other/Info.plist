@@ -39,5 +39,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>infuraKey</key>
+	<string>$(GNS_INFURA_KEY)</string>
 </dict>
 </plist>

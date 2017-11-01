@@ -68,3 +68,5 @@ fastlane/test_output
 
 DESIGNGOALS.md
 
+# Secret environment variables
+.env

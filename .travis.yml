@@ -4,4 +4,4 @@ before_install:
   - brew tap yonaskolb/mint https://github.com/yonaskolb/mint.git
   - brew install mint
 install: carthage bootstrap --platform iOS
-script: xcodebuild clean && xcodebuild test -sdk iphonesimulator -project Heimdall.xcodeproj -scheme Heimdall -destination 'platform=iOS Simulator,name=iPhone X,OS=11.0' \ CODE_SIGNING_REQUIRED=NO
+script: build.sh
