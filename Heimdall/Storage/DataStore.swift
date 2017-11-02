@@ -20,11 +20,15 @@ protocol DataStore {
 
     /// Tries to fetch the object associated with that key.
     ///
-    /// - Parameter key:  key to use for storing & retrieving.
+    /// - Parameter key: The key to use for storing & retrieving.
     /// - Returns: The object associated with that key.
     /// - Throws: When fetching fails or no object is associated with that key.
     func fetch<T>(key: String) throws -> T where T: Codable
 
+    /// Deletes the object associated with the key.
+    ///
+    /// - Parameter key: Key identifying the object.
+    /// - Throws: When deleting fails or no object is associated with that key.
     func delete(key: String) throws
 }
 

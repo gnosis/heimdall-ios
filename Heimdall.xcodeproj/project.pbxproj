@@ -26,7 +26,7 @@
 		A53D14091FA1EA77003BB29C /* MnemonicPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D14081FA1EA77003BB29C /* MnemonicPhrase.swift */; };
 		A53D140B1FA354CE003BB29C /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D140A1FA354CD003BB29C /* UINavigationControllerExtension.swift */; };
 		A53F6DC61FA0B480002C53B0 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F6DC51FA0B480002C53B0 /* DataStore.swift */; };
-		A544B2701F99ECF4001B2C07 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544B26F1F99ECF4001B2C07 /* Coordinator.swift */; };
+		A544B2701F99ECF4001B2C07 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544B26F1F99ECF4001B2C07 /* BaseCoordinator.swift */; };
 		A544B2961F9A4B68001B2C07 /* Solidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544B2751F9A4B45001B2C07 /* Solidity.swift */; };
 		A544B2971F9A4B68001B2C07 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544B2761F9A4B45001B2C07 /* Address.swift */; };
 		A544B2981F9A4B68001B2C07 /* UIntX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544B2771F9A4B45001B2C07 /* UIntX.swift */; };
@@ -108,7 +108,7 @@
 		A53D14081FA1EA77003BB29C /* MnemonicPhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhrase.swift; sourceTree = "<group>"; };
 		A53D140A1FA354CD003BB29C /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		A53F6DC51FA0B480002C53B0 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
-		A544B26F1F99ECF4001B2C07 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A544B26F1F99ECF4001B2C07 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		A544B2751F9A4B45001B2C07 /* Solidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solidity.swift; sourceTree = "<group>"; };
 		A544B2761F9A4B45001B2C07 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		A544B2771F9A4B45001B2C07 /* UIntX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIntX.swift; sourceTree = "<group>"; };
@@ -197,6 +197,7 @@
 		A50EFE421FA0BF0C00FC6114 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
+				A51180BF1F9C9B65008FC2DB /* CredentialsStore.swift */,
 				A53F6DC51FA0B480002C53B0 /* DataStore.swift */,
 				A50EFE431FA0C2C300FC6114 /* SecureDataStore.swift */,
 				A50EFE451FA0C30700FC6114 /* DiskDataStore.swift */,
@@ -262,7 +263,6 @@
 		A53D14051FA1EA38003BB29C /* Account */ = {
 			isa = PBXGroup;
 			children = (
-				A51180BF1F9C9B65008FC2DB /* CredentialsStore.swift */,
 				A53D14061FA1EA5E003BB29C /* Credentials.swift */,
 				A53D14081FA1EA77003BB29C /* MnemonicPhrase.swift */,
 			);
@@ -421,7 +421,7 @@
 		A566D9D91F97B1AF00DBEB9A /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				A544B26F1F99ECF4001B2C07 /* Coordinator.swift */,
+				A544B26F1F99ECF4001B2C07 /* BaseCoordinator.swift */,
 				A566D9DA1F97B1AF00DBEB9A /* AppCoordinator.swift */,
 				A5946B811F9DDB03004760A0 /* OnboardingCoordinator.swift */,
 				A5946B831F9DDB9D004760A0 /* LoggedInCoordinator.swift */,
@@ -646,7 +646,7 @@
 				A5946B841F9DDB9D004760A0 /* LoggedInCoordinator.swift in Sources */,
 				A544B2961F9A4B68001B2C07 /* Solidity.swift in Sources */,
 				A51180D11F9C9B94008FC2DB /* ImportMnemonicViewController.swift in Sources */,
-				A544B2701F99ECF4001B2C07 /* Coordinator.swift in Sources */,
+				A544B2701F99ECF4001B2C07 /* BaseCoordinator.swift in Sources */,
 				A544B2B11F9A4B7F001B2C07 /* SolidityFunction.swift in Sources */,
 				A544B29C1F9A4B68001B2C07 /* Bool.swift in Sources */,
 				A544B2A31F9A4B71001B2C07 /* DataExtension.swift in Sources */,

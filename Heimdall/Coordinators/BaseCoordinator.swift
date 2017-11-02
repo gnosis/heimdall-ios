@@ -1,5 +1,5 @@
 //
-//  Coordinator.swift
+//  BaseCoordinator.swift
 //  Heimdall
 //
 //  Created by Luis Reisewitz on 20.10.17.
