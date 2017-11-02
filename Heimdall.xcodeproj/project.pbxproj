@@ -77,6 +77,7 @@
 		A5B0E9F91FAA35CB002FF75E /* Secrets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9F81FAA35CA002FF75E /* Secrets.generated.swift */; };
 		A5B0E9FB1FAB41A8002FF75E /* AppDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9FA1FAB41A8002FF75E /* AppDataStore.swift */; };
 		A5B0E9FD1FAB4341002FF75E /* EtherRPCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9FC1FAB4341002FF75E /* EtherRPCSpec.swift */; };
+		A5B0E9FE1FAB4B8D002FF75E /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A566D9CF1F97A22400DBEB9A /* ReactiveKit.framework */; };
 		A5DB1FD81FA733B900CC29DA /* StandardToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DB1FD71FA733B800CC29DA /* StandardToken.swift */; };
 /* End PBXBuildFile section */
 
@@ -192,6 +193,7 @@
 			files = (
 				A50EFE711FA0DB2F00FC6114 /* Quick.framework in Frameworks */,
 				A50EFE731FA0DB3300FC6114 /* Nimble.framework in Frameworks */,
+				A5B0E9FE1FAB4B8D002FF75E /* ReactiveKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -558,11 +560,13 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveKit.framework",
 			);
 			name = "Carthage: Copy Frameworks";
 			outputPaths = (
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Quick.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Nimble.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/ReactiveKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
