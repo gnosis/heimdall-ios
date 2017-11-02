@@ -75,6 +75,8 @@
 		A5946B881F9DDEAF004760A0 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5946B861F9DDEAF004760A0 /* PureLayout.framework */; };
 		A5946B891F9DDEAF004760A0 /* KeychainAccess.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5946B871F9DDEAF004760A0 /* KeychainAccess.framework */; };
 		A5B0E9F91FAA35CB002FF75E /* Secrets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9F81FAA35CA002FF75E /* Secrets.generated.swift */; };
+		A5B0E9FB1FAB41A8002FF75E /* AppDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9FA1FAB41A8002FF75E /* AppDataStore.swift */; };
+		A5B0E9FD1FAB4341002FF75E /* EtherRPCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9FC1FAB4341002FF75E /* EtherRPCSpec.swift */; };
 		A5DB1FD81FA733B900CC29DA /* StandardToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DB1FD71FA733B800CC29DA /* StandardToken.swift */; };
 /* End PBXBuildFile section */
 
@@ -162,6 +164,8 @@
 		A5946B861F9DDEAF004760A0 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
 		A5946B871F9DDEAF004760A0 /* KeychainAccess.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KeychainAccess.framework; path = Carthage/Build/iOS/KeychainAccess.framework; sourceTree = "<group>"; };
 		A5B0E9F81FAA35CA002FF75E /* Secrets.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.generated.swift; sourceTree = "<group>"; };
+		A5B0E9FA1FAB41A8002FF75E /* AppDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataStore.swift; sourceTree = "<group>"; };
+		A5B0E9FC1FAB4341002FF75E /* EtherRPCSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherRPCSpec.swift; sourceTree = "<group>"; };
 		A5DB1FD71FA733B800CC29DA /* StandardToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -201,6 +205,7 @@
 				A53F6DC51FA0B480002C53B0 /* DataStore.swift */,
 				A50EFE431FA0C2C300FC6114 /* SecureDataStore.swift */,
 				A50EFE451FA0C30700FC6114 /* DiskDataStore.swift */,
+				A5B0E9FA1FAB41A8002FF75E /* AppDataStore.swift */,
 			);
 			path = Storage;
 			sourceTree = "<group>";
@@ -393,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				A566D9C01F97A1A000DBEB9A /* HeimdallTests.swift */,
+				A5B0E9FC1FAB4341002FF75E /* EtherRPCSpec.swift */,
 				A566D9C21F97A1A000DBEB9A /* Info.plist */,
 				A50EFE751FA0DDF300FC6114 /* DataStoreSpec.swift */,
 				A54817551FA75FF100CBC7CC /* CredentialsSpec.swift */,
@@ -659,6 +665,7 @@
 				A50EFE441FA0C2C300FC6114 /* SecureDataStore.swift in Sources */,
 				A566D9DB1F97B21B00DBEB9A /* AppCoordinator.swift in Sources */,
 				A53D14091FA1EA77003BB29C /* MnemonicPhrase.swift in Sources */,
+				A5B0E9FB1FAB41A8002FF75E /* AppDataStore.swift in Sources */,
 				A51180CF1F9C9B8B008FC2DB /* StyleKit.swift in Sources */,
 				A544B2A91F9A4B77001B2C07 /* BytesX-Generated.swift in Sources */,
 				A53D14071FA1EA5E003BB29C /* Credentials.swift in Sources */,
@@ -691,6 +698,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A54817561FA75FF100CBC7CC /* CredentialsSpec.swift in Sources */,
+				A5B0E9FD1FAB4341002FF75E /* EtherRPCSpec.swift in Sources */,
 				A50EFE761FA0DDF300FC6114 /* DataStoreSpec.swift in Sources */,
 				A566D9C11F97A1A000DBEB9A /* HeimdallTests.swift in Sources */,
 			);

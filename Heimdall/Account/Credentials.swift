@@ -33,6 +33,10 @@ struct Credentials: Codable {
         address = addressString
     }
 
+    /// Creates a new set of credentials from the given mnemonic phrase.
+    ///
+    /// - Parameter mnemonicPhrase: The mnemonic phrase to use for key generation.
+    /// - Throws: Throws if the mnemonic phrase is invalid.
     init(from mnemonicPhrase: String) throws {
         guard MnemonicPhrase.isValid(mnemonicPhrase),
             let account = Account(mnemonicPhrase: mnemonicPhrase) else {
