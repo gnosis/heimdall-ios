@@ -13,8 +13,10 @@ import UIKit
 
 class AccountOverviewViewModel {
     let accountLabelText: Property<String>
+    let balanceLabelText: Property<String>
+    let disposeBag = DisposeBag()
 
-    init(credentials: Credentials) {
+    init(credentials: Credentials, rpc: EtherRPC) {
         accountLabelText = Property("""
             This is your account.
 
@@ -24,6 +26,12 @@ class AccountOverviewViewModel {
             and the private key
                 \(credentials.privateKey)
             """)
+        balanceLabelText = Property("")
+        rpc.balance(for: credentials.address)
+            .map { "\($0.description) Ξ" }
+            .suppressError(logging: true)
+            .bind(to: balanceLabelText)
+            .dispose(in: disposeBag)
     }
 }
 
@@ -37,6 +45,7 @@ class AccountViewController: UIViewController {
 
         // Setup Bindings
         viewModel.accountLabelText.bind(to: ui.accountLabel.reactive.text)
+        viewModel.balanceLabelText.bind(to: ui.balanceLabel.reactive.text)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -57,11 +66,22 @@ class AccountViewControllerUI: ViewControllerUI {
     lazy var view: UIView = {
         let view = StyleKit.controllerView()
         view.addSubview(self.accountLabel)
-        self.accountLabel.autoPinEdgesToSuperviewMargins()
+        self.accountLabel.autoPinEdges(toSuperviewMarginsExcludingEdge: .bottom)
+        view.addSubview(self.balanceLabel)
+        self.balanceLabel.autoPinEdges(toSuperviewMarginsExcludingEdge: .top)
+        self.balanceLabel.autoPinEdge(.top, to: .bottom, of: self.accountLabel)
         return view
     }()
 
     lazy var accountLabel: UILabel = {
+        let label = UILabel()
+        label.numberOfLines = 0
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 24)
+        return label
+    }()
+
+    lazy var balanceLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = .white

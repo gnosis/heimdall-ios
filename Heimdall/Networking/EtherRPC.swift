@@ -66,6 +66,18 @@ extension EtherRPC {
             return NonDisposable.instance
         }
     }
+
+    func balance(for address: String) -> Signal<BigInt, Error> {
+        return Signal { observer in
+            self.balance(for: address, success: {
+                observer.completed(with: $0)
+            }, failure: {
+                observer.failed($0)
+            })
+            return NonDisposable.instance
+        }
+    }
+
 }
 
 // MARK: - Private Contract Calling
@@ -160,5 +172,19 @@ private extension EtherRPC {
         account.sign(transaction)
 
         return transaction
+    }
+
+    func balance(for address: String,
+                 success: @escaping (BigInt) -> Void,
+                 failure: @escaping (Error) -> Void) {
+        provider.getBalance(Address(string: address))
+            .onCompletion { promise in
+                guard let balance = promise?.value,
+                    let returnValue = BigInt(balance.hexString.withoutHexPrefix, radix: 16) else {
+                        failure(.invalidReturnData)
+                        return
+                }
+                success(returnValue)
+        }
     }
 }

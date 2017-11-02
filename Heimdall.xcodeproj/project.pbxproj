@@ -63,7 +63,6 @@
 		A566D9AC1F97A1A000DBEB9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A566D9AB1F97A1A000DBEB9A /* AppDelegate.swift */; };
 		A566D9B31F97A1A000DBEB9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A566D9B21F97A1A000DBEB9A /* Assets.xcassets */; };
 		A566D9B61F97A1A000DBEB9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A566D9B41F97A1A000DBEB9A /* LaunchScreen.storyboard */; };
-		A566D9C11F97A1A000DBEB9A /* HeimdallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A566D9C01F97A1A000DBEB9A /* HeimdallTests.swift */; };
 		A566D9D01F97A22400DBEB9A /* ethers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A566D9CC1F97A22400DBEB9A /* ethers.framework */; };
 		A566D9D11F97A22400DBEB9A /* Differ.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A566D9CD1F97A22400DBEB9A /* Differ.framework */; };
 		A566D9D21F97A22400DBEB9A /* Bond.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A566D9CE1F97A22400DBEB9A /* Bond.framework */; };
@@ -78,6 +77,7 @@
 		A5B0E9FB1FAB41A8002FF75E /* AppDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9FA1FAB41A8002FF75E /* AppDataStore.swift */; };
 		A5B0E9FD1FAB4341002FF75E /* EtherRPCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9FC1FAB4341002FF75E /* EtherRPCSpec.swift */; };
 		A5B0E9FE1FAB4B8D002FF75E /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A566D9CF1F97A22400DBEB9A /* ReactiveKit.framework */; };
+		A5B0EA021FAB5B7B002FF75E /* String+Heimdall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0EA011FAB5B7B002FF75E /* String+Heimdall.swift */; };
 		A5DB1FD81FA733B900CC29DA /* StandardToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5DB1FD71FA733B800CC29DA /* StandardToken.swift */; };
 /* End PBXBuildFile section */
 
@@ -152,7 +152,6 @@
 		A566D9B51F97A1A000DBEB9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A566D9B71F97A1A000DBEB9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A566D9BC1F97A1A000DBEB9A /* HeimdallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HeimdallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A566D9C01F97A1A000DBEB9A /* HeimdallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeimdallTests.swift; sourceTree = "<group>"; };
 		A566D9C21F97A1A000DBEB9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A566D9CC1F97A22400DBEB9A /* ethers.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ethers.framework; path = Carthage/Build/iOS/ethers.framework; sourceTree = "<group>"; };
 		A566D9CD1F97A22400DBEB9A /* Differ.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differ.framework; path = Carthage/Build/iOS/Differ.framework; sourceTree = "<group>"; };
@@ -167,6 +166,7 @@
 		A5B0E9F81FAA35CA002FF75E /* Secrets.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.generated.swift; sourceTree = "<group>"; };
 		A5B0E9FA1FAB41A8002FF75E /* AppDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataStore.swift; sourceTree = "<group>"; };
 		A5B0E9FC1FAB4341002FF75E /* EtherRPCSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherRPCSpec.swift; sourceTree = "<group>"; };
+		A5B0EA011FAB5B7B002FF75E /* String+Heimdall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Heimdall.swift"; sourceTree = "<group>"; };
 		A5DB1FD71FA733B800CC29DA /* StandardToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardToken.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,6 +217,7 @@
 			children = (
 				A53D140A1FA354CD003BB29C /* UINavigationControllerExtension.swift */,
 				A57402B41FA9FF24004387EC /* DispatchExtension.swift */,
+				A5B0EA011FAB5B7B002FF75E /* String+Heimdall.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -399,7 +400,6 @@
 		A566D9BF1F97A1A000DBEB9A /* HeimdallTests */ = {
 			isa = PBXGroup;
 			children = (
-				A566D9C01F97A1A000DBEB9A /* HeimdallTests.swift */,
 				A5B0E9FC1FAB4341002FF75E /* EtherRPCSpec.swift */,
 				A566D9C21F97A1A000DBEB9A /* Info.plist */,
 				A50EFE751FA0DDF300FC6114 /* DataStoreSpec.swift */,
@@ -682,6 +682,7 @@
 				A544B2A81F9A4B77001B2C07 /* UIntX-Generated.swift in Sources */,
 				A566D9AC1F97A1A000DBEB9A /* AppDelegate.swift in Sources */,
 				A51180CA1F9C9B7B008FC2DB /* CredentialsStore.swift in Sources */,
+				A5B0EA021FAB5B7B002FF75E /* String+Heimdall.swift in Sources */,
 				A544B29F1F9A4B68001B2C07 /* IntX.swift in Sources */,
 				A544B2991F9A4B68001B2C07 /* ArrayX.swift in Sources */,
 				A544B2A41F9A4B71001B2C07 /* StringExtension.swift in Sources */,
@@ -704,7 +705,6 @@
 				A54817561FA75FF100CBC7CC /* CredentialsSpec.swift in Sources */,
 				A5B0E9FD1FAB4341002FF75E /* EtherRPCSpec.swift in Sources */,
 				A50EFE761FA0DDF300FC6114 /* DataStoreSpec.swift in Sources */,
-				A566D9C11F97A1A000DBEB9A /* HeimdallTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
