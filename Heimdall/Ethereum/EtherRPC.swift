@@ -67,10 +67,11 @@ extension EtherRPC {
         }
     }
 
-    func balance(for address: String) -> Signal<BigInt, Error> {
+    func balance(for address: String) -> Signal<EtherAmount, Error> {
         return Signal { observer in
-            self.balance(for: address, success: {
-                observer.completed(with: $0)
+            self.balance(for: address,
+                         success: {
+                            observer.completed(with: $0.wei)
             }, failure: {
                 observer.failed($0)
             })
@@ -153,12 +154,12 @@ private extension EtherRPC {
                                                        with arguments: Function.Arguments) throws -> Transaction {
         let callString = function.encodeCall(arguments: arguments)
         // Drop leading 0x in function call
-        let callWithoutLeadingZeroX = String(callString.dropFirst(2))
+        let callWithoutLeadingZeroX = String(callString.withoutHexPrefix)
 
         guard let callData = Data(fromHexEncodedString: callWithoutLeadingZeroX) else {
              throw Error.invalidCallData
         }
-        guard let account = Account(privateKey: credentials.privateKeyData) else {
+        guard let account = credentials.account else {
             throw Error.invalidCredentials
         }
 
@@ -184,6 +185,7 @@ private extension EtherRPC {
                         failure(.invalidReturnData)
                         return
                 }
+                // balance is a bigint, unit is Wei
                 success(returnValue)
         }
     }

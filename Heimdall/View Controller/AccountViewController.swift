@@ -28,7 +28,7 @@ class AccountOverviewViewModel {
             """)
         balanceLabelText = Property("")
         rpc.balance(for: credentials.address)
-            .map { "\($0.description) Ξ" }
+            .map { $0.description }
             .suppressError(logging: true)
             .bind(to: balanceLabelText)
             .dispose(in: disposeBag)

@@ -52,7 +52,7 @@ class EtherRPCSpec: QuickSpec {
                 let fromAddress = Address(string: credentials.address)
                 let contractAddress = "0x72E7780A3B3927d5784843ce1e58c1593bBaaF49"
                 let balanceAddress = try! Solidity.Address("0")
-                let functionCallData = String(StandardToken.BalanceOf.encodeCall(arguments: balanceAddress).dropFirst(2))
+                let functionCallData = StandardToken.BalanceOf.encodeCall(arguments: balanceAddress).withoutHexPrefix
 
                 let provider = MockProvider()
                 let nonceProvider = MockNonceProvider()
@@ -82,7 +82,7 @@ class EtherRPCSpec: QuickSpec {
                 let fromAddress = Address(string: credentials.address)
                 let contractAddress = "0x72E7780A3B3927d5784843ce1e58c1593bBaaF49"
                 let balanceAddress = try! Solidity.Address("0")
-                let functionCallData = String(StandardToken.BalanceOf.encodeCall(arguments: balanceAddress).dropFirst(2))
+                let functionCallData = StandardToken.BalanceOf.encodeCall(arguments: balanceAddress).withoutHexPrefix
 
                 let provider = MockProvider()
                 let nonceProvider = MockNonceProvider()

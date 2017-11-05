@@ -29,7 +29,7 @@ class CredentialsSpec: QuickSpec {
 
             it("should generate private key data") {
                 let credentials = try! Credentials(from: testMnemonicPhrase)
-                let data = Data(fromHexEncodedString: String(testPrivateKey.dropFirst(2)))!
+                let data = Data(fromHexEncodedString: testPrivateKey.withoutHexPrefix)!
                 expect(credentials.privateKeyData) == data
             }
         }

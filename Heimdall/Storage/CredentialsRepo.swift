@@ -1,12 +1,12 @@
 //
-//  CredentialsStore.swift
+//  CredentialsRepo.swift
 //  Heimdall
 //
 //  Created by Luis Reisewitz on 07.09.17.
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
-class CredentialsStore {
+class CredentialsRepo {
     private let storeKey = "pm.gnosis.Heimdall.Credentials"
     private let store: DataStore
 

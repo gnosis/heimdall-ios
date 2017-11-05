@@ -23,7 +23,7 @@ struct Credentials: Codable {
     }
 
     private init(account: Account) {
-        guard let privateKeyData = Data(fromHexEncodedString: String(account.privateKey.dropFirst(2))) else {
+        guard let privateKeyData = Data(fromHexEncodedString: String(account.privateKey.withoutHexPrefix)) else {
             die("Credentials initialized with an Account with invalid private key")
         }
         self.privateKeyData = privateKeyData
@@ -53,5 +53,11 @@ private extension Account {
             die("Account.privateKey could not retrieve _privateKey")
         }
         return key.hexString()
+    }
+}
+
+extension Credentials {
+    var account: Account? {
+        return Account(privateKey: privateKeyData)
     }
 }
