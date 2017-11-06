@@ -34,6 +34,11 @@ class EtherRPC {
 // MARK: - Reactive Contract Calling
 extension EtherRPC {
     func call<Function: SolidityFunction>(_ function: Function.Type,
+                                          ofContractAt address: String) -> Signal<Function.Return, Error> where Function.Arguments == Void {
+        return call(function, ofContractAt: address, with: ())
+    }
+
+    func call<Function: SolidityFunction>(_ function: Function.Type,
                                           ofContractAt address: String,
                                           with arguments: Function.Arguments) -> Signal<Function.Return, Error> {
         return Signal { observer in
