@@ -18,7 +18,7 @@
 		A51180CD1F9C9B84008FC2DB /* ViewControllerUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180BD1F9C9B64008FC2DB /* ViewControllerUI.swift */; };
 		A51180CE1F9C9B88008FC2DB /* Fatal.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C21F9C9B65008FC2DB /* Fatal.swift */; };
 		A51180CF1F9C9B8B008FC2DB /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C31F9C9B65008FC2DB /* StyleKit.swift */; };
-		A51180D01F9C9B90008FC2DB /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C51F9C9B65008FC2DB /* AccountViewController.swift */; };
+		A51180D01F9C9B90008FC2DB /* AccountOverviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C51F9C9B65008FC2DB /* AccountOverviewViewController.swift */; };
 		A51180D11F9C9B94008FC2DB /* ImportMnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C71F9C9B65008FC2DB /* ImportMnemonicViewController.swift */; };
 		A51180D21F9C9B96008FC2DB /* DisplayMnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C81F9C9B65008FC2DB /* DisplayMnemonicViewController.swift */; };
 		A51180D31F9C9B98008FC2DB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C91F9C9B65008FC2DB /* OnboardingViewController.swift */; };
@@ -70,6 +70,12 @@
 		A566D9D31F97A22400DBEB9A /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A566D9CF1F97A22400DBEB9A /* ReactiveKit.framework */; };
 		A566D9DB1F97B21B00DBEB9A /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A566D9DA1F97B1AF00DBEB9A /* AppCoordinator.swift */; };
 		A57402B51FA9FF24004387EC /* DispatchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57402B41FA9FF24004387EC /* DispatchExtension.swift */; };
+		A574970D1FAFCD1000D2FC78 /* TokenListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A574970C1FAFCD1000D2FC78 /* TokenListViewController.swift */; };
+		A574970F1FAFD26600D2FC78 /* AutoLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A574970E1FAFD26600D2FC78 /* AutoLayoutView.swift */; };
+		A57497141FAFDF4800D2FC78 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57497131FAFDF4800D2FC78 /* Token.swift */; };
+		A57497161FAFDF5F00D2FC78 /* TokenListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57497151FAFDF5F00D2FC78 /* TokenListView.swift */; };
+		A57497181FAFDF8000D2FC78 /* TokenListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57497171FAFDF8000D2FC78 /* TokenListCellViewModel.swift */; };
+		A574971A1FAFDF9B00D2FC78 /* TokenListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57497191FAFDF9B00D2FC78 /* TokenListViewModel.swift */; };
 		A5946B821F9DDB03004760A0 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5946B811F9DDB03004760A0 /* OnboardingCoordinator.swift */; };
 		A5946B841F9DDB9D004760A0 /* LoggedInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5946B831F9DDB9D004760A0 /* LoggedInCoordinator.swift */; };
 		A5946B881F9DDEAF004760A0 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5946B861F9DDEAF004760A0 /* PureLayout.framework */; };
@@ -104,7 +110,7 @@
 		A51180C01F9C9B65008FC2DB /* EtherRPC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherRPC.swift; sourceTree = "<group>"; };
 		A51180C21F9C9B65008FC2DB /* Fatal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fatal.swift; sourceTree = "<group>"; };
 		A51180C31F9C9B65008FC2DB /* StyleKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
-		A51180C51F9C9B65008FC2DB /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		A51180C51F9C9B65008FC2DB /* AccountOverviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOverviewViewController.swift; sourceTree = "<group>"; };
 		A51180C71F9C9B65008FC2DB /* ImportMnemonicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportMnemonicViewController.swift; sourceTree = "<group>"; };
 		A51180C81F9C9B65008FC2DB /* DisplayMnemonicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMnemonicViewController.swift; sourceTree = "<group>"; };
 		A51180C91F9C9B65008FC2DB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +167,12 @@
 		A566D9CF1F97A22400DBEB9A /* ReactiveKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveKit.framework; path = Carthage/Build/iOS/ReactiveKit.framework; sourceTree = "<group>"; };
 		A566D9DA1F97B1AF00DBEB9A /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A57402B41FA9FF24004387EC /* DispatchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchExtension.swift; sourceTree = "<group>"; };
+		A574970C1FAFCD1000D2FC78 /* TokenListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListViewController.swift; sourceTree = "<group>"; };
+		A574970E1FAFD26600D2FC78 /* AutoLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutView.swift; sourceTree = "<group>"; };
+		A57497131FAFDF4800D2FC78 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		A57497151FAFDF5F00D2FC78 /* TokenListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListView.swift; sourceTree = "<group>"; };
+		A57497171FAFDF8000D2FC78 /* TokenListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListCellViewModel.swift; sourceTree = "<group>"; };
+		A57497191FAFDF9B00D2FC78 /* TokenListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListViewModel.swift; sourceTree = "<group>"; };
 		A5946B811F9DDB03004760A0 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		A5946B831F9DDB9D004760A0 /* LoggedInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInCoordinator.swift; sourceTree = "<group>"; };
 		A5946B861F9DDEAF004760A0 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
@@ -248,6 +260,7 @@
 			children = (
 				A51180C21F9C9B65008FC2DB /* Fatal.swift */,
 				A51180C31F9C9B65008FC2DB /* StyleKit.swift */,
+				A574970E1FAFD26600D2FC78 /* AutoLayoutView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -255,7 +268,7 @@
 		A51180C41F9C9B65008FC2DB /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A51180C51F9C9B65008FC2DB /* AccountViewController.swift */,
+				A51180C51F9C9B65008FC2DB /* AccountOverviewViewController.swift */,
 				A51180C61F9C9B65008FC2DB /* Onboarding */,
 			);
 			path = "View Controller";
@@ -269,15 +282,6 @@
 				A51180C91F9C9B65008FC2DB /* OnboardingViewController.swift */,
 			);
 			path = Onboarding;
-			sourceTree = "<group>";
-		};
-		A53D14051FA1EA38003BB29C /* Account */ = {
-			isa = PBXGroup;
-			children = (
-				A53D14061FA1EA5E003BB29C /* Credentials.swift */,
-				A53D14081FA1EA77003BB29C /* MnemonicPhrase.swift */,
-			);
-			path = Account;
 			sourceTree = "<group>";
 		};
 		A544B2731F9A4B45001B2C07 /* Solidity */ = {
@@ -386,7 +390,8 @@
 		A566D9AA1F97A1A000DBEB9A /* Heimdall */ = {
 			isa = PBXGroup;
 			children = (
-				A53D14051FA1EA38003BB29C /* Account */,
+				A57497121FAFDF2B00D2FC78 /* Model */,
+				A57497101FAFD52000D2FC78 /* Features */,
 				A50EFE421FA0BF0C00FC6114 /* Storage */,
 				A5946B851F9DDD4C004760A0 /* Other */,
 				A566D9D91F97B1AF00DBEB9A /* Coordinators */,
@@ -438,6 +443,35 @@
 				A5946B831F9DDB9D004760A0 /* LoggedInCoordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		A57497101FAFD52000D2FC78 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A57497111FAFD52A00D2FC78 /* TokenList */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		A57497111FAFD52A00D2FC78 /* TokenList */ = {
+			isa = PBXGroup;
+			children = (
+				A574970C1FAFCD1000D2FC78 /* TokenListViewController.swift */,
+				A57497151FAFDF5F00D2FC78 /* TokenListView.swift */,
+				A57497171FAFDF8000D2FC78 /* TokenListCellViewModel.swift */,
+				A57497191FAFDF9B00D2FC78 /* TokenListViewModel.swift */,
+			);
+			path = TokenList;
+			sourceTree = "<group>";
+		};
+		A57497121FAFDF2B00D2FC78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A53D14061FA1EA5E003BB29C /* Credentials.swift */,
+				A53D14081FA1EA77003BB29C /* MnemonicPhrase.swift */,
+				A57497131FAFDF4800D2FC78 /* Token.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A5946B851F9DDD4C004760A0 /* Other */ = {
@@ -627,6 +661,7 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/Heimdall/Other/Secrets.stencil",
 			);
 			name = "Mint: Sourcery";
 			outputPaths = (
@@ -643,15 +678,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A574970D1FAFCD1000D2FC78 /* TokenListViewController.swift in Sources */,
 				A53D140B1FA354CE003BB29C /* UINavigationControllerExtension.swift in Sources */,
 				A5DB1FD81FA733B900CC29DA /* StandardToken.swift in Sources */,
 				A544B2A11F9A4B6B001B2C07 /* BivrostError.swift in Sources */,
 				A50EFE461FA0C30700FC6114 /* DiskDataStore.swift in Sources */,
 				A544B2A61F9A4B73001B2C07 /* GnosisSafe.swift in Sources */,
-				A51180D01F9C9B90008FC2DB /* AccountViewController.swift in Sources */,
+				A51180D01F9C9B90008FC2DB /* AccountOverviewViewController.swift in Sources */,
 				A544B29B1F9A4B68001B2C07 /* BytesX.swift in Sources */,
 				A57402B51FA9FF24004387EC /* DispatchExtension.swift in Sources */,
 				A53DCD8A1FAFA8D200A67DBB /* EtherAmount.swift in Sources */,
+				A57497141FAFDF4800D2FC78 /* Token.swift in Sources */,
 				A544B2971F9A4B68001B2C07 /* Address.swift in Sources */,
 				A51180D21F9C9B96008FC2DB /* DisplayMnemonicViewController.swift in Sources */,
 				A544B29E1F9A4B68001B2C07 /* Function.swift in Sources */,
@@ -665,11 +702,13 @@
 				A544B29C1F9A4B68001B2C07 /* Bool.swift in Sources */,
 				A544B2A31F9A4B71001B2C07 /* DataExtension.swift in Sources */,
 				A54817581FA762A500CBC7CC /* NonceProvider.swift in Sources */,
+				A574970F1FAFD26600D2FC78 /* AutoLayoutView.swift in Sources */,
 				A544B29A1F9A4B68001B2C07 /* String.swift in Sources */,
 				A544B2A01F9A4B68001B2C07 /* Bytes.swift in Sources */,
 				A544B2AC1F9A4B7B001B2C07 /* BaseDecoder.swift in Sources */,
 				A51180CE1F9C9B88008FC2DB /* Fatal.swift in Sources */,
 				A544B2B01F9A4B7F001B2C07 /* SolidityCodable.swift in Sources */,
+				A57497161FAFDF5F00D2FC78 /* TokenListView.swift in Sources */,
 				A50EFE441FA0C2C300FC6114 /* SecureDataStore.swift in Sources */,
 				A566D9DB1F97B21B00DBEB9A /* AppCoordinator.swift in Sources */,
 				A53D14091FA1EA77003BB29C /* MnemonicPhrase.swift in Sources */,
@@ -683,6 +722,7 @@
 				A51180CC1F9C9B80008FC2DB /* EtherRPC.swift in Sources */,
 				A544B2A71F9A4B73001B2C07 /* GnosisSafeWithDescriptions.swift in Sources */,
 				A544B2A51F9A4B73001B2C07 /* DailyLimitException.swift in Sources */,
+				A574971A1FAFDF9B00D2FC78 /* TokenListViewModel.swift in Sources */,
 				A544B2A81F9A4B77001B2C07 /* UIntX-Generated.swift in Sources */,
 				A566D9AC1F97A1A000DBEB9A /* AppDelegate.swift in Sources */,
 				A51180CA1F9C9B7B008FC2DB /* CredentialsRepo.swift in Sources */,
@@ -691,6 +731,7 @@
 				A544B2991F9A4B68001B2C07 /* ArrayX.swift in Sources */,
 				A544B2A41F9A4B71001B2C07 /* StringExtension.swift in Sources */,
 				A544B2AD1F9A4B7B001B2C07 /* BaseEncoder.swift in Sources */,
+				A57497181FAFDF8000D2FC78 /* TokenListCellViewModel.swift in Sources */,
 				A53F6DC61FA0B480002C53B0 /* DataStore.swift in Sources */,
 				A5B0E9F91FAA35CB002FF75E /* Secrets.generated.swift in Sources */,
 				A51180CD1F9C9B84008FC2DB /* ViewControllerUI.swift in Sources */,

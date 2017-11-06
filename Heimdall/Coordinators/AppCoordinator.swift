@@ -12,20 +12,20 @@ import UIKit
 class AppCoordinator: BaseCoordinator<Void> {
     let window: UIWindow
     let secureStore = SecureDataStore()
-    let credentialsStore: CredentialsStore
+    let credentialsRepo: CredentialsRepo
 
     init(with window: UIWindow) {
         self.window = window
-        credentialsStore = CredentialsStore(store: secureStore)
+        credentialsRepo = CredentialsRepo(store: secureStore)
     }
 
     override func start() -> SafeSignal<CoordinationResult> {
-        if credentialsStore.hasStoredCredentials,
-            let credentials = try? credentialsStore.fetchCredentials() {
+        if credentialsRepo.hasStoredCredentials,
+            let credentials = try? credentialsRepo.fetchCredentials() {
             return coordinateLoggedIn(credentials: credentials)
         } else {
             let coordinator = OnboardingCoordinator(with: window,
-                                                    credentialsStore: credentialsStore)
+                                                    credentialsRepo: credentialsRepo)
             return coordinate(to: coordinator)
                 .flatMapLatest { self.coordinateLoggedIn(credentials: $0) }
         }

@@ -72,8 +72,9 @@ extension EtherRPC {
             self.balance(for: address,
                          success: {
                             observer.completed(with: $0.wei)
-            }, failure: {
-                observer.failed($0)
+            },
+                         failure: {
+                            observer.failed($0)
             })
             return NonDisposable.instance
         }

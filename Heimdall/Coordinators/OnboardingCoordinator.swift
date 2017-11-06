@@ -11,15 +11,15 @@ import UIKit
 
 class OnboardingCoordinator: BaseCoordinator<Credentials> {
     let window: UIWindow
-    let credentialsStore: CredentialsStore
+    let credentialsRepo: CredentialsRepo
     let navigationController = UINavigationController()
 
     private let onboardingFinishedSubject = SafePublishSubject<Credentials>()
 
     init(with window: UIWindow,
-         credentialsStore: CredentialsStore) {
+         credentialsRepo: CredentialsRepo) {
         self.window = window
-        self.credentialsStore = credentialsStore
+        self.credentialsRepo = credentialsRepo
     }
 
     override func start() -> Signal<Credentials, NoError> {
@@ -74,7 +74,7 @@ extension OnboardingCoordinator {
         }
 
         do {
-            try self.credentialsStore.store(credentials: credentials)
+            try self.credentialsRepo.store(credentials: credentials)
         } catch {
             die("Could not store credentials")
         }

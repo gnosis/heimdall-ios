@@ -1,5 +1,5 @@
 //
-//  AccountViewController.swift
+//  AccountOverviewViewController.swift
 //  Heimdall
 //
 //  Created by Luis Reisewitz on 08.09.17.
@@ -35,8 +35,8 @@ class AccountOverviewViewModel {
     }
 }
 
-class AccountViewController: UIViewController {
-    let ui = AccountViewControllerUI()
+class AccountOverviewViewController: UIViewController {
+    let ui = AccountOverviewViewControllerUI()
     let viewModel: AccountOverviewViewModel
 
     init(viewModel: AccountOverviewViewModel) {
@@ -52,17 +52,12 @@ class AccountViewController: UIViewController {
         die("init(coder:) has not been implemented")
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-    }
-
     override func loadView() {
         view = ui.view
     }
 }
 
-class AccountViewControllerUI: ViewControllerUI {
+class AccountOverviewViewControllerUI: ViewControllerUI {
     lazy var view: UIView = {
         let view = StyleKit.controllerView()
         view.addSubview(self.accountLabel)
