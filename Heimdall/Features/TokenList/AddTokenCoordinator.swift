@@ -24,7 +24,17 @@ class AddTokenCoordinator: BaseCoordinator<AddTokenCoordinatorResult> {
     }
 
     override func start() -> Signal<CoordinationResult, NoError> {
-        return showEnterAddressAlert()
+        return showSelectMethodAlert()
+            .flatMapLatest { result -> SafeSignal<AddressResult> in
+                switch result {
+                case .cancel:
+                    return Signal.just(.cancel)
+                case .enterAddress:
+                    return self.showEnterAddressAlert()
+                case .scanQrCode:
+                    return self.showQrCodeFlow()
+                }
+            }
             .flatMapLatest { result -> SafeSignal<CoordinationResult> in
                 guard case .address(let address) = result else {
                     return Signal.just(CoordinationResult.cancel)
@@ -34,30 +44,70 @@ class AddTokenCoordinator: BaseCoordinator<AddTokenCoordinatorResult> {
                     .flatMapError { _ -> SafeSignal<CoordinationResult> in
                         // If the address does not have a TokenInfo attached,
                         // ask the user for this information
-                        self.showEnterInfoAlert().map { result -> CoordinationResult in
-                            guard case let .info(name, symbol, decimals) = result else {
-                                return .cancel
-                            }
-                            let token = Token(address: address, name: name, symbol: symbol, decimals: decimals)
-                            return .token(token)
+                        self.showEnterInfoAlert()
+                            .map { result -> CoordinationResult in
+                                guard case let .info(name, symbol, decimals) = result else {
+                                    return .cancel
+                                }
+                                let token = Token(address: address,
+                                                  name: name,
+                                                  symbol: symbol,
+                                                  decimals: decimals,
+                                                  whitelisted: false)
+                                return .token(token)
                         }
                 }
         }
     }
 }
 
-enum EnterAddressResult {
+enum AddressResult {
     case address(String)
     case cancel
 }
+
 enum EnterInfoResult {
     case info(name: String, symbol: String, decimals: Int)
     case cancel
 }
 
+enum SelectMethodResult {
+    case enterAddress
+    case scanQrCode
+    case cancel
+}
+
 private extension AddTokenCoordinator {
-    func showEnterAddressAlert() -> SafeSignal<EnterAddressResult> {
-        let subject = SafePublishSubject<EnterAddressResult>()
+    func showQrCodeFlow() -> SafeSignal<AddressResult> {
+        return Signal.just(.cancel)
+    }
+
+    func showSelectMethodAlert() -> SafeSignal<SelectMethodResult> {
+        let subject = SafePublishSubject<SelectMethodResult>()
+
+        let alert = UIAlertController(title: "Select Method",
+                                      message: "How would you like to add a token",
+                                      preferredStyle: .actionSheet)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+            subject.completed(with: .cancel)
+        }
+        let qrCodeAction = UIAlertAction(title: "Scan QR Code", style: .default) { _ in
+            subject.completed(with: .scanQrCode)
+        }
+        let textAction = UIAlertAction(title: "Enter Address", style: .default) { _ in
+            subject.completed(with: .enterAddress)
+        }
+        alert.addAction(qrCodeAction)
+        alert.addAction(textAction)
+        alert.addAction(cancelAction)
+
+        navigationController.present(alert, animated: true)
+        return subject.toSignal()
+    }
+
+    func showEnterAddressAlert() -> SafeSignal<AddressResult> {
+        let subject = SafePublishSubject<AddressResult>()
 
         let alert = UIAlertController(title: "Add Token",
                                       message: "Enter your token's address",

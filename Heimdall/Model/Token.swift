@@ -11,12 +11,14 @@ struct Token: Storable {
     let name: String
     let symbol: String
     let decimals: Int
+    let whitelisted: Bool
 
-    init(address: String, name: String, symbol: String, decimals: Int) {
+    init(address: String, name: String, symbol: String, decimals: Int, whitelisted: Bool) {
         self.address = address
         self.name = name
         self.symbol = symbol
         self.decimals = decimals
+        self.whitelisted = whitelisted
     }
 
     static var storageKey: String {
@@ -24,6 +26,13 @@ struct Token: Storable {
     }
 }
 
+extension Token {
+    static var whitelisted: [Token] {
+        return [
+
+        ]
+    }
+}
 // MARK: - Equatable
 extension Token: Equatable {
     static func == (lhs: Token, rhs: Token) -> Bool {

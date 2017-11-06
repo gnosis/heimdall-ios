@@ -21,7 +21,13 @@ extension EtherRPC {
             .map { $0.value.forcedInt }
 
         return combineLatest(nameSignal, symbolSignal, decimalsSignal)
-            .map { Token(address: address, name: $0.0, symbol: $0.1, decimals: $0.2) }
+            .map {
+                Token(address: address,
+                      name: $0.0,
+                      symbol: $0.1,
+                      decimals: $0.2,
+                      whitelisted: false)
+        }
     }
 
     func balance(of address: String, for token: Token) -> Signal<BigUInt, Error> {
