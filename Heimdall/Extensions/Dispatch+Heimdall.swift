@@ -1,5 +1,5 @@
 //
-//  DispatchExtension.swift
+//  Dispatch+Heimdall.swift
 //  Heimdall
 //
 //  Created by Luis Reisewitz on 01.11.17.

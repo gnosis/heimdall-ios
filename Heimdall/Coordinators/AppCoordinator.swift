@@ -35,13 +35,8 @@ class AppCoordinator: BaseCoordinator<Void> {
 
 extension AppCoordinator {
     func coordinateLoggedIn(credentials: Credentials) -> SafeSignal<Void> {
-//        let coordinator = LoggedInCoordinator(with: window,
-//                                              credentials: credentials)
-        let rpc = EtherRPC(provider: InfuraProvider(chainId: .ChainIdKovan,
-                                                          accessToken: Secrets.infuraKey.rawValue),
-                                 credentials: credentials,
-                                 nonceProvider: NonceProvider())
-        let coordinator = TokenListCoordinator(with: window, rpc: rpc)
+        let coordinator = LoggedInCoordinator(with: window,
+                                              credentials: credentials)
         return coordinate(to: coordinator)
     }
 }

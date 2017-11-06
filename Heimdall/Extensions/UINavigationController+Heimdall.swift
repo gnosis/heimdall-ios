@@ -1,5 +1,5 @@
 //
-//  UINavigationControllerExtension.swift
+//  UINavigationController+Heimdall.swift
 //  Heimdall
 //
 //  Created by Luis Reisewitz on 27.10.17.

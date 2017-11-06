@@ -16,7 +16,7 @@ class TokenListViewController: UIViewController {
     init(viewModel: TokenListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-
+        title = "Token List"
         viewModel.items.bind(to: tokenListView.tableView) { tokenViewModels, indexPath, _ -> UITableViewCell in
             let cellViewModel = tokenViewModels[indexPath.row]
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "subtitle")
@@ -36,6 +36,10 @@ class TokenListViewController: UIViewController {
 
     required init?(coder aDecoder: NSCoder) {
         die("init(coder:) has not been implemented")
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
     }
 
     override func loadView() {

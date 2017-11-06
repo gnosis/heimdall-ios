@@ -10,28 +10,19 @@ import ethers
 import ReactiveKit
 import UIKit
 
-class LoggedInCoordinator: BaseCoordinator<Void> {
-    let window: UIWindow
+class LoggedInCoordinator: TabBarCoordinator {
     let credentials: Credentials
     let etherRpc: EtherRPC
 
     init(with window: UIWindow, credentials: Credentials) {
-        self.window = window
         self.credentials = credentials
         self.etherRpc = EtherRPC(provider: InfuraProvider(chainId: .ChainIdKovan,
                                                           accessToken: Secrets.infuraKey.rawValue),
                                  credentials: credentials,
                                  nonceProvider: NonceProvider())
-    }
+        super.init(with: window)
 
-    override func start() -> Signal<Void, NoError> {
-        let accountViewModel = AccountOverviewViewModel(credentials: credentials, rpc: etherRpc)
-        let accountViewController = AccountOverviewViewController(viewModel: accountViewModel)
-        let navigationController = UINavigationController(rootViewController: accountViewController)
-
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-
-        return Signal.never()
+        tabCoordinators = [AccountOverviewCoordinator(credentials: credentials, rpc: etherRpc),
+                           TokenListCoordinator(rpc: etherRpc)]
     }
 }

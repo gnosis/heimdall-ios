@@ -29,8 +29,11 @@ class AddTokenCoordinator: BaseCoordinator<AddTokenCoordinatorResult> {
                 guard case .address(let address) = result else {
                     return Signal.just(CoordinationResult.cancel)
                 }
-                return self.rpc.tokenInfo(for: address).map { CoordinationResult.token($0) }
+                return self.rpc.tokenInfo(for: address)
+                    .map { CoordinationResult.token($0) }
                     .flatMapError { _ -> SafeSignal<CoordinationResult> in
+                        // If the address does not have a TokenInfo attached,
+                        // ask the user for this information
                         self.showEnterInfoAlert().map { result -> CoordinationResult in
                             guard case let .info(name, symbol, decimals) = result else {
                                 return .cancel

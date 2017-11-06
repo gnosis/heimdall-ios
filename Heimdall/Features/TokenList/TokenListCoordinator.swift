@@ -10,14 +10,16 @@ import ethers
 import ReactiveKit
 import UIKit
 
-class TokenListCoordinator: BaseCoordinator<Void> {
-    let window: UIWindow
+class TokenListCoordinator: TabCoordinator {
     let rpc: EtherRPC
 
-    init(with window: UIWindow,
-         rpc: EtherRPC) {
-        self.window = window
+    init(rpc: EtherRPC) {
         self.rpc = rpc
+        super.init()
+    }
+
+    override var tabBarItem: UITabBarItem {
+        return UITabBarItem(tabBarSystemItem: .bookmarks, tag: 0)
     }
 
     override func start() -> Signal<Void, NoError> {
@@ -25,10 +27,10 @@ class TokenListCoordinator: BaseCoordinator<Void> {
         let tokenStore = AppDataStore<Token>(store: dataStore)
         let tokenListViewModel = TokenListViewModel(store: tokenStore)
         let tokenListViewController = TokenListViewController(viewModel: tokenListViewModel)
-        let navigationController = UINavigationController(rootViewController: tokenListViewController)
+        navigationController.rootViewController = tokenListViewController
 
         tokenListViewModel.addToken?.flatMapLatest { _ in
-            self.coordinate(to: AddTokenCoordinator(navigationController: navigationController, rpc: self.rpc))
+            self.coordinate(to: AddTokenCoordinator(navigationController: self.navigationController, rpc: self.rpc))
         }.flatMap { (result: AddTokenCoordinator.CoordinationResult) -> Token? in
             guard case .token(let newToken) = result else {
                 return nil
@@ -37,9 +39,6 @@ class TokenListCoordinator: BaseCoordinator<Void> {
         }.observeNext { token in
             _ = try? tokenStore.add(token)
         }.dispose(in: disposeBag)
-
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
 
         return Signal.never()
     }
