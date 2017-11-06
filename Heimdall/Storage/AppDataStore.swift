@@ -26,6 +26,7 @@ class AppDataStore<Element: Storable> {
     /// - Parameter store: Underlying storage to use for the credentials.
     init(store: DataStore) {
         self.store = store
+        contents.value = (try? fetchAll()) ?? []
     }
 
     func add(_ element: Element) throws {
