@@ -6,6 +6,7 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
+import Bond
 import UIKit
 
 class TokenListViewController: UIViewController {
@@ -27,6 +28,10 @@ class TokenListViewController: UIViewController {
             cellViewModel.detailTextLabelText.bind(to: detailTextLabel.reactive.text)
             return cell
         }
+
+        let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = addItem
+        viewModel.addToken = addItem.reactive.tap
     }
 
     required init?(coder aDecoder: NSCoder) {

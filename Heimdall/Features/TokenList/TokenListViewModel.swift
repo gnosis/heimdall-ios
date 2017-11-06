@@ -6,12 +6,15 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
+import Bond
 import ReactiveKit
 
 class TokenListViewModel {
     private let store: AppDataStore<Token>
 
     let items = Property<[TokenListCellViewModel]>([])
+
+    var addToken: SafeSignal<Void>?
 
     init(store: AppDataStore<Token>) {
         self.store = store
