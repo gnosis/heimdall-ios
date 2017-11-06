@@ -23,7 +23,7 @@ class AppDataStore<Element: Storable> {
 
     /// Creates a new app data store by using the given store as a storage backend.
     ///
-    /// - Parameter store: Underlying storage to use for the credentials.
+    /// - Parameter store: Underlying storage to use for the data.
     init(store: DataStore) {
         self.store = store
         contents.value = (try? fetchAll()) ?? []
