@@ -20,13 +20,15 @@ class TokenListViewController: UIViewController {
         // Bind Inputs
         viewModel.items.bind(to: tokenListView.tableView) { tokenViewModels, indexPath, _ -> UITableViewCell in
             let cellViewModel = tokenViewModels[indexPath.row]
-            let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "subtitle")
+            let cell = ReactiveUITableViewCell(style: .subtitle, reuseIdentifier: "subtitle")
             guard let textLabel = cell.textLabel,
                 let detailTextLabel = cell.detailTextLabel else {
                     die("Invalid Cell")
             }
-            cellViewModel.textLabelText.bind(to: textLabel.reactive.text)
-            cellViewModel.detailTextLabelText.bind(to: detailTextLabel.reactive.text)
+            cellViewModel.textLabelText
+                .bind(to: textLabel.reactive.text).dispose(in: cell.reuseBag)
+            cellViewModel.detailTextLabelText
+                .bind(to: detailTextLabel.reactive.text).dispose(in: cell.reuseBag)
             return cell
         }
         viewModel.title.bind(to: reactive.title)

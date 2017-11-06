@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A5001D911FB0C0AA005A7F0F /* ReactiveUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5001D901FB0C0AA005A7F0F /* ReactiveUITableViewCell.swift */; };
 		A50EFE3F1FA0B76100FC6114 /* Disk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A50EFE3E1FA0B76100FC6114 /* Disk.framework */; };
 		A50EFE441FA0C2C300FC6114 /* SecureDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50EFE431FA0C2C300FC6114 /* SecureDataStore.swift */; };
 		A50EFE461FA0C30700FC6114 /* DiskDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50EFE451FA0C30700FC6114 /* DiskDataStore.swift */; };
@@ -108,6 +109,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A5001D901FB0C0AA005A7F0F /* ReactiveUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactiveUITableViewCell.swift; sourceTree = "<group>"; };
 		A50EFE3E1FA0B76100FC6114 /* Disk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Disk.framework; path = Carthage/Build/iOS/Disk.framework; sourceTree = "<group>"; };
 		A50EFE431FA0C2C300FC6114 /* SecureDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureDataStore.swift; sourceTree = "<group>"; };
 		A50EFE451FA0C30700FC6114 /* DiskDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskDataStore.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				A51180C21F9C9B65008FC2DB /* Fatal.swift */,
 				A51180C31F9C9B65008FC2DB /* StyleKit.swift */,
 				A574970E1FAFD26600D2FC78 /* AutoLayoutView.swift */,
+				A5001D901FB0C0AA005A7F0F /* ReactiveUITableViewCell.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -749,6 +752,7 @@
 				A51180CF1F9C9B8B008FC2DB /* StyleKit.swift in Sources */,
 				A5E96A1F1FB058EA0093B3D9 /* DailyLimitException.swift in Sources */,
 				A53D14071FA1EA5E003BB29C /* Credentials.swift in Sources */,
+				A5001D911FB0C0AA005A7F0F /* ReactiveUITableViewCell.swift in Sources */,
 				A5946B821F9DDB03004760A0 /* OnboardingCoordinator.swift in Sources */,
 				A5E96A261FB058F50093B3D9 /* UIntX-Generated.swift in Sources */,
 				A51180D31F9C9B98008FC2DB /* OnboardingViewController.swift in Sources */,

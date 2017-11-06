@@ -18,8 +18,7 @@ class TokenListCellViewModel {
         rpc.balance(of: credentials.address, for: token)
             .map { $0.description }
             .flatMapError { _ in Signal.just("N/A") }
-            .map { "Balance: \($0)" }
-            .map { "\(token.name) (\(token.symbol)) (\($0))" }
+            .map { "\(token.name) (\($0) \(token.symbol))" }
             .bind(to: textLabelText)
     }
 }
