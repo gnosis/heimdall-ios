@@ -7,11 +7,13 @@
 //
 
 struct Token: Storable {
+    let address: String
     let name: String
     let symbol: String
     let decimals: Int
 
-    init(name: String, symbol: String, decimals: Int) {
+    init(address: String, name: String, symbol: String, decimals: Int) {
+        self.address = address
         self.name = name
         self.symbol = symbol
         self.decimals = decimals
@@ -25,6 +27,6 @@ struct Token: Storable {
 // MARK: - Equatable
 extension Token: Equatable {
     static func == (lhs: Token, rhs: Token) -> Bool {
-        return lhs.symbol == rhs.symbol
+        return lhs.address == rhs.address && lhs.symbol == rhs.symbol
     }
 }

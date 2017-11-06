@@ -28,7 +28,7 @@ class LoggedInCoordinator: BaseCoordinator<Void> {
         let accountViewModel = AccountOverviewViewModel(credentials: credentials, rpc: etherRpc)
         let accountViewController = AccountOverviewViewController(viewModel: accountViewModel)
         let navigationController = UINavigationController(rootViewController: accountViewController)
-   
+
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
 

@@ -8,6 +8,7 @@
 
 import ReactiveKit
 import UIKit
+import ethers
 
 class AppCoordinator: BaseCoordinator<Void> {
     let window: UIWindow
@@ -36,7 +37,11 @@ extension AppCoordinator {
     func coordinateLoggedIn(credentials: Credentials) -> SafeSignal<Void> {
 //        let coordinator = LoggedInCoordinator(with: window,
 //                                              credentials: credentials)
-        let coordinator = TokenListCoordinator(with: window)
+        let rpc = EtherRPC(provider: InfuraProvider(chainId: .ChainIdKovan,
+                                                          accessToken: Secrets.infuraKey.rawValue),
+                                 credentials: credentials,
+                                 nonceProvider: NonceProvider())
+        let coordinator = TokenListCoordinator(with: window, rpc: rpc)
         return coordinate(to: coordinator)
     }
 }

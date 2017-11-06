@@ -9,8 +9,12 @@
 public extension Solidity {
     struct String {
         let wrapper: Solidity.Bytes
+        let value: Swift.String
 
         init?(_ value: Swift.String) {
+            // FIXME: Bivrost: this needs to go in bivrost
+            self.value = value
+
             guard let data = value.data(using: .utf8),
                 let bytes = Solidity.Bytes(data) else {
                 return nil

@@ -14,6 +14,6 @@ class TokenListCellViewModel {
 
     init(token: Token) {
         textLabelText.value = "\(token.name) (\(token.symbol))"
-        detailTextLabelText.value = "Decimals: \(token.decimals)"
+        detailTextLabelText.value = "\(token.address)"
     }
 }

@@ -37,6 +37,7 @@ struct HumanStandardToken {
             let source = BaseDecoder.partition(returnData)
             // Static Types & Location
             // Ignore location for dynamic type
+            // FIXME: Bivrost: this crashes when contract is not humanstandardtoken (empty return data)
             _ = source.consume()
             // Dynamic Types
             let param0 = try Solidity.String.decode(source: source)

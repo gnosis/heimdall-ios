@@ -79,7 +79,6 @@ extension EtherRPC {
             return NonDisposable.instance
         }
     }
-
 }
 
 // MARK: - Private Contract Calling
