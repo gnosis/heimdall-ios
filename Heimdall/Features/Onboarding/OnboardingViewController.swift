@@ -15,6 +15,7 @@ class OnboardingStartViewModel {
     // FIXME: strings
     let newAccountButtonTitle = Property("Create a new account")
     let enterMnemonicButtonTitle = Property("Enter Mnemonic Phrase")
+    let title = Property("Setup Account")
 
     // VM -> Coord
     var createNewAccount: SafeSignal<Void>?
@@ -29,24 +30,18 @@ class OnboardingViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
 
+        // Bind Outputs
         viewModel.createNewAccount = ui.newAccountButton.reactive.tap
         viewModel.importMnemonicPhrase = ui.importMnemonicButton.reactive.tap
 
+        // Bind Inputs
         viewModel.newAccountButtonTitle.bind(to: ui.newAccountButton.reactive.title)
         viewModel.enterMnemonicButtonTitle.bind(to: ui.importMnemonicButton.reactive.title)
+        viewModel.title.bind(to: reactive.title)
     }
 
     required init?(coder aDecoder: NSCoder) {
         die("init(coder:) has not been implemented")
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        edgesForExtendedLayout = []
-        guard navigationController != nil else {
-            die("OnboardingViewController presented without navigationController")
-        }
-        title = "Setup Account"
     }
 
     override func loadView() {

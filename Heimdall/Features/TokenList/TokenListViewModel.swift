@@ -13,11 +13,14 @@ class TokenListViewModel {
     private let store: AppDataStore<Token>
 
     let items = Property<[TokenListCellViewModel]>([])
+    let title = Property("Token List")
 
     var addToken: SafeSignal<Void>?
 
-    init(store: AppDataStore<Token>) {
+    init(credentials: Credentials, rpc: EtherRPC, store: AppDataStore<Token>) {
         self.store = store
-        store.contents.flatMap { TokenListCellViewModel(token: $0) }.bind(to: items)
+        store.contents.flatMap {
+            TokenListCellViewModel(credentials: credentials, rpc: rpc, token: $0)
+        }.bind(to: items)
     }
 }

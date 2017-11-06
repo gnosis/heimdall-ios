@@ -16,7 +16,8 @@ class TokenListViewController: UIViewController {
     init(viewModel: TokenListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        title = "Token List"
+
+        // Bind Inputs
         viewModel.items.bind(to: tokenListView.tableView) { tokenViewModels, indexPath, _ -> UITableViewCell in
             let cellViewModel = tokenViewModels[indexPath.row]
             let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "subtitle")
@@ -28,7 +29,9 @@ class TokenListViewController: UIViewController {
             cellViewModel.detailTextLabelText.bind(to: detailTextLabel.reactive.text)
             return cell
         }
+        viewModel.title.bind(to: reactive.title)
 
+        // Bind Outputs
         let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
         navigationItem.rightBarButtonItem = addItem
         viewModel.addToken = addItem.reactive.tap

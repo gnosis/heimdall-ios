@@ -23,6 +23,6 @@ class LoggedInCoordinator: TabBarCoordinator {
         super.init(with: window)
 
         tabCoordinators = [AccountOverviewCoordinator(credentials: credentials, rpc: etherRpc),
-                           TokenListCoordinator(rpc: etherRpc)]
+                           TokenListCoordinator(credentials: credentials, rpc: etherRpc)]
     }
 }

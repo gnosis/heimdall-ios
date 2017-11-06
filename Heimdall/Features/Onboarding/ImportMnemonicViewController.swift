@@ -13,6 +13,7 @@ import UIKit
 
 class ImportMnemonicViewModel {
     let importButtonTitle = Property("Import")
+    let title = Property("Enter Mnemonic Phrase")
     let currentMnemonicPhrase = Property<String?>(nil)
 
     var importButtonTap: SafeSignal<Void>? {
@@ -35,22 +36,17 @@ class ImportMnemonicViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
 
+        // Bind Inputs
         viewModel.importButtonTitle.bind(to: ui.importButton.reactive.title)
-        ui.mnemonicTextField.reactive.text.bidirectionalBind(to: viewModel.currentMnemonicPhrase)
+        viewModel.title.bind(to: reactive.title)
 
+        // Bind Outputs
+        ui.mnemonicTextField.reactive.text.bidirectionalBind(to: viewModel.currentMnemonicPhrase)
         viewModel.importButtonTap = ui.importButton.reactive.tap
     }
 
     required init?(coder aDecoder: NSCoder) {
         die("init(coder:) has not been implemented")
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        edgesForExtendedLayout = []
-
-        title = "Enter Mnemonic Phrase"
     }
 
     override func loadView() {

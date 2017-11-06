@@ -8,7 +8,6 @@
 
 import ReactiveKit
 import UIKit
-import ethers
 
 class AppCoordinator: BaseCoordinator<Void> {
     let window: UIWindow

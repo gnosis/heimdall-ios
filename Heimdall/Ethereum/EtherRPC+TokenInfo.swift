@@ -6,6 +6,7 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
+import BigInt
 import Bond
 import ReactiveKit
 
@@ -21,5 +22,15 @@ extension EtherRPC {
 
         return combineLatest(nameSignal, symbolSignal, decimalsSignal)
             .map { Token(address: address, name: $0.0, symbol: $0.1, decimals: $0.2) }
+    }
+
+    func balance(of address: String, for token: Token) -> Signal<BigUInt, Error> {
+        guard let solidityAddress = try? Solidity.Address(address) else {
+            return Signal.failed(.invalidArguments)
+        }
+        return call(StandardToken.BalanceOf.self,
+                    ofContractAt: token.address,
+                    with: solidityAddress)
+            .map { $0.value }
     }
 }

@@ -14,6 +14,9 @@ import UIKit
 class AccountOverviewViewModel {
     let accountLabelText: Property<String>
     let balanceLabelText: Property<String>
+
+    let title = Property("Your Account")
+
     let disposeBag = DisposeBag()
 
     init(credentials: Credentials, rpc: EtherRPC) {
@@ -46,6 +49,8 @@ class AccountOverviewViewController: UIViewController {
         // Setup Bindings
         viewModel.accountLabelText.bind(to: ui.accountLabel.reactive.text)
         viewModel.balanceLabelText.bind(to: ui.balanceLabel.reactive.text)
+
+        viewModel.title.bind(to: reactive.title)
     }
 
     required init?(coder aDecoder: NSCoder) {

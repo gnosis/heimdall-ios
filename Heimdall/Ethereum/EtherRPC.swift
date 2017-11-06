@@ -12,6 +12,7 @@ import ReactiveKit
 
 class EtherRPC {
     enum Error: Swift.Error {
+        case invalidArguments
         case invalidCallData
         case invalidCredentials
         case invalidReturnData
@@ -34,25 +35,27 @@ class EtherRPC {
 // MARK: - Reactive Contract Calling
 extension EtherRPC {
     func call<Function: SolidityFunction>(_ function: Function.Type,
-                                          ofContractAt address: String) -> Signal<Function.Return, Error> where Function.Arguments == Void {
-        return call(function, ofContractAt: address, with: ())
+                                          ofContractAt address: String)
+        -> Signal<Function.Return, Error> where Function.Arguments == Void {
+            return call(function, ofContractAt: address, with: ())
     }
 
     func call<Function: SolidityFunction>(_ function: Function.Type,
                                           ofContractAt address: String,
-                                          with arguments: Function.Arguments) -> Signal<Function.Return, Error> {
-        return Signal { observer in
-            self.call(function,
-                      ofContractAt: address,
-                      with: arguments,
-                      success: { value in
-                        observer.completed(with: value)
-            },
-                      failure: { error in
-                        observer.failed(error)
-            })
-            return NonDisposable.instance
-        }
+                                          with arguments: Function.Arguments)
+        -> Signal<Function.Return, Error> {
+            return Signal { observer in
+                self.call(function,
+                          ofContractAt: address,
+                          with: arguments,
+                          success: { value in
+                            observer.completed(with: value)
+                },
+                          failure: { error in
+                            observer.failed(error)
+                })
+                return NonDisposable.instance
+            }
     }
 
     func sendTransaction<Function: SolidityFunction>(for function: Function.Type,

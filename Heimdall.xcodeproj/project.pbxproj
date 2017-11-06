@@ -94,6 +94,7 @@
 		A5FF48E11FB08C72004EC019 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E01FB08C72004EC019 /* TabCoordinator.swift */; };
 		A5FF48E31FB08C8A004EC019 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E21FB08C8A004EC019 /* TabBarCoordinator.swift */; };
 		A5FF48E61FB08CC8004EC019 /* AccountOverviewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E51FB08CC8004EC019 /* AccountOverviewCoordinator.swift */; };
+		A5FF48E91FB0A521004EC019 /* ReactiveExtensions+Heimdall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E81FB0A521004EC019 /* ReactiveExtensions+Heimdall.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -198,6 +199,7 @@
 		A5FF48E01FB08C72004EC019 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		A5FF48E21FB08C8A004EC019 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		A5FF48E51FB08CC8004EC019 /* AccountOverviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOverviewCoordinator.swift; sourceTree = "<group>"; };
+		A5FF48E81FB0A521004EC019 /* ReactiveExtensions+Heimdall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReactiveExtensions+Heimdall.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 				A57402B41FA9FF24004387EC /* Dispatch+Heimdall.swift */,
 				A5B0EA011FAB5B7B002FF75E /* String+Heimdall.swift */,
 				A5E96A321FB060750093B3D9 /* BigInt+Heimdall.swift */,
+				A5FF48E81FB0A521004EC019 /* ReactiveExtensions+Heimdall.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,8 +286,6 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
-		A51180C61F9C9B65008FC2DB /* Onboarding */ = {
-			sourceTree = "<group>";
 		A566D99F1F97A1A000DBEB9A = {
 			isa = PBXGroup;
 			children = (
@@ -762,6 +763,7 @@
 				A566D9AC1F97A1A000DBEB9A /* AppDelegate.swift in Sources */,
 				A51180CA1F9C9B7B008FC2DB /* CredentialsRepo.swift in Sources */,
 				A5E96A1C1FB058DD0093B3D9 /* Bytes.swift in Sources */,
+				A5FF48E91FB0A521004EC019 /* ReactiveExtensions+Heimdall.swift in Sources */,
 				A5E96A2C1FB058FD0093B3D9 /* DynamicType.swift in Sources */,
 				A5E96A281FB058F50093B3D9 /* IntX-Generated.swift in Sources */,
 				A5B0EA021FAB5B7B002FF75E /* String+Heimdall.swift in Sources */,
@@ -921,7 +923,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93WP7WK739;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -940,7 +942,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 93WP7WK739;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",

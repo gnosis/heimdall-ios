@@ -12,9 +12,11 @@ import UIKit
 
 class TokenListCoordinator: TabCoordinator {
     let rpc: EtherRPC
+    let credentials: Credentials
 
-    init(rpc: EtherRPC) {
+    init(credentials: Credentials, rpc: EtherRPC) {
         self.rpc = rpc
+        self.credentials = credentials
         super.init()
     }
 
@@ -25,7 +27,7 @@ class TokenListCoordinator: TabCoordinator {
     override func start() -> Signal<Void, NoError> {
         let dataStore = ApplicationSupportDataStore()
         let tokenStore = AppDataStore<Token>(store: dataStore)
-        let tokenListViewModel = TokenListViewModel(store: tokenStore)
+        let tokenListViewModel = TokenListViewModel(credentials: credentials, rpc: rpc, store: tokenStore)
         let tokenListViewController = TokenListViewController(viewModel: tokenListViewModel)
         navigationController.rootViewController = tokenListViewController
 
