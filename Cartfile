@@ -26,3 +26,7 @@ github "PureLayout/PureLayout"
 # Delightful framework for iOS to easily persist structs, images, and data
 # https://github.com/saoudrizwan/Disk
 github "saoudrizwan/Disk"
+
+# Simple QRCode reader in Swift
+# https://github.com/yannickl/QRCodeReader.swift
+github "yannickl/QRCodeReader.swift" >= 8.0.3

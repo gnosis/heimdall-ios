@@ -8,6 +8,7 @@
 
 import ReactiveKit
 import UIKit
+import QRCodeReader
 
 enum AddTokenCoordinatorResult {
     case cancel
@@ -79,7 +80,22 @@ enum SelectMethodResult {
 
 private extension AddTokenCoordinator {
     func showQrCodeFlow() -> SafeSignal<AddressResult> {
-        return Signal.just(.cancel)
+        let subject = SafePublishSubject<AddressResult>()
+
+        // FIXME: Wrap in ScanQRCodeCoordinator
+        let reader = QRCodeReaderViewController(builder: QRCodeReaderViewControllerBuilder())
+        reader.completionBlock = { result in
+            reader.dismiss(animated: true)
+            guard let result = result else {
+                subject.completed(with: .cancel)
+                return
+            }
+            let address = result.value
+            subject.completed(with: .address(address))
+        }
+
+        navigationController.present(reader, animated: true)
+        return subject.toSignal()
     }
 
     func showSelectMethodAlert() -> SafeSignal<SelectMethodResult> {

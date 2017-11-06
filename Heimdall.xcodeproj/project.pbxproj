@@ -28,6 +28,7 @@
 		A53D140B1FA354CE003BB29C /* UINavigationController+Heimdall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D140A1FA354CD003BB29C /* UINavigationController+Heimdall.swift */; };
 		A53DCD8A1FAFA8D200A67DBB /* EtherAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53DCD891FAFA8D200A67DBB /* EtherAmount.swift */; };
 		A53F6DC61FA0B480002C53B0 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53F6DC51FA0B480002C53B0 /* DataStore.swift */; };
+		A54027B31FB0D4D700A12E02 /* QRCodeReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A54027B21FB0D4D600A12E02 /* QRCodeReader.framework */; };
 		A544B2701F99ECF4001B2C07 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544B26F1F99ECF4001B2C07 /* BaseCoordinator.swift */; };
 		A544B2B31F9A5188001B2C07 /* SipHash.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A544B2B21F9A5188001B2C07 /* SipHash.framework */; };
 		A544B2B51F9A518C001B2C07 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A544B2B41F9A518C001B2C07 /* BigInt.framework */; };
@@ -130,6 +131,7 @@
 		A53D140A1FA354CD003BB29C /* UINavigationController+Heimdall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Heimdall.swift"; sourceTree = "<group>"; };
 		A53DCD891FAFA8D200A67DBB /* EtherAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherAmount.swift; sourceTree = "<group>"; };
 		A53F6DC51FA0B480002C53B0 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		A54027B21FB0D4D600A12E02 /* QRCodeReader.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QRCodeReader.framework; path = Carthage/Build/iOS/QRCodeReader.framework; sourceTree = "<group>"; };
 		A544B26F1F99ECF4001B2C07 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		A544B2B21F9A5188001B2C07 /* SipHash.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SipHash.framework; path = Carthage/Build/iOS/SipHash.framework; sourceTree = "<group>"; };
 		A544B2B41F9A518C001B2C07 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BigInt.framework; path = Carthage/Build/iOS/BigInt.framework; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				A5946B881F9DDEAF004760A0 /* PureLayout.framework in Frameworks */,
 				A5946B891F9DDEAF004760A0 /* KeychainAccess.framework in Frameworks */,
 				A50EFE3F1FA0B76100FC6114 /* Disk.framework in Frameworks */,
+				A54027B31FB0D4D700A12E02 /* QRCodeReader.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +342,7 @@
 		A566D9CB1F97A22400DBEB9A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A54027B21FB0D4D600A12E02 /* QRCodeReader.framework */,
 				A50EFE721FA0DB3300FC6114 /* Nimble.framework */,
 				A50EFE6F1FA0DB1800FC6114 /* Quick.framework */,
 				A50EFE3E1FA0B76100FC6114 /* Disk.framework */,
@@ -654,6 +658,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/PureLayout.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/KeychainAccess.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Disk.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/QRCodeReader.framework",
 			);
 			name = "Carthage: Copy Frameworks";
 			outputPaths = (
@@ -666,6 +671,7 @@
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PureLayout.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/KeychainAccess.framework",
 				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Disk.framework",
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/QRCodeReader.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
