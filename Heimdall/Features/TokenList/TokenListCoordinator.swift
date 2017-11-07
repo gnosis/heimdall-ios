@@ -6,7 +6,6 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
-import ethers
 import ReactiveKit
 import UIKit
 
