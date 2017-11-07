@@ -31,16 +31,17 @@ class TokenListCoordinator: TabCoordinator {
         let tokenListViewController = TokenListViewController(viewModel: tokenListViewModel)
         navigationController.rootViewController = tokenListViewController
 
-        tokenListViewModel.addToken?.flatMapLatest { _ in
-            self.coordinate(to: AddTokenCoordinator(navigationController: self.navigationController, rpc: self.rpc))
-        }.flatMap { (result: AddTokenCoordinator.CoordinationResult) -> Token? in
-            guard case .token(let newToken) = result else {
-                return nil
-            }
-            return newToken
-        }.observeNext { token in
-            _ = try? tokenStore.add(token)
-        }.dispose(in: disposeBag)
+        tokenListViewModel.addToken?
+            .flatMapLatest { _ in
+                self.coordinate(to: AddTokenCoordinator(navigationController: self.navigationController, rpc: self.rpc))
+            }.flatMap { (result: AddTokenCoordinator.CoordinationResult) -> Token? in
+                guard case .token(let newToken) = result else {
+                    return nil
+                }
+                return newToken
+            }.observeNext { token in
+                _ = try? tokenStore.add(token)
+            }.dispose(in: disposeBag)
 
         return Signal.never()
     }

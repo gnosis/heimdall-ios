@@ -51,11 +51,11 @@ class BaseCoordinator<ResultType> {
     /// - Returns: Result of `start()` method.
     func coordinate<T>(to coordinator: BaseCoordinator<T>) -> SafeSignal<T> {
         store(coordinator: coordinator)
-        let signal = coordinator.start()
-        signal.observeNext { [weak self] _ in
-            self?.free(coordinator: coordinator)
-        }.dispose(in: disposeBag)
-        return signal
+        // swiftlint:disable:next trailing_closure
+        return coordinator.start()
+            .doOn(completed: {
+                self.free(coordinator: coordinator)
+        })
     }
 
     /// Starts job of the coordinator.
