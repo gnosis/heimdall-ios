@@ -13,6 +13,8 @@ class TokenListView: AutoLayoutView {
 
     override func setupSubviews() {
         addSubview(tableView)
+        tableView.register(ReactiveUITableViewCell.self,
+                           forCellReuseIdentifier: String(describing: ReactiveUITableViewCell.self))
     }
 
     override func setupInitialConstraints() {

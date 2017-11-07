@@ -50,6 +50,7 @@
 		A57497161FAFDF5F00D2FC78 /* TokenListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57497151FAFDF5F00D2FC78 /* TokenListView.swift */; };
 		A57497181FAFDF8000D2FC78 /* TokenListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57497171FAFDF8000D2FC78 /* TokenListCellViewModel.swift */; };
 		A574971A1FAFDF9B00D2FC78 /* TokenListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A57497191FAFDF9B00D2FC78 /* TokenListViewModel.swift */; };
+		A5776C8B1FB1CF5700298D1B /* ScanQRCodeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5776C8A1FB1CF5700298D1B /* ScanQRCodeCoordinator.swift */; };
 		A5946B821F9DDB03004760A0 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5946B811F9DDB03004760A0 /* OnboardingCoordinator.swift */; };
 		A5946B841F9DDB9D004760A0 /* LoggedInCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5946B831F9DDB9D004760A0 /* LoggedInCoordinator.swift */; };
 		A5946B881F9DDEAF004760A0 /* PureLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5946B861F9DDEAF004760A0 /* PureLayout.framework */; };
@@ -158,6 +159,7 @@
 		A57497151FAFDF5F00D2FC78 /* TokenListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListView.swift; sourceTree = "<group>"; };
 		A57497171FAFDF8000D2FC78 /* TokenListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListCellViewModel.swift; sourceTree = "<group>"; };
 		A57497191FAFDF9B00D2FC78 /* TokenListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListViewModel.swift; sourceTree = "<group>"; };
+		A5776C8A1FB1CF5700298D1B /* ScanQRCodeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeCoordinator.swift; sourceTree = "<group>"; };
 		A5946B811F9DDB03004760A0 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
 		A5946B831F9DDB9D004760A0 /* LoggedInCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedInCoordinator.swift; sourceTree = "<group>"; };
 		A5946B861F9DDEAF004760A0 /* PureLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PureLayout.framework; path = Carthage/Build/iOS/PureLayout.framework; sourceTree = "<group>"; };
@@ -373,6 +375,7 @@
 		A57497101FAFD52000D2FC78 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A5776C891FB1CF3D00298D1B /* QRCodeScanning */,
 				A5FF48E71FB08D4B004EC019 /* Onboarding */,
 				A5FF48E41FB08CB5004EC019 /* AccountOverview */,
 				A57497111FAFD52A00D2FC78 /* TokenList */,
@@ -401,6 +404,14 @@
 				A57497131FAFDF4800D2FC78 /* Token.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A5776C891FB1CF3D00298D1B /* QRCodeScanning */ = {
+			isa = PBXGroup;
+			children = (
+				A5776C8A1FB1CF5700298D1B /* ScanQRCodeCoordinator.swift */,
+			);
+			path = QRCodeScanning;
 			sourceTree = "<group>";
 		};
 		A5946B851F9DDD4C004760A0 /* Other */ = {
@@ -754,6 +765,7 @@
 				A5E96A271FB058F50093B3D9 /* BytesX-Generated.swift in Sources */,
 				A5E96A211FB058EA0093B3D9 /* HumanStandardToken.swift in Sources */,
 				A5FF48E11FB08C72004EC019 /* TabCoordinator.swift in Sources */,
+				A5776C8B1FB1CF5700298D1B /* ScanQRCodeCoordinator.swift in Sources */,
 				A5B0E9FB1FAB41A8002FF75E /* AppDataStore.swift in Sources */,
 				A51180CF1F9C9B8B008FC2DB /* StyleKit.swift in Sources */,
 				A5E96A1F1FB058EA0093B3D9 /* DailyLimitException.swift in Sources */,

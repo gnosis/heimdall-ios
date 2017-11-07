@@ -6,9 +6,9 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
+import QRCodeReader
 import ReactiveKit
 import UIKit
-import QRCodeReader
 
 enum AddTokenCoordinatorResult {
     case cancel
@@ -80,22 +80,16 @@ enum SelectMethodResult {
 
 private extension AddTokenCoordinator {
     func showQrCodeFlow() -> SafeSignal<AddressResult> {
-        let subject = SafePublishSubject<AddressResult>()
-
-        // FIXME: Wrap in ScanQRCodeCoordinator
-        let reader = QRCodeReaderViewController(builder: QRCodeReaderViewControllerBuilder())
-        reader.completionBlock = { result in
-            reader.dismiss(animated: true)
-            guard let result = result else {
-                subject.completed(with: .cancel)
-                return
-            }
-            let address = result.value
-            subject.completed(with: .address(address))
+        return ScanQRCodeCoordinator(rootViewController: navigationController)
+            .start()
+            .map { result in
+                switch result {
+                case .cancel:
+                    return .cancel
+                case .qrCode(let value):
+                    return .address(value)
+                }
         }
-
-        navigationController.present(reader, animated: true)
-        return subject.toSignal()
     }
 
     func showSelectMethodAlert() -> SafeSignal<SelectMethodResult> {
