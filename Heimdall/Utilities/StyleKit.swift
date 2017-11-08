@@ -16,8 +16,8 @@ struct StyleKit {
         return view
     }
 
-    static func button(with title: String) -> ClosureButton {
-        let button = ClosureButton(type: .system)
+    static func button(with title: String) -> UIButton {
+        let button = UIButton(type: .system)
         button.setTitle(title, for: .normal)
         return button
     }

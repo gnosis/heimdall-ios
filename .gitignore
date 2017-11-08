@@ -68,3 +68,6 @@ fastlane/test_output
 
 DESIGNGOALS.md
 
+# Secret environment variables
+env-vars.sh
+Heimdall/Other/Secrets.generated.swift

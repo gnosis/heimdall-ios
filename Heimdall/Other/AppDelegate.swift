@@ -6,6 +6,7 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
+import ReactiveKit
 import UIKit
 
 @UIApplicationMain
@@ -13,18 +14,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var appCoordinator: AppCoordinator?
+    let disposeBag = DisposeBag()
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
-        window = UIWindow(frame: UIScreen.main.bounds)
+        let newWindow = UIWindow()
+        window = newWindow
 
-        let navigationController = UINavigationController()
-        window?.rootViewController = navigationController
-        appCoordinator = AppCoordinator(with: navigationController)
-        appCoordinator?.start()
+        appCoordinator = AppCoordinator(with: newWindow)
+        appCoordinator?.start().observeNext {}.dispose(in: disposeBag)
 
-        window?.makeKeyAndVisible()
         return true
     }
 

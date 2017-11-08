@@ -1,0 +1,9 @@
+# Add frameworks only used in tests here
+
+# The Swift (and Objective-C) testing framework.
+# https://github.com/Quick/Quick
+github "Quick/Quick"
+
+# A Matcher Framework for Swift and Objective-C
+# https://github.com/Quick/Nimble
+github "Quick/Nimble"

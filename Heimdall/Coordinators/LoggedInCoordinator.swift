@@ -6,20 +6,23 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
+import ethers
+import ReactiveKit
 import UIKit
 
-class LoggedInCoordinator: Coordinator {
-    let navigationController: UINavigationController
+class LoggedInCoordinator: TabBarCoordinator {
+    let credentials: Credentials
+    let etherRpc: EtherRPC
 
-    init(with rootViewController: UINavigationController) {
-        navigationController = rootViewController
-    }
+    init(with window: UIWindow, credentials: Credentials) {
+        self.credentials = credentials
+        self.etherRpc = EtherRPC(provider: InfuraProvider(chainId: .ChainIdKovan,
+                                                          accessToken: Secrets.infuraKey.rawValue),
+                                 credentials: credentials,
+                                 nonceProvider: NonceProvider())
+        super.init(with: window)
 
-    override func start() {
-        guard let account = AccountManager.storedAccount else {
-            die("LoggedInCoordinator.start() without Stored Account")
-        }
-        let vc = AccountViewController(with: account)
-        navigationController.pushViewController(vc, animated: false)
+        tabCoordinators = [AccountOverviewCoordinator(credentials: credentials, rpc: etherRpc),
+                           TokenListCoordinator(credentials: credentials, rpc: etherRpc)]
     }
 }

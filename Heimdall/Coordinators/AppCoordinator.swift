@@ -6,24 +6,36 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
+import ReactiveKit
 import UIKit
 
-class AppCoordinator: Coordinator {
-    let navigationController: UINavigationController
+class AppCoordinator: BaseCoordinator<Void> {
+    let window: UIWindow
+    let secureStore = SecureDataStore()
+    let credentialsRepo: CredentialsRepo
 
-    init(with rootViewController: UINavigationController) {
-        navigationController = rootViewController
+    init(with window: UIWindow) {
+        self.window = window
+        credentialsRepo = CredentialsRepo(store: secureStore)
     }
 
-    override func start() {
-        if AccountManager.hasStoredAccount {
-            let coordinator = LoggedInCoordinator(with: navigationController)
-            add(coordinator)
-            coordinator.start()
+    override func start() -> SafeSignal<CoordinationResult> {
+        if credentialsRepo.hasStoredCredentials,
+            let credentials = try? credentialsRepo.fetchCredentials() {
+            return coordinateLoggedIn(credentials: credentials)
         } else {
-            let coordinator = OnboardingCoordinator(with: navigationController)
-            add(coordinator)
-            coordinator.start()
+            let coordinator = OnboardingCoordinator(with: window,
+                                                    credentialsRepo: credentialsRepo)
+            return coordinate(to: coordinator)
+                .flatMapLatest { self.coordinateLoggedIn(credentials: $0) }
         }
+    }
+}
+
+extension AppCoordinator {
+    func coordinateLoggedIn(credentials: Credentials) -> SafeSignal<Void> {
+        let coordinator = LoggedInCoordinator(with: window,
+                                              credentials: credentials)
+        return coordinate(to: coordinator)
     }
 }

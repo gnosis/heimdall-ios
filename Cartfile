@@ -22,3 +22,11 @@ github "kishikawakatsumi/KeychainAccess"
 # The ultimate API for iOS & OS X Auto Layout — impressively simple, immensely powerful. Objective-C and Swift compatible.
 # https://github.com/PureLayout/PureLayout
 github "PureLayout/PureLayout"
+
+# Delightful framework for iOS to easily persist structs, images, and data
+# https://github.com/saoudrizwan/Disk
+github "saoudrizwan/Disk"
+
+# Simple QRCode reader in Swift
+# https://github.com/yannickl/QRCodeReader.swift
+github "yannickl/QRCodeReader.swift" >= 8.0.3
