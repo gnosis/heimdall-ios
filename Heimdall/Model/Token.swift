@@ -26,16 +26,9 @@ struct Token: Storable {
     }
 }
 
-extension Token {
-    static var whitelisted: [Token] {
-        return [
-
-        ]
-    }
-}
 // MARK: - Equatable
 extension Token: Equatable {
     static func == (lhs: Token, rhs: Token) -> Bool {
-        return lhs.address == rhs.address && lhs.symbol == rhs.symbol
+        return lhs.address == rhs.address
     }
 }
