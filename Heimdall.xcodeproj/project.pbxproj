@@ -59,7 +59,6 @@
 		A5B0E9FB1FAB41A8002FF75E /* AppDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9FA1FAB41A8002FF75E /* AppDataStore.swift */; };
 		A5B0E9FD1FAB4341002FF75E /* EtherRPCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9FC1FAB4341002FF75E /* EtherRPCSpec.swift */; };
 		A5B0E9FE1FAB4B8D002FF75E /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A566D9CF1F97A22400DBEB9A /* ReactiveKit.framework */; };
-		A5B0EA021FAB5B7B002FF75E /* String+Heimdall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0EA011FAB5B7B002FF75E /* String+Heimdall.swift */; };
 		A5D03F0C1FAFE66A005ADBD1 /* AddTokenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D03F0B1FAFE66A005ADBD1 /* AddTokenCoordinator.swift */; };
 		A5D03F0E1FAFEA88005ADBD1 /* TokenListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D03F0D1FAFEA88005ADBD1 /* TokenListCoordinator.swift */; };
 		A5E96A121FB058DD0093B3D9 /* Solidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E969EF1FB058B90093B3D9 /* Solidity.swift */; };
@@ -167,7 +166,6 @@
 		A5B0E9F81FAA35CA002FF75E /* Secrets.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.generated.swift; sourceTree = "<group>"; };
 		A5B0E9FA1FAB41A8002FF75E /* AppDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataStore.swift; sourceTree = "<group>"; };
 		A5B0E9FC1FAB4341002FF75E /* EtherRPCSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherRPCSpec.swift; sourceTree = "<group>"; };
-		A5B0EA011FAB5B7B002FF75E /* String+Heimdall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Heimdall.swift"; sourceTree = "<group>"; };
 		A5D03F0B1FAFE66A005ADBD1 /* AddTokenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTokenCoordinator.swift; sourceTree = "<group>"; };
 		A5D03F0D1FAFEA88005ADBD1 /* TokenListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListCoordinator.swift; sourceTree = "<group>"; };
 		A5E969EF1FB058B90093B3D9 /* Solidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solidity.swift; sourceTree = "<group>"; };
@@ -256,7 +254,6 @@
 			children = (
 				A53D140A1FA354CD003BB29C /* UINavigationController+Heimdall.swift */,
 				A57402B41FA9FF24004387EC /* Dispatch+Heimdall.swift */,
-				A5B0EA011FAB5B7B002FF75E /* String+Heimdall.swift */,
 				A5E96A321FB060750093B3D9 /* BigInt+Heimdall.swift */,
 				A5FF48E81FB0A521004EC019 /* ReactiveExtensions+Heimdall.swift */,
 			);
@@ -788,7 +785,6 @@
 				A5FF48E91FB0A521004EC019 /* ReactiveExtensions+Heimdall.swift in Sources */,
 				A5E96A2C1FB058FD0093B3D9 /* DynamicType.swift in Sources */,
 				A5E96A281FB058F50093B3D9 /* IntX-Generated.swift in Sources */,
-				A5B0EA021FAB5B7B002FF75E /* String+Heimdall.swift in Sources */,
 				A57497181FAFDF8000D2FC78 /* TokenListCellViewModel.swift in Sources */,
 				A53F6DC61FA0B480002C53B0 /* DataStore.swift in Sources */,
 				A5B0E9F91FAA35CB002FF75E /* Secrets.generated.swift in Sources */,

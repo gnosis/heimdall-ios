@@ -12,7 +12,6 @@ public extension Solidity {
         let value: Swift.String
 
         init?(_ value: Swift.String) {
-            // FIXME: Bivrost: this needs to go in bivrost
             self.value = value
 
             guard let data = value.data(using: .utf8),
@@ -20,6 +19,10 @@ public extension Solidity {
                 return nil
             }
             self.wrapper = bytes
+        }
+
+        func unwrap() -> Swift.String {
+            return value
         }
     }
 }
