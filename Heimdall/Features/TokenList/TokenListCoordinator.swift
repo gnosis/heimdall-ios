@@ -12,10 +12,14 @@ import UIKit
 class TokenListCoordinator: TabCoordinator {
     let rpc: EtherRPC
     let credentials: Credentials
+    let tokenProvider: VerifiedTokenProvider
 
-    init(credentials: Credentials, rpc: EtherRPC) {
+    init(credentials: Credentials,
+         rpc: EtherRPC,
+         whiteListTokenProvider: VerifiedTokenProvider) {
         self.rpc = rpc
         self.credentials = credentials
+        self.tokenProvider = whiteListTokenProvider
         super.init()
     }
 
@@ -26,6 +30,9 @@ class TokenListCoordinator: TabCoordinator {
     override func start() -> Signal<Void, NoError> {
         let dataStore = ApplicationSupportDataStore()
         let tokenStore = AppDataStore<Token>(store: dataStore)
+        // Make sure we have our whitelist in the store
+        _ = try? tokenStore.add(tokenProvider.verifiedTokens)
+
         let tokenListViewModel = TokenListViewModel(credentials: credentials, rpc: rpc, store: tokenStore)
         let tokenListViewController = TokenListViewController(viewModel: tokenListViewModel)
         navigationController.rootViewController = tokenListViewController

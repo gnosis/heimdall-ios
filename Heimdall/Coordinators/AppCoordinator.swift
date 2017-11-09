@@ -35,7 +35,8 @@ class AppCoordinator: BaseCoordinator<Void> {
 extension AppCoordinator {
     func coordinateLoggedIn(credentials: Credentials) -> SafeSignal<Void> {
         let coordinator = LoggedInCoordinator(with: window,
-                                              credentials: credentials)
+                                              credentials: credentials,
+                                              networkingProvider: NetworkingProviderImpl())
         return coordinate(to: coordinator)
     }
 }

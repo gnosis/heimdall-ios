@@ -34,7 +34,7 @@
 		A544B2B51F9A518C001B2C07 /* BigInt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A544B2B41F9A518C001B2C07 /* BigInt.framework */; };
 		A54817561FA75FF100CBC7CC /* CredentialsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817551FA75FF100CBC7CC /* CredentialsSpec.swift */; };
 		A54817581FA762A500CBC7CC /* NonceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817571FA762A500CBC7CC /* NonceProvider.swift */; };
-		A548175A1FA76EF900CBC7CC /* ChainProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817591FA76EF900CBC7CC /* ChainProvider.swift */; };
+		A548175A1FA76EF900CBC7CC /* NetworkingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817591FA76EF900CBC7CC /* NetworkingProvider.swift */; };
 		A566D9AC1F97A1A000DBEB9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A566D9AB1F97A1A000DBEB9A /* AppDelegate.swift */; };
 		A566D9B31F97A1A000DBEB9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A566D9B21F97A1A000DBEB9A /* Assets.xcassets */; };
 		A566D9B61F97A1A000DBEB9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A566D9B41F97A1A000DBEB9A /* LaunchScreen.storyboard */; };
@@ -61,6 +61,7 @@
 		A5B0E9FE1FAB4B8D002FF75E /* ReactiveKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A566D9CF1F97A22400DBEB9A /* ReactiveKit.framework */; };
 		A5D03F0C1FAFE66A005ADBD1 /* AddTokenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D03F0B1FAFE66A005ADBD1 /* AddTokenCoordinator.swift */; };
 		A5D03F0E1FAFEA88005ADBD1 /* TokenListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5D03F0D1FAFEA88005ADBD1 /* TokenListCoordinator.swift */; };
+		A5E276501FB3756C003D45AB /* VerifiedTokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E2764F1FB3756C003D45AB /* VerifiedTokenProvider.swift */; };
 		A5E96A121FB058DD0093B3D9 /* Solidity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E969EF1FB058B90093B3D9 /* Solidity.swift */; };
 		A5E96A131FB058DD0093B3D9 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E969F01FB058B90093B3D9 /* Address.swift */; };
 		A5E96A141FB058DD0093B3D9 /* UIntX.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E969F11FB058B90093B3D9 /* UIntX.swift */; };
@@ -93,6 +94,8 @@
 		A5E96A2F1FB058FD0093B3D9 /* SolidityFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E96A111FB058B90093B3D9 /* SolidityFunction.swift */; };
 		A5E96A311FB05B1D0093B3D9 /* EtherRPC+TokenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E96A301FB05B1D0093B3D9 /* EtherRPC+TokenInfo.swift */; };
 		A5E96A331FB060750093B3D9 /* BigInt+Heimdall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E96A321FB060750093B3D9 /* BigInt+Heimdall.swift */; };
+		A5EA7BD31FB4679E007B9105 /* mainnet.json in Resources */ = {isa = PBXBuildFile; fileRef = A5EA7BD11FB466FB007B9105 /* mainnet.json */; };
+		A5EA7BD41FB467A0007B9105 /* kovan.json in Resources */ = {isa = PBXBuildFile; fileRef = A5EA7BD21FB466FB007B9105 /* kovan.json */; };
 		A5FF48E11FB08C72004EC019 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E01FB08C72004EC019 /* TabCoordinator.swift */; };
 		A5FF48E31FB08C8A004EC019 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E21FB08C8A004EC019 /* TabBarCoordinator.swift */; };
 		A5FF48E61FB08CC8004EC019 /* AccountOverviewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E51FB08CC8004EC019 /* AccountOverviewCoordinator.swift */; };
@@ -137,7 +140,7 @@
 		A544B2B41F9A518C001B2C07 /* BigInt.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BigInt.framework; path = Carthage/Build/iOS/BigInt.framework; sourceTree = "<group>"; };
 		A54817551FA75FF100CBC7CC /* CredentialsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsSpec.swift; sourceTree = "<group>"; };
 		A54817571FA762A500CBC7CC /* NonceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonceProvider.swift; sourceTree = "<group>"; };
-		A54817591FA76EF900CBC7CC /* ChainProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainProvider.swift; sourceTree = "<group>"; };
+		A54817591FA76EF900CBC7CC /* NetworkingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProvider.swift; sourceTree = "<group>"; };
 		A5589A761FAA1A670007ADBC /* Secrets.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = Secrets.stencil; sourceTree = "<group>"; };
 		A566D9A81F97A1A000DBEB9A /* Heimdall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heimdall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A566D9AB1F97A1A000DBEB9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +171,7 @@
 		A5B0E9FC1FAB4341002FF75E /* EtherRPCSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherRPCSpec.swift; sourceTree = "<group>"; };
 		A5D03F0B1FAFE66A005ADBD1 /* AddTokenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTokenCoordinator.swift; sourceTree = "<group>"; };
 		A5D03F0D1FAFEA88005ADBD1 /* TokenListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListCoordinator.swift; sourceTree = "<group>"; };
+		A5E2764F1FB3756C003D45AB /* VerifiedTokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedTokenProvider.swift; sourceTree = "<group>"; };
 		A5E969EF1FB058B90093B3D9 /* Solidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solidity.swift; sourceTree = "<group>"; };
 		A5E969F01FB058B90093B3D9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
 		A5E969F11FB058B90093B3D9 /* UIntX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIntX.swift; sourceTree = "<group>"; };
@@ -200,6 +204,8 @@
 		A5E96A111FB058B90093B3D9 /* SolidityFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SolidityFunction.swift; sourceTree = "<group>"; };
 		A5E96A301FB05B1D0093B3D9 /* EtherRPC+TokenInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EtherRPC+TokenInfo.swift"; sourceTree = "<group>"; };
 		A5E96A321FB060750093B3D9 /* BigInt+Heimdall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BigInt+Heimdall.swift"; sourceTree = "<group>"; };
+		A5EA7BD11FB466FB007B9105 /* mainnet.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mainnet.json; sourceTree = "<group>"; };
+		A5EA7BD21FB466FB007B9105 /* kovan.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kovan.json; sourceTree = "<group>"; };
 		A5FF48E01FB08C72004EC019 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		A5FF48E21FB08C8A004EC019 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		A5FF48E51FB08CC8004EC019 /* AccountOverviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOverviewCoordinator.swift; sourceTree = "<group>"; };
@@ -273,9 +279,10 @@
 			children = (
 				A51180C01F9C9B65008FC2DB /* EtherRPC.swift */,
 				A54817571FA762A500CBC7CC /* NonceProvider.swift */,
-				A54817591FA76EF900CBC7CC /* ChainProvider.swift */,
+				A54817591FA76EF900CBC7CC /* NetworkingProvider.swift */,
 				A53DCD891FAFA8D200A67DBB /* EtherAmount.swift */,
 				A5E96A301FB05B1D0093B3D9 /* EtherRPC+TokenInfo.swift */,
+				A5E2764F1FB3756C003D45AB /* VerifiedTokenProvider.swift */,
 			);
 			path = Ethereum;
 			sourceTree = "<group>";
@@ -414,6 +421,7 @@
 		A5946B851F9DDD4C004760A0 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				A5EA7BD01FB466FB007B9105 /* Verified Tokens */,
 				A5B0E9F81FAA35CA002FF75E /* Secrets.generated.swift */,
 				A5589A761FAA1A670007ADBC /* Secrets.stencil */,
 				A566D9AB1F97A1A000DBEB9A /* AppDelegate.swift */,
@@ -507,6 +515,15 @@
 				A5E96A111FB058B90093B3D9 /* SolidityFunction.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A5EA7BD01FB466FB007B9105 /* Verified Tokens */ = {
+			isa = PBXGroup;
+			children = (
+				A5EA7BD11FB466FB007B9105 /* mainnet.json */,
+				A5EA7BD21FB466FB007B9105 /* kovan.json */,
+			);
+			path = "Verified Tokens";
 			sourceTree = "<group>";
 		};
 		A5FF48E41FB08CB5004EC019 /* AccountOverview */ = {
@@ -616,6 +633,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5EA7BD31FB4679E007B9105 /* mainnet.json in Resources */,
+				A5EA7BD41FB467A0007B9105 /* kovan.json in Resources */,
 				A566D9B61F97A1A000DBEB9A /* LaunchScreen.storyboard in Resources */,
 				A566D9B31F97A1A000DBEB9A /* Assets.xcassets in Resources */,
 			);
@@ -735,13 +754,14 @@
 				A57402B51FA9FF24004387EC /* Dispatch+Heimdall.swift in Sources */,
 				A53DCD8A1FAFA8D200A67DBB /* EtherAmount.swift in Sources */,
 				A5E96A2D1FB058FD0093B3D9 /* StaticType.swift in Sources */,
+				A5E276501FB3756C003D45AB /* VerifiedTokenProvider.swift in Sources */,
 				A5E96A191FB058DD0093B3D9 /* VariableArray.swift in Sources */,
 				A57497141FAFDF4800D2FC78 /* Token.swift in Sources */,
 				A5E96A291FB058F50093B3D9 /* ArrayX-Generated.swift in Sources */,
 				A5E96A2B1FB058F80093B3D9 /* BaseEncoder.swift in Sources */,
 				A5E96A171FB058DD0093B3D9 /* BytesX.swift in Sources */,
 				A51180D21F9C9B96008FC2DB /* DisplayMnemonicViewController.swift in Sources */,
-				A548175A1FA76EF900CBC7CC /* ChainProvider.swift in Sources */,
+				A548175A1FA76EF900CBC7CC /* NetworkingProvider.swift in Sources */,
 				A5946B841F9DDB9D004760A0 /* LoggedInCoordinator.swift in Sources */,
 				A51180D11F9C9B94008FC2DB /* ImportMnemonicViewController.swift in Sources */,
 				A544B2701F99ECF4001B2C07 /* BaseCoordinator.swift in Sources */,

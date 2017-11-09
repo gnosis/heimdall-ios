@@ -31,9 +31,17 @@ class AppDataStore<Element: Storable> {
 
     func add(_ element: Element) throws {
         var elements: [Element] = (try? fetchAll()) ?? []
+        guard !elements.contains(element) else {
+            // Don't add the element a second time
+            return
+        }
         elements.append(element)
         try store.store(elements, for: type(of: self).storageKey)
         contents.value = elements
+    }
+
+    func add(_ elements: [Element]) throws {
+        try elements.forEach { try add($0) }
     }
 
     func fetchAll() throws -> [Element] {
