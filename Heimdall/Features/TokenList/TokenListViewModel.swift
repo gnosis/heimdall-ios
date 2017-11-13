@@ -39,7 +39,6 @@ class TokenListViewModel {
                         self.refreshing.next(false)
                     })
             }
-            .debug()
             .bind(to: displayedBalances)
             .dispose(in: disposeBag)
         // Map Balances to cell view models
