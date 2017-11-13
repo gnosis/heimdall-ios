@@ -38,7 +38,7 @@ class TokenListCoordinator: TabCoordinator {
         let tokenListViewController = TokenListViewController(viewModel: tokenListViewModel)
         navigationController.rootViewController = tokenListViewController
 
-        tokenListViewModel.addToken?
+        tokenListViewModel.addToken
             .flatMapLatest { _ in
                 self.coordinate(to: AddTokenCoordinator(navigationController: self.navigationController, rpc: self.rpc))
             }.flatMap { (result: AddTokenCoordinator.CoordinationResult) -> Token? in
