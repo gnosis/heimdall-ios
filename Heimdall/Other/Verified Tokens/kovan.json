@@ -1,0 +1,56 @@
+[
+  {
+    "address" : "0xDfF868181120da44E8250855a21CdbED2Ed039AB",
+    "name" : "OMGToken",
+    "symbol" : "OMG",
+    "decimals" : 18
+  },
+  {
+    "address" : "0xe430dECE1E28C5977d174B68E639a27988A79449",
+    "name" : "Quantum",
+    "symbol" : "QNTS",
+    "decimals" : 18
+  },
+  {
+    "address" : "0x8A55Df5dE91eCEB816bd9263d2e5F35FD516D4D0",
+    "name" : "ICONOMI",
+    "symbol" : "ICN",
+    "decimals" : 18
+  },
+  {
+    "address" : "0xEdA7311c5E0312e0Ca58b6B6824a2822e8cF413b",
+    "name" : "Civic",
+    "symbol" : "CVC",
+    "decimals" : 0
+  },
+  {
+    "address" : "0x6be2E25Fe72b6d773a4B89e608B9a1a644AE69A9",
+    "name" : "0x Protocol Token",
+    "symbol" : "ZRX",
+    "decimals" : 18
+  },
+  {
+    "address" : "0x9B4Af032277C8a0F2718e51772AAacF8616e9120",
+    "name" : "Status Network Token",
+    "symbol" : "SNT",
+    "decimals" : 18
+  },
+  {
+    "address" : "0x04bD83EB4A1b5D1796f03de09Bc274C94d549591",
+    "name" : "Gnosis Token",
+    "symbol" : "GNO",
+    "decimals" : 18
+  },
+  {
+    "address" : "0xE89f924035E48A505D38FeA21cD0CF2e7d8BA0be",
+    "name" : "Bancor Network Token",
+    "symbol" : "BNT",
+    "decimals" : 18
+  },
+  {
+    "address" : "0xbDdde1aDc38f633d1b9802179f2518cA49de3551",
+    "name" : "Aragon Network Token",
+    "symbol" : "ANT",
+    "decimals" : 18
+  }
+]

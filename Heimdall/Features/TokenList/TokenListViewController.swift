@@ -14,8 +14,6 @@ class TokenListViewController: UIViewController {
     let tokenListView = TokenListView()
     let viewModel: TokenListViewModel
 
-    let deleteItemSubject = SafePublishSubject<IndexPath>()
-
     init(viewModel: TokenListViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -40,20 +38,16 @@ class TokenListViewController: UIViewController {
         tokenListView.tableView.reactive.delegate.forwardTo = self
         viewModel.title.bind(to: reactive.title)
 
+        // Bind refresh control to display & trigger viewmodel refreshing
+        viewModel.refreshing.bidirectionalBind(to: tokenListView.refreshControl.reactive.refreshing)
+
         // Bind Outputs
         let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
         navigationItem.rightBarButtonItem = addItem
-        viewModel.addToken = addItem.reactive.tap
-        viewModel.deleteToken = deleteItemSubject.toSignal()
+        addItem.reactive.tap.bind(to: viewModel.addToken)
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        die("init(coder:) has not been implemented")
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    required init?(coder aDecoder: NSCoder) { die("init(coder:) has not been implemented") }
 
     override func loadView() {
         view = tokenListView
@@ -68,7 +62,7 @@ extension TokenListViewController: UITableViewDelegate {
             let actions = [
                 UIContextualAction(style: .destructive,
                                    title: "Delete") { (_, _, handler) in
-                                    self.deleteItemSubject.next(indexPath)
+                                    self.viewModel.deleteToken.next(indexPath)
                                     handler(true)
                 }
             ]

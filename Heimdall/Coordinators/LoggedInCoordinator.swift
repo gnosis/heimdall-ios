@@ -11,18 +11,20 @@ import ReactiveKit
 import UIKit
 
 class LoggedInCoordinator: TabBarCoordinator {
-    let credentials: Credentials
-    let etherRpc: EtherRPC
-
-    init(with window: UIWindow, credentials: Credentials) {
-        self.credentials = credentials
-        self.etherRpc = EtherRPC(provider: InfuraProvider(chainId: .ChainIdKovan,
-                                                          accessToken: Secrets.infuraKey.rawValue),
-                                 credentials: credentials,
-                                 nonceProvider: NonceProvider())
+    init(with window: UIWindow,
+         credentials: Credentials,
+         networkingProvider: NetworkingProvider) {
+        let etherRpc = EtherRPC(provider: networkingProvider.rpcProvider,
+                                credentials: credentials,
+                                nonceProvider: networkingProvider.nonceProvider)
         super.init(with: window)
 
-        tabCoordinators = [AccountOverviewCoordinator(credentials: credentials, rpc: etherRpc),
-                           TokenListCoordinator(credentials: credentials, rpc: etherRpc)]
+        let accountCoordinator = AccountOverviewCoordinator(credentials: credentials,
+                                                            rpc: etherRpc)
+        let tokenProvider = VerifiedTokenProvider(chainId: networkingProvider.chainId)
+        let tokenListCoordinator = TokenListCoordinator(credentials: credentials,
+                                                        rpc: etherRpc,
+                                                        whiteListTokenProvider: tokenProvider)
+        tabCoordinators = [accountCoordinator, tokenListCoordinator]
     }
 }
