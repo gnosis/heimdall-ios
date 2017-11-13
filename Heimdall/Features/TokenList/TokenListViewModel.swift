@@ -11,20 +11,17 @@ import Foundation
 import ReactiveKit
 
 class TokenListViewModel {
-    private let store: AppDataStore<Token>
     private let disposeBag = DisposeBag()
 
     private let displayedBalances = Property<[Balance]>([])
     let items = Property<[TokenListCellViewModel]>([])
-    let title = Property("Token List")
+    let title = Property("Tokens")
 
     var addToken = SafePublishSubject<Void>()
     var deleteToken = SafePublishSubject<IndexPath>()
     var refreshing = SafePublishSubject<Bool>()
 
     init(credentials: Credentials, repo: BalanceRepo, store: AppDataStore<Token>) {
-        self.store = store
-
         // General fetching/refreshing logic
         // We only want to trigger a new refresh if the store contents changed
         // or refreshing is newly `true`. Also immediately trigger a loading call.
@@ -51,7 +48,7 @@ class TokenListViewModel {
             .with(latestFrom: displayedBalances)
             .observeNext { indexPath, balances in
                 let token = balances[indexPath.row].token
-                _ = try? self.store.remove(token)
+                _ = try? store.remove(token)
             }
             .dispose(in: disposeBag)
     }

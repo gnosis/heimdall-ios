@@ -13,13 +13,16 @@ class TokenListCoordinator: TabCoordinator {
     let rpc: EtherRPC
     let credentials: Credentials
     let tokenProvider: VerifiedTokenProvider
+    let store: DataStore
 
     init(credentials: Credentials,
          rpc: EtherRPC,
-         whiteListTokenProvider: VerifiedTokenProvider) {
+         whiteListTokenProvider: VerifiedTokenProvider,
+         store: DataStore) {
         self.rpc = rpc
         self.credentials = credentials
         self.tokenProvider = whiteListTokenProvider
+        self.store = store
         super.init()
     }
 
@@ -28,8 +31,7 @@ class TokenListCoordinator: TabCoordinator {
     }
 
     override func start() -> Signal<Void, NoError> {
-        let appSupportDataStore = ApplicationSupportDataStore()
-        let tokenStore = AppDataStore<Token>(store: appSupportDataStore)
+        let tokenStore = AppDataStore<Token>(store: store)
         // Make sure we have our whitelist in the store
         _ = try? tokenStore.add(tokenProvider.verifiedTokens)
 

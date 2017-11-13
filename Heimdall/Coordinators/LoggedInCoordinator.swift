@@ -19,12 +19,17 @@ class LoggedInCoordinator: TabBarCoordinator {
                                 nonceProvider: networkingProvider.nonceProvider)
         super.init(with: window)
 
+        let applicationSupportStore = ApplicationSupportDataStore()
         let accountCoordinator = AccountOverviewCoordinator(credentials: credentials,
                                                             rpc: etherRpc)
         let tokenProvider = VerifiedTokenProvider(chainId: networkingProvider.chainId)
         let tokenListCoordinator = TokenListCoordinator(credentials: credentials,
                                                         rpc: etherRpc,
-                                                        whiteListTokenProvider: tokenProvider)
-        tabCoordinators = [accountCoordinator, tokenListCoordinator]
+                                                        whiteListTokenProvider: tokenProvider,
+                                                        store: applicationSupportStore)
+
+        let safeListCoordinator = SafeListCoordinator(store: applicationSupportStore)
+
+        tabCoordinators = [accountCoordinator, safeListCoordinator, tokenListCoordinator]
     }
 }

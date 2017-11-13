@@ -24,6 +24,5 @@ struct NetworkingProviderImpl: NetworkingProvider {
         rpcProvider = InfuraProvider(chainId: chainId,
                                      accessToken: Secrets.infuraKey.rawValue)
         nonceProvider = NonceProvider()
-        // TODO: Infura Key is dependent on chainId, make this clear somehow
     }
 }
