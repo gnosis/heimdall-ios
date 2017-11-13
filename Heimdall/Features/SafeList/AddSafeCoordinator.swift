@@ -27,7 +27,7 @@ class AddSafeCoordinator: BaseCoordinator<AddSafeCoordinatorResult> {
         return coordinator.start()
             .flatMapLatest { result -> SafeSignal<CoordinationResult> in
                 guard case .address(let address) = result else {
-                    return Signal.just(CoordinationResult.cancel)
+                    return Signal.just(.cancel)
                 }
                 return self.showEnterInfoAlert()
                     .map { result -> CoordinationResult in
