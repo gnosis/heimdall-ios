@@ -13,14 +13,6 @@ struct Token: Storable {
     let decimals: Int
     let whitelisted: Bool
 
-    init(address: String, name: String, symbol: String, decimals: Int, whitelisted: Bool) {
-        self.address = address
-        self.name = name
-        self.symbol = symbol
-        self.decimals = decimals
-        self.whitelisted = whitelisted
-    }
-
     static var storageKey: String {
         return "Token"
     }

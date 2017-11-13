@@ -28,12 +28,13 @@ class TokenListCoordinator: TabCoordinator {
     }
 
     override func start() -> Signal<Void, NoError> {
-        let dataStore = ApplicationSupportDataStore()
-        let tokenStore = AppDataStore<Token>(store: dataStore)
+        let appSupportDataStore = ApplicationSupportDataStore()
+        let tokenStore = AppDataStore<Token>(store: appSupportDataStore)
         // Make sure we have our whitelist in the store
         _ = try? tokenStore.add(tokenProvider.verifiedTokens)
 
-        let tokenListViewModel = TokenListViewModel(credentials: credentials, rpc: rpc, store: tokenStore)
+        let balanceRepo = BalanceRepo(rpc: rpc)
+        let tokenListViewModel = TokenListViewModel(credentials: credentials, repo: balanceRepo, store: tokenStore)
         let tokenListViewController = TokenListViewController(viewModel: tokenListViewModel)
         navigationController.rootViewController = tokenListViewController
 

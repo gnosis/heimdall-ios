@@ -20,7 +20,7 @@ struct NetworkingProviderImpl: NetworkingProvider {
     let nonceProvider: NonceProvider
 
     init() {
-        chainId = .ChainIdHomestead
+        chainId = .ChainIdKovan
         rpcProvider = InfuraProvider(chainId: chainId,
                                      accessToken: Secrets.infuraKey.rawValue)
         nonceProvider = NonceProvider()

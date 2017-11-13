@@ -13,12 +13,9 @@ class TokenListCellViewModel {
     let textLabelText = Property("")
     let detailTextLabelText = Property("")
 
-    init(credentials: Credentials, rpc: EtherRPC, token: Token) {
+    init(balance: Balance) {
+        let token = balance.token
         detailTextLabelText.value = "\(token.address)"
-        rpc.balance(of: credentials.address, for: token)
-            .map { $0.description }
-            .flatMapError { _ in Signal.just("N/A") }
-            .map { "\(token.name) (\($0) \(token.symbol))" }
-            .bind(to: textLabelText)
+        textLabelText.value = "\(token.name) (\(balance.amount) \(token.symbol))"
     }
 }

@@ -96,6 +96,8 @@
 		A5E96A331FB060750093B3D9 /* BigInt+Heimdall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E96A321FB060750093B3D9 /* BigInt+Heimdall.swift */; };
 		A5EA7BD31FB4679E007B9105 /* mainnet.json in Resources */ = {isa = PBXBuildFile; fileRef = A5EA7BD11FB466FB007B9105 /* mainnet.json */; };
 		A5EA7BD41FB467A0007B9105 /* kovan.json in Resources */ = {isa = PBXBuildFile; fileRef = A5EA7BD21FB466FB007B9105 /* kovan.json */; };
+		A5EA7BD71FB48792007B9105 /* BalanceRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA7BD61FB48792007B9105 /* BalanceRepo.swift */; };
+		A5EA7BD91FB48828007B9105 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA7BD81FB48828007B9105 /* Balance.swift */; };
 		A5FF48E11FB08C72004EC019 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E01FB08C72004EC019 /* TabCoordinator.swift */; };
 		A5FF48E31FB08C8A004EC019 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E21FB08C8A004EC019 /* TabBarCoordinator.swift */; };
 		A5FF48E61FB08CC8004EC019 /* AccountOverviewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E51FB08CC8004EC019 /* AccountOverviewCoordinator.swift */; };
@@ -206,6 +208,8 @@
 		A5E96A321FB060750093B3D9 /* BigInt+Heimdall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BigInt+Heimdall.swift"; sourceTree = "<group>"; };
 		A5EA7BD11FB466FB007B9105 /* mainnet.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mainnet.json; sourceTree = "<group>"; };
 		A5EA7BD21FB466FB007B9105 /* kovan.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kovan.json; sourceTree = "<group>"; };
+		A5EA7BD61FB48792007B9105 /* BalanceRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceRepo.swift; sourceTree = "<group>"; };
+		A5EA7BD81FB48828007B9105 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		A5FF48E01FB08C72004EC019 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		A5FF48E21FB08C8A004EC019 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		A5FF48E51FB08CC8004EC019 /* AccountOverviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOverviewCoordinator.swift; sourceTree = "<group>"; };
@@ -246,7 +250,6 @@
 		A50EFE421FA0BF0C00FC6114 /* Storage */ = {
 			isa = PBXGroup;
 			children = (
-				A51180BF1F9C9B65008FC2DB /* CredentialsRepo.swift */,
 				A53F6DC51FA0B480002C53B0 /* DataStore.swift */,
 				A50EFE431FA0C2C300FC6114 /* SecureDataStore.swift */,
 				A50EFE451FA0C30700FC6114 /* DiskDataStore.swift */,
@@ -320,6 +323,7 @@
 		A566D9AA1F97A1A000DBEB9A /* Heimdall */ = {
 			isa = PBXGroup;
 			children = (
+				A5EA7BD51FB4877C007B9105 /* Repos */,
 				A57497121FAFDF2B00D2FC78 /* Model */,
 				A57497101FAFD52000D2FC78 /* Features */,
 				A50EFE421FA0BF0C00FC6114 /* Storage */,
@@ -406,6 +410,7 @@
 				A53D14061FA1EA5E003BB29C /* Credentials.swift */,
 				A53D14081FA1EA77003BB29C /* MnemonicPhrase.swift */,
 				A57497131FAFDF4800D2FC78 /* Token.swift */,
+				A5EA7BD81FB48828007B9105 /* Balance.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -524,6 +529,15 @@
 				A5EA7BD21FB466FB007B9105 /* kovan.json */,
 			);
 			path = "Verified Tokens";
+			sourceTree = "<group>";
+		};
+		A5EA7BD51FB4877C007B9105 /* Repos */ = {
+			isa = PBXGroup;
+			children = (
+				A51180BF1F9C9B65008FC2DB /* CredentialsRepo.swift */,
+				A5EA7BD61FB48792007B9105 /* BalanceRepo.swift */,
+			);
+			path = Repos;
 			sourceTree = "<group>";
 		};
 		A5FF48E41FB08CB5004EC019 /* AccountOverview */ = {
@@ -745,6 +759,7 @@
 				A5E96A1E1FB058EA0093B3D9 /* StandardToken.swift in Sources */,
 				A574970D1FAFCD1000D2FC78 /* TokenListViewController.swift in Sources */,
 				A5E96A231FB058EF0093B3D9 /* BigIntExtension.swift in Sources */,
+				A5EA7BD71FB48792007B9105 /* BalanceRepo.swift in Sources */,
 				A53D140B1FA354CE003BB29C /* UINavigationController+Heimdall.swift in Sources */,
 				A5D03F0C1FAFE66A005ADBD1 /* AddTokenCoordinator.swift in Sources */,
 				A5FF48E61FB08CC8004EC019 /* AccountOverviewCoordinator.swift in Sources */,
@@ -756,6 +771,7 @@
 				A5E96A2D1FB058FD0093B3D9 /* StaticType.swift in Sources */,
 				A5E276501FB3756C003D45AB /* VerifiedTokenProvider.swift in Sources */,
 				A5E96A191FB058DD0093B3D9 /* VariableArray.swift in Sources */,
+				A5EA7BD91FB48828007B9105 /* Balance.swift in Sources */,
 				A57497141FAFDF4800D2FC78 /* Token.swift in Sources */,
 				A5E96A291FB058F50093B3D9 /* ArrayX-Generated.swift in Sources */,
 				A5E96A2B1FB058F80093B3D9 /* BaseEncoder.swift in Sources */,
