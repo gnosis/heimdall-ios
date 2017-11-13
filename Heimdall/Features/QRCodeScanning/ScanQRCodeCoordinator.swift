@@ -26,7 +26,9 @@ class ScanQRCodeCoordinator: BaseCoordinator<ScanQRCodeCoordinatorResult> {
     override func start() -> Signal<ScanQRCodeCoordinatorResult, NoError> {
         let subject = SafePublishSubject<ScanQRCodeCoordinatorResult>()
 
-        let reader = QRCodeReaderViewController(builder: QRCodeReaderViewControllerBuilder())
+        let reader = QRCodeReaderViewController(builder: QRCodeReaderViewControllerBuilder() {
+            $0.showSwitchCameraButton = false
+        })
         reader.completionBlock = { result in
             reader.dismiss(animated: true)
             guard let result = result else {
