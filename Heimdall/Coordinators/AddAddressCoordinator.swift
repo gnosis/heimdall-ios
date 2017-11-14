@@ -60,18 +60,22 @@ private extension AddAddressCoordinator {
     func showSelectMethodAlert() -> SafeSignal<SelectMethodResult> {
         let subject = SafePublishSubject<SelectMethodResult>()
 
-        let alert = UIAlertController(title: "Select Method",
-                                      message: "How would you like to add a token",
+        let alert = UIAlertController(title: "AddAddress.SelectMethod.Alert.Title".localized,
+                                      message: "AddAddress.SelectMethod.Alert.Message".localized,
                                       preferredStyle: .actionSheet)
 
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+        let cancelAction = UIAlertAction(title: "Shared.ButtonTitle.Cancel".localized, style: .cancel) { _ in
             subject.completed(with: .cancel)
         }
-        let qrCodeAction = UIAlertAction(title: "Scan QR Code", style: .default) { _ in
-            subject.completed(with: .scanQrCode)
+        let qrCodeAction = UIAlertAction(
+            title: "AddAddress.SelectMethod.Alert.ScanQrButton.Title".localized,
+            style: .default) { _ in
+                subject.completed(with: .scanQrCode)
         }
-        let textAction = UIAlertAction(title: "Enter Address", style: .default) { _ in
-            subject.completed(with: .enterAddress)
+        let textAction = UIAlertAction(
+            title: "AddAddress.SelectMethod.Alert.EnterAddressButton.Title".localized,
+            style: .default) { _ in
+                subject.completed(with: .enterAddress)
         }
         alert.addAction(qrCodeAction)
         alert.addAction(textAction)
@@ -84,24 +88,26 @@ private extension AddAddressCoordinator {
     func showEnterAddressAlert() -> SafeSignal<CoordinationResult> {
         let subject = SafePublishSubject<CoordinationResult>()
 
-        let alert = UIAlertController(title: "Add Token",
-                                      message: "Enter your token's address",
+        let alert = UIAlertController(title: "AddAddress.EnterAddress.Alert.Title".localized,
+                                      message: "AddAddress.EnterAddress.Alert.Message".localized,
                                       preferredStyle: .alert)
         alert.addTextField { textField in
-            textField.placeholder = "Address"
+            textField.placeholder = "AddAddress.EnterAddress.Alert.AddressTextField.Placeholder".localized
         }
 
-        let addAction = UIAlertAction(title: "Add", style: .default) { _ in
-            guard let textFields = alert.textFields,
-                textFields.count == 1,
-                let addressString = textFields[0].text,
-                !addressString.isEmpty else {
-                    return
-            }
-            // Fetch token info
-            subject.completed(with: .address(addressString))
+        let addAction = UIAlertAction(
+            title: "AddAddress.EnterAddress.Alert.ConfirmButton.Title".localized,
+            style: .default) { _ in
+                guard let textFields = alert.textFields,
+                    textFields.count == 1,
+                    let addressString = textFields[0].text,
+                    !addressString.isEmpty else {
+                        return
+                }
+                // Fetch token info
+                subject.completed(with: .address(addressString))
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+        let cancelAction = UIAlertAction(title: "Shared.ButtonTitle.Cancel".localized, style: .cancel) { _ in
             subject.completed(with: .cancel)
         }
         alert.addAction(addAction)

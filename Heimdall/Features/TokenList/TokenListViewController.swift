@@ -11,6 +11,10 @@ import ReactiveKit
 import UIKit
 
 class TokenListViewController: UIViewController {
+    enum Error: String, Swift.Error {
+        case invalidCell
+    }
+
     let tokenListView = TokenListView()
     let viewModel: TokenListViewModel
 
@@ -26,7 +30,7 @@ class TokenListViewController: UIViewController {
                 as? ReactiveUITableViewCell,
                 let textLabel = cell.textLabel,
                 let detailTextLabel = cell.detailTextLabel else {
-                    die("Invalid Cell")
+                    die(Error.invalidCell)
             }
             cellViewModel.textLabelText
                 .bind(to: textLabel.reactive.text).dispose(in: cell.reuseBag)
@@ -47,7 +51,7 @@ class TokenListViewController: UIViewController {
         addItem.reactive.tap.bind(to: viewModel.addToken)
     }
 
-    required init?(coder aDecoder: NSCoder) { die("init(coder:) has not been implemented") }
+    required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 
     override func loadView() {
         view = tokenListView
@@ -61,7 +65,7 @@ extension TokenListViewController: UITableViewDelegate {
         -> UISwipeActionsConfiguration? {
             let actions = [
                 UIContextualAction(style: .destructive,
-                                   title: "Delete") { (_, _, handler) in
+                                   title: "Shared.SwipeAction.Delete".localized) { (_, _, handler) in
                                     self.viewModel.deleteToken.next(indexPath)
                                     handler(true)
                 }

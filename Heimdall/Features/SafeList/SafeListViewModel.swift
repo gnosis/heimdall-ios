@@ -13,7 +13,7 @@ class SafeListViewModel {
     private let disposeBag = DisposeBag()
 
     let items = Property<[SafeListCellViewModel]>([])
-    let title = Property("Safes")
+    let title = Property("Safe.ViewController.Title".localized)
 
     var addSafe = SafePublishSubject<Void>()
     var deleteSafe = SafePublishSubject<IndexPath>()

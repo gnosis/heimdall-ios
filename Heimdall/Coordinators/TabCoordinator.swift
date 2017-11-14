@@ -9,10 +9,14 @@
 import UIKit
 
 class TabCoordinator: BaseCoordinator<Void> {
+    enum Error: String, Swift.Error {
+        case tabBarItemNotOverridden = "TabCoordinator.tabBarItem needs to be overridden."
+    }
+
     let navigationController = UINavigationController()
 
     var tabBarItem: UITabBarItem {
-        die("TabCoordinator.tabBarItem needs to be overridden.")
+        die(Error.tabBarItemNotOverridden)
     }
 
     override init() {

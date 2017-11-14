@@ -15,7 +15,7 @@ class TokenListViewModel {
 
     private let displayedBalances = Property<[Balance]>([])
     let items = Property<[TokenListCellViewModel]>([])
-    let title = Property("Tokens")
+    let title = Property("TokenList.ViewController.Title".localized)
 
     var addToken = SafePublishSubject<Void>()
     var deleteToken = SafePublishSubject<IndexPath>()

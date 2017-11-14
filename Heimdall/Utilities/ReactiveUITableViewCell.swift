@@ -17,7 +17,7 @@ class ReactiveUITableViewCell: UITableViewCell {
     }
 
     required init?(coder aDecoder: NSCoder) {
-        die("init(coder:) has not been implemented")
+        dieFromCoder()
     }
 
     override func prepareForReuse() {

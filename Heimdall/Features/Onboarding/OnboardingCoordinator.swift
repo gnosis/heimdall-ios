@@ -67,6 +67,10 @@ extension OnboardingCoordinator {
 }
 
 extension OnboardingCoordinator {
+    enum Error: String, Swift.Error {
+        case couldNotStoreCredentials
+    }
+
     func importTapped(phrase: String) {
         guard let credentials = try? Credentials(from: phrase) else {
             // TODO: display error message somehow
@@ -76,7 +80,7 @@ extension OnboardingCoordinator {
         do {
             try self.credentialsRepo.store(credentials: credentials)
         } catch {
-            die("Could not store credentials")
+            die(Error.couldNotStoreCredentials)
         }
 
         onboardingFinishedSubject.next(credentials)

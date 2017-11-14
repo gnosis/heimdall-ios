@@ -11,6 +11,10 @@ import ReactiveKit
 import UIKit
 
 class SafeListViewController: SeparatedViewController<SafeListView>, UITableViewDelegate {
+    enum Error: String, Swift.Error {
+        case invalidCell
+    }
+
     let viewModel: SafeListViewModel
 
     init(viewModel: SafeListViewModel) {
@@ -25,7 +29,7 @@ class SafeListViewController: SeparatedViewController<SafeListView>, UITableView
                 as? ReactiveUITableViewCell,
                 let textLabel = cell.textLabel,
                 let detailTextLabel = cell.detailTextLabel else {
-                    die("Invalid Cell")
+                    die(Error.invalidCell)
             }
             cellViewModel.textLabelText
                 .bind(to: textLabel)
@@ -45,9 +49,7 @@ class SafeListViewController: SeparatedViewController<SafeListView>, UITableView
         addItem.reactive.tap.bind(to: viewModel.addSafe)
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 
     // MARK: UITableViewDelegate
     // Easy method of swipe-to-delete, but this needs to be changed if we want
@@ -57,7 +59,7 @@ class SafeListViewController: SeparatedViewController<SafeListView>, UITableView
         -> UISwipeActionsConfiguration? {
             let actions = [
                 UIContextualAction(style: .destructive,
-                                   title: "Delete") { (_, _, handler) in
+                                   title: "Shared.SwipeAction.Delete".localized) { (_, _, handler) in
                                     self.viewModel.deleteSafe.next(indexPath)
                                     handler(true)
                 }

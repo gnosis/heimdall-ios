@@ -62,34 +62,38 @@ private extension AddTokenCoordinator {
     func showEnterInfoAlert() -> SafeSignal<EnterInfoResult> {
         let subject = SafePublishSubject<EnterInfoResult>()
 
-        let alert = UIAlertController(title: "Add Token",
-                                      message: "Add some info here for tokens",
+        let alert = UIAlertController(title: "TokenList.EnterInfo.Alert.Title".localized,
+                                      message: "TokenList.EnterInfo.Alert.Message".localized,
                                       preferredStyle: .alert)
 
         alert.addTextField { textField in
-            textField.placeholder = "Symbol"
+            textField.placeholder = "TokenList.EnterInfo.Alert.SymbolTextfield.Placeholder".localized
         }
         alert.addTextField { textField in
-            textField.placeholder = "Name"
+            textField.placeholder = "TokenList.EnterInfo.Alert.NameTextfield.Placeholder".localized
         }
         alert.addTextField { textField in
-            textField.placeholder = "Decimals"
+            textField.placeholder = "TokenList.EnterInfo.Alert.DecimalsTextfield.Placeholder".localized
             textField.keyboardType = .numberPad
         }
 
-        let addAction = UIAlertAction(title: "Add", style: .default) { _ in
-            guard let textFields = alert.textFields,
-                textFields.count == 3,
-                let symbol = textFields[0].text,
-                let name = textFields[1].text,
-                let decimalsString = textFields[2].text,
-                let decimals = Int(decimalsString) else {
-                    return
-            }
-            subject.completed(with: .info(name: name, symbol: symbol, decimals: decimals))
+        let addAction = UIAlertAction(
+            title: "TokenList.EnterInfo.Alert.ConfirmButton.Title".localized,
+            style: .default) { _ in
+                guard let textFields = alert.textFields,
+                    textFields.count == 3,
+                    let symbol = textFields[0].text,
+                    let name = textFields[1].text,
+                    let decimalsString = textFields[2].text,
+                    let decimals = Int(decimalsString) else {
+                        return
+                }
+                subject.completed(with: .info(name: name, symbol: symbol, decimals: decimals))
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            subject.completed(with: .cancel)
+        let cancelAction = UIAlertAction(
+            title: "Shared.ButtonTitle.Cancel".localized,
+            style: .cancel) { _ in
+                subject.completed(with: .cancel)
         }
         alert.addAction(addAction)
         alert.addAction(cancelAction)

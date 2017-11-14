@@ -13,6 +13,9 @@ import ReactiveKit
 
 /// Base abstract coordinator generic over the return type of the `start` method.
 class BaseCoordinator<ResultType> {
+    enum Error: String, Swift.Error {
+        case startNeedsToBeOverridden = "BaseCoordinator.start() needs to be overridden."
+    }
 
     /// Typealias which will allows to access a ResultType of the Coordinator by `CoordinatorName.CoordinationResult`.
     typealias CoordinationResult = ResultType
@@ -62,6 +65,6 @@ class BaseCoordinator<ResultType> {
     ///
     /// - Returns: Result of coordinator job.
     func start() -> SafeSignal<ResultType> {
-        die("BaseCoordinator.start() should be overridden.")
+        die(Error.startNeedsToBeOverridden)
     }
 }

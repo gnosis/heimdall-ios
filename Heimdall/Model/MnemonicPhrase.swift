@@ -9,9 +9,13 @@
 import ethers
 
 struct MnemonicPhrase {
+    enum Error: String, Swift.Error {
+        case accountWithNilMnemonicPhrase = "Account returned nil mnemonic phrase."
+    }
+
     static var random: String {
         guard let phrase = Account.randomMnemonic()?.mnemonicPhrase else {
-            die("Account returned nil mnemonic phrase.")
+            die(Error.accountWithNilMnemonicPhrase)
         }
         return phrase
     }

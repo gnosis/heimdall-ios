@@ -23,6 +23,7 @@
 		A51180D11F9C9B94008FC2DB /* ImportMnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C71F9C9B65008FC2DB /* ImportMnemonicViewController.swift */; };
 		A51180D21F9C9B96008FC2DB /* DisplayMnemonicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C81F9C9B65008FC2DB /* DisplayMnemonicViewController.swift */; };
 		A51180D31F9C9B98008FC2DB /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A51180C91F9C9B65008FC2DB /* OnboardingViewController.swift */; };
+		A52776F51FBAFEC8001293EA /* String+Heimdall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52776F41FBAFEC8001293EA /* String+Heimdall.swift */; };
 		A53D14071FA1EA5E003BB29C /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D14061FA1EA5E003BB29C /* Credentials.swift */; };
 		A53D14091FA1EA77003BB29C /* MnemonicPhrase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D14081FA1EA77003BB29C /* MnemonicPhrase.swift */; };
 		A53D140B1FA354CE003BB29C /* UINavigationController+Heimdall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53D140A1FA354CD003BB29C /* UINavigationController+Heimdall.swift */; };
@@ -108,6 +109,7 @@
 		A5EA7BD41FB467A0007B9105 /* kovan.json in Resources */ = {isa = PBXBuildFile; fileRef = A5EA7BD21FB466FB007B9105 /* kovan.json */; };
 		A5EA7BD71FB48792007B9105 /* BalanceRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA7BD61FB48792007B9105 /* BalanceRepo.swift */; };
 		A5EA7BD91FB48828007B9105 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA7BD81FB48828007B9105 /* Balance.swift */; };
+		A5F2F5FD1FBB131A002EC6A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5DD688B1FBA03930071A938 /* Localizable.strings */; };
 		A5FF48E11FB08C72004EC019 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E01FB08C72004EC019 /* TabCoordinator.swift */; };
 		A5FF48E31FB08C8A004EC019 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E21FB08C8A004EC019 /* TabBarCoordinator.swift */; };
 		A5FF48E61FB08CC8004EC019 /* AccountOverviewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E51FB08CC8004EC019 /* AccountOverviewCoordinator.swift */; };
@@ -141,6 +143,7 @@
 		A51180C71F9C9B65008FC2DB /* ImportMnemonicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportMnemonicViewController.swift; sourceTree = "<group>"; };
 		A51180C81F9C9B65008FC2DB /* DisplayMnemonicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayMnemonicViewController.swift; sourceTree = "<group>"; };
 		A51180C91F9C9B65008FC2DB /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		A52776F41FBAFEC8001293EA /* String+Heimdall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Heimdall.swift"; sourceTree = "<group>"; };
 		A53D14061FA1EA5E003BB29C /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		A53D14081FA1EA77003BB29C /* MnemonicPhrase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MnemonicPhrase.swift; sourceTree = "<group>"; };
 		A53D140A1FA354CD003BB29C /* UINavigationController+Heimdall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Heimdall.swift"; sourceTree = "<group>"; };
@@ -193,11 +196,9 @@
 		A5D03F0D1FAFEA88005ADBD1 /* TokenListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenListCoordinator.swift; sourceTree = "<group>"; };
 		A5DD687A1FB9F3EE0071A938 /* Optional+Heimdall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+Heimdall.swift"; sourceTree = "<group>"; };
 		A5DD688D1FBA039C0071A938 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		A5DD688E1FBA039E0071A938 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		A5DD68921FBA03E90071A938 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A5DD68931FBA03EA0071A938 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A5DD68941FBA043B0071A938 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A5DD68951FBA043B0071A938 /* de */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = de; path = de.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5E2764F1FB3756C003D45AB /* VerifiedTokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifiedTokenProvider.swift; sourceTree = "<group>"; };
 		A5E969EF1FB058B90093B3D9 /* Solidity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solidity.swift; sourceTree = "<group>"; };
 		A5E969F01FB058B90093B3D9 /* Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
@@ -291,6 +292,7 @@
 				A5E96A321FB060750093B3D9 /* BigInt+Heimdall.swift */,
 				A5FF48E81FB0A521004EC019 /* ReactiveExtensions+Heimdall.swift */,
 				A5DD687A1FB9F3EE0071A938 /* Optional+Heimdall.swift */,
+				A52776F41FBAFEC8001293EA /* String+Heimdall.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -708,6 +710,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5F2F5FD1FBB131A002EC6A6 /* Localizable.strings in Resources */,
 				A5EA7BD31FB4679E007B9105 /* mainnet.json in Resources */,
 				A5DD68911FBA03E40071A938 /* InfoPlist.strings in Resources */,
 				A5EA7BD41FB467A0007B9105 /* kovan.json in Resources */,
@@ -870,6 +873,7 @@
 				A5001D911FB0C0AA005A7F0F /* ReactiveUITableViewCell.swift in Sources */,
 				A5946B821F9DDB03004760A0 /* OnboardingCoordinator.swift in Sources */,
 				A5E96A261FB058F50093B3D9 /* UIntX-Generated.swift in Sources */,
+				A52776F51FBAFEC8001293EA /* String+Heimdall.swift in Sources */,
 				A51180D31F9C9B98008FC2DB /* OnboardingViewController.swift in Sources */,
 				A5E96A2E1FB058FD0093B3D9 /* SolidityCodable.swift in Sources */,
 				A59933041FB9E769003175FA /* SeparatedViewController.swift in Sources */,
@@ -929,7 +933,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				A5DD68941FBA043B0071A938 /* en */,
-				A5DD68951FBA043B0071A938 /* de */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -938,7 +941,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				A5DD688D1FBA039C0071A938 /* en */,
-				A5DD688E1FBA039E0071A938 /* de */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

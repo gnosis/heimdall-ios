@@ -121,7 +121,7 @@ private extension EtherRPC {
                 failure(error)
             }
         } catch {
-            die("Received an unknown error: \(error)")
+            die(error)
         }
     }
 
@@ -153,7 +153,7 @@ private extension EtherRPC {
                 failure(error)
             }
         } catch {
-            die("Received an unknown error: \(error)")
+            die(error)
         }
     }
 

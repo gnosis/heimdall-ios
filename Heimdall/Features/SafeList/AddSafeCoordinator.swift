@@ -49,15 +49,15 @@ private extension AddSafeCoordinator {
     func showEnterInfoAlert() -> SafeSignal<EnterInfoResult> {
         let subject = SafePublishSubject<EnterInfoResult>()
 
-        let alert = UIAlertController(title: "Add Safe",
-                                      message: "You can add a name if you wanna",
+        let alert = UIAlertController(title: "Safe.Add.Alert.Title".localized,
+                                      message: "Safe.Add.Alert.Message".localized,
                                       preferredStyle: .alert)
 
         alert.addTextField { textField in
-            textField.placeholder = "Name"
+            textField.placeholder = "Safe.Add.Alert.NameTextfield.Placeholder".localized
         }
 
-        let addAction = UIAlertAction(title: "Add", style: .default) { _ in
+        let addAction = UIAlertAction(title: "Safe.Add.Alert.ConfirmButton.Title".localized, style: .default) { _ in
             guard let textFields = alert.textFields,
                 textFields.count == 1 else {
                     return
@@ -67,7 +67,7 @@ private extension AddSafeCoordinator {
             let name = textfieldContents.isNilOrEmpty ? nil : textfieldContents
             subject.completed(with: .info(name: name))
         }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { _ in
+        let cancelAction = UIAlertAction(title: "Shared.ButtonTitle.Cancel".localized, style: .cancel) { _ in
             subject.completed(with: .cancel)
         }
         alert.addAction(addAction)
