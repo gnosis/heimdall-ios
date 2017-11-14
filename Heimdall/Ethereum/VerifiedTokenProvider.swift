@@ -20,6 +20,10 @@ struct VerifiedTokenProvider {
     }
 }
 
+private enum Error: String, Swift.Error {
+    case unsupportedChain = "Unsupported Chain"
+}
+
 private func tokenListFilename(for chain: ChainId) -> String {
     switch chain {
     case .ChainIdHomestead:
@@ -27,7 +31,7 @@ private func tokenListFilename(for chain: ChainId) -> String {
     case .ChainIdKovan:
         return "kovan"
     default:
-        fatalError("Unsupported chain.")
+        die(Error.unsupportedChain)
     }
 }
 

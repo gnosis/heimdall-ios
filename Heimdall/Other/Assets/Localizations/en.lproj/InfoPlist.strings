@@ -1,0 +1,10 @@
+/* 
+  InfoPlist.strings
+  Heimdall
+
+  Created by Luis Reisewitz on 13.11.17.
+  Copyright © 2017 Gnosis. All rights reserved.
+*/
+"NSCameraUsageDescription" = "We need access to the camera to scan QR codes.";
+"CFBundleDisplayName" = "Gnosis Safe";
+"NSHumanReadableCopyright" = "2017 Gnosis Service GmbH. All rights reserved.";

@@ -12,10 +12,9 @@ import UIKit
 
 class OnboardingStartViewModel {
     // VM -> V
-    // FIXME: strings
-    let newAccountButtonTitle = Property("Create a new account")
-    let enterMnemonicButtonTitle = Property("Enter Mnemonic Phrase")
-    let title = Property("Setup Account")
+    let newAccountButtonTitle = Property("OnboardingStart.ViewController.NewAccountButton.Title".localized)
+    let enterMnemonicButtonTitle = Property("OnboardingStart.ViewController.EnterMnemonicButton.Title".localized)
+    let title = Property("OnboardingStart.ViewController.Title".localized)
 
     // VM -> Coord
     var createNewAccount: SafeSignal<Void>?
@@ -40,9 +39,7 @@ class OnboardingViewController: UIViewController {
         viewModel.title.bind(to: reactive.title)
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        die("init(coder:) has not been implemented")
-    }
+    required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 
     override func loadView() {
         view = ui.view

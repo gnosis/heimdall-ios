@@ -47,6 +47,7 @@ extension EtherAmount {
     }
 
     var description: String {
+        // TODO: This is not localized. Should it be?
         guard rawEther >= minimumEtherDisplayThreshold else {
             return descriptionAsWei
         }

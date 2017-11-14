@@ -8,24 +8,33 @@
 
 import BigInt
 extension BigUInt {
+    enum Error: String, Swift.Error {
+        case forcedUIntTooWide = "BigUInt.forcedUInt does not fit into a regular UInt."
+        case forcedIntTooWide = "BigUInt.forcedInt does not fit into a regular Int."
+    }
+
     var forcedUInt: UInt {
         guard let uint = UInt(description) else {
-            die("BigUInt.forcedUInt does not fit into a regular UInt.")
+            die(Error.forcedUIntTooWide)
         }
         return uint
     }
     var forcedInt: Int {
         guard let int = Int(description) else {
-            die("BigUInt.forcedInt does not fit into a regular Int.")
+            die(Error.forcedIntTooWide)
         }
         return int
     }
 }
 
 extension BigInt {
+    enum Error: String, Swift.Error {
+        case forcedIntTooWide = "BigInt.forcedInt does not fit into a regular Int."
+    }
+
     var forcedInt: Int {
         guard let int = Int(description) else {
-            die("BigInt.forcedInt does not fit into a regular Int.")
+            die(Error.forcedIntTooWide)
         }
         return int
     }

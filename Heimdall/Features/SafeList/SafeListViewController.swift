@@ -1,5 +1,5 @@
 //
-//  TokenListViewController.swift
+//  SafeListViewController.swift
 //  Heimdall
 //
 //  Created by Luis Reisewitz on 05.11.17.
@@ -10,21 +10,20 @@ import Bond
 import ReactiveKit
 import UIKit
 
-class TokenListViewController: UIViewController {
+class SafeListViewController: SeparatedViewController<SafeListView>, UITableViewDelegate {
     enum Error: String, Swift.Error {
         case invalidCell
     }
 
-    let tokenListView = TokenListView()
-    let viewModel: TokenListViewModel
+    let viewModel: SafeListViewModel
 
-    init(viewModel: TokenListViewModel) {
+    init(viewModel: SafeListViewModel) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+        super.init()
 
         // Bind Inputs
-        viewModel.items.bind(to: tokenListView.tableView) { tokenViewModels, indexPath, tableView -> UITableViewCell in
-            let cellViewModel = tokenViewModels[indexPath.row]
+        viewModel.items.bind(to: customView.tableView) { safeViewModels, indexPath, tableView -> UITableViewCell in
+            let cellViewModel = safeViewModels[indexPath.row]
             guard let cell = tableView
                 .dequeueReusableCell(withIdentifier: String(describing: ReactiveUITableViewCell.self))
                 as? ReactiveUITableViewCell,
@@ -33,40 +32,35 @@ class TokenListViewController: UIViewController {
                     die(Error.invalidCell)
             }
             cellViewModel.textLabelText
-                .bind(to: textLabel.reactive.text).dispose(in: cell.reuseBag)
+                .bind(to: textLabel)
+                .dispose(in: cell.reuseBag)
             cellViewModel.detailTextLabelText
-                .bind(to: detailTextLabel.reactive.text).dispose(in: cell.reuseBag)
+                .bind(to: detailTextLabel)
+                .dispose(in: cell.reuseBag)
             return cell
         }
         // Make sure we get the swipe action calls
-        tokenListView.tableView.reactive.delegate.forwardTo = self
+        customView.tableView.reactive.delegate.forwardTo = self
         viewModel.title.bind(to: reactive.title)
-
-        // Bind refresh control to display & trigger viewmodel refreshing
-        viewModel.refreshing.bidirectionalBind(to: tokenListView.refreshControl.reactive.refreshing)
 
         // Bind Outputs
         let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
         navigationItem.rightBarButtonItem = addItem
-        addItem.reactive.tap.bind(to: viewModel.addToken)
+        addItem.reactive.tap.bind(to: viewModel.addSafe)
     }
 
     required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 
-    override func loadView() {
-        view = tokenListView
-    }
-}
-
-extension TokenListViewController: UITableViewDelegate {
-    // This needs to be changed if we want to support devices below iOS11.
+    // MARK: UITableViewDelegate
+    // Easy method of swipe-to-delete, but this needs to be changed if we want
+    // to support platforms below iOS11.
     func tableView(_ tableView: UITableView,
                    trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath)
         -> UISwipeActionsConfiguration? {
             let actions = [
                 UIContextualAction(style: .destructive,
                                    title: "Shared.SwipeAction.Delete".localized) { (_, _, handler) in
-                                    self.viewModel.deleteToken.next(indexPath)
+                                    self.viewModel.deleteSafe.next(indexPath)
                                     handler(true)
                 }
             ]

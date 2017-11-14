@@ -15,20 +15,14 @@ class AccountOverviewViewModel {
     let accountLabelText: Property<String>
     let balanceLabelText: Property<String>
 
-    let title = Property("Your Account")
+    let title = Property("AccountOverview.ViewController.Title".localized)
 
     let disposeBag = DisposeBag()
 
     init(credentials: Credentials, rpc: EtherRPC) {
-        accountLabelText = Property("""
-            This is your account.
-
-            It has the address
-                \(credentials.address)
-
-            and the private key
-                \(credentials.privateKey)
-            """)
+        accountLabelText = Property(
+            "AccountOverview.ViewController.AccountLabel.Text"
+                .localized(credentials.address, credentials.privateKey))
         balanceLabelText = Property("")
         rpc.balance(for: credentials.address)
             .map { $0.description }
@@ -53,9 +47,7 @@ class AccountOverviewViewController: UIViewController {
         viewModel.title.bind(to: reactive.title)
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        die("init(coder:) has not been implemented")
-    }
+    required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 
     override func loadView() {
         view = ui.view

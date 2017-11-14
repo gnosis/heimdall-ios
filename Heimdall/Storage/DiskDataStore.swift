@@ -12,8 +12,12 @@ import Foundation
 /// Base class for disk data stores. Not meant to be used directly, only for
 /// subclassing.
 class DiskDataStore {
+    enum Error: String, Swift.Error {
+        case directoryNeedsToBeOverridden = "DiskDataStore.directory needs to be overridden"
+    }
+
     var directory: Disk.Directory {
-        die("DiskDataStore.directory needs to be overridden")
+        die(Error.directoryNeedsToBeOverridden)
     }
 
     private func fileName(from key: String) throws -> String {

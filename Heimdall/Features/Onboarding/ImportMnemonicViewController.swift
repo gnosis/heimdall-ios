@@ -12,8 +12,8 @@ import ReactiveKit
 import UIKit
 
 class ImportMnemonicViewModel {
-    let importButtonTitle = Property("Import")
-    let title = Property("Enter Mnemonic Phrase")
+    let importButtonTitle = Property("ImportMnemonic.ViewController.ImportButton.Title".localized)
+    let title = Property("ImportMnemonic.ViewController.Title".localized)
     let currentMnemonicPhrase = Property<String?>(nil)
 
     var importButtonTap: SafeSignal<Void>? {
@@ -45,9 +45,7 @@ class ImportMnemonicViewController: UIViewController {
         viewModel.importButtonTap = ui.importButton.reactive.tap
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        die("init(coder:) has not been implemented")
-    }
+    required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 
     override func loadView() {
         view = ui.view

@@ -1,0 +1,62 @@
+/* 
+  Localizable.strings
+  Heimdall
+
+  Created by Luis Reisewitz on 13.11.17.
+  Copyright © 2017 Gnosis. All rights reserved.
+*/
+
+// # Safe List
+"Safe.ViewController.Title" = "Safes";
+"Safe.Add.Alert.Title" = "Add Safe";
+"Safe.Add.Alert.Message" = "You can add a name if you wanna";
+"Safe.Add.Alert.NameTextfield.Placeholder" = "Name";
+"Safe.Add.Alert.ConfirmButton.Title" = "Add";
+
+// # Onboarding
+// ## OnboardingStart
+"OnboardingStart.ViewController.NewAccountButton.Title" = "Create a new account";
+"OnboardingStart.ViewController.EnterMnemonicButton.Title" = "Enter Mnemonic Phrase";
+"OnboardingStart.ViewController.Title" = "Setup Account";
+// ## ImportMnemonic
+"ImportMnemonic.ViewController.Title" = "Enter Mnemonic Phrase";
+"ImportMnemonic.ViewController.ImportButton.Title" = "Import";
+// ## DisplayMnemonic
+"DisplayMnemonic.ViewController.MnemonicLabel.Text" = "This is the mnemonic phrase that you can use to restore your account.
+Please write it down and store it safely.
+
+Phrase: %@";
+"DisplayMnemonic.ViewController.GotItButton.Title" = "Got It";
+
+// # AccountOverview
+"AccountOverview.ViewController.AccountLabel.Text" = "This is your account.
+
+It has the address
+%@
+
+and the private key
+%@";
+"AccountOverview.ViewController.Title" = "Your Account";
+
+// # TokenList
+"TokenList.ViewController.Title" = "Tokens";
+"TokenList.EnterInfo.Alert.Title" = "Add Token";
+"TokenList.EnterInfo.Alert.Message" = "Add some info here for tokens";
+"TokenList.EnterInfo.Alert.SymbolTextfield.Placeholder" = "Symbol";
+"TokenList.EnterInfo.Alert.NameTextfield.Placeholder" = "Name";
+"TokenList.EnterInfo.Alert.DecimalsTextfield.Placeholder" = "Decimals";
+"TokenList.EnterInfo.Alert.ConfirmButton.Title" = "Add";
+
+// # AddAddress
+"AddAddress.SelectMethod.Alert.Title" = "Select Method";
+"AddAddress.SelectMethod.Alert.Message" = "How would you like to add the address?";
+"AddAddress.SelectMethod.Alert.ScanQrButton.Title" = "Scan QR Code";
+"AddAddress.SelectMethod.Alert.EnterAddressButton.Title" = "Enter Address";
+"AddAddress.EnterAddress.Alert.Title" = "Add Address";
+"AddAddress.EnterAddress.Alert.Message" = "Please enter the address.";
+"AddAddress.EnterAddress.Alert.AddressTextField.Placeholder" = "Address";
+"AddAddress.EnterAddress.Alert.ConfirmButton.Title" = "Add";
+
+// # Shared Strings
+"Shared.ButtonTitle.Cancel" = "Cancel";
+"Shared.SwipeAction.Delete" = "Delete";

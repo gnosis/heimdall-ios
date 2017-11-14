@@ -11,7 +11,7 @@ import UIKit
 class AutoLayoutView: UIView {
     var didSetupConstraints = false
 
-    init() {
+    required init() {
         super.init(frame: .zero)
         setupSubviews()
     }

@@ -9,8 +9,10 @@
 import ethers
 
 struct Credentials: Codable {
-    enum Error: Swift.Error {
+    enum Error: String, Swift.Error {
         case invalidMnemonicPhrase
+        case accountWithInvalidPrivateKey = "Credentials initialized with an Account with invalid private key"
+        case accountWithoutAddress = "Credentials initialized with an Account without address"
     }
 
     /// Address of this account with leading 0x
@@ -24,11 +26,11 @@ struct Credentials: Codable {
 
     private init(account: Account) {
         guard let privateKeyData = Data(fromHexEncodedString: String(account.privateKey.withoutHexPrefix)) else {
-            die("Credentials initialized with an Account with invalid private key")
+            die(Error.accountWithInvalidPrivateKey)
         }
         self.privateKeyData = privateKeyData
         guard let addressString = account.address?.description else {
-            die("Credentials initialized with an Account without address")
+            die(Error.accountWithoutAddress)
         }
         address = addressString
     }
@@ -50,7 +52,7 @@ struct Credentials: Codable {
 private extension Account {
     var privateKey: String {
         guard let key = self.value(forKey: "_privateKey") as? SecureData else {
-            die("Account.privateKey could not retrieve _privateKey")
+            die(Credentials.Error.accountWithInvalidPrivateKey)
         }
         return key.hexString()
     }

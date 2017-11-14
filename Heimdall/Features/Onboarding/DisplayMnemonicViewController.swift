@@ -13,17 +13,12 @@ import UIKit
 
 class DisplayMnemonicViewModel {
     let mnemonicLabelText: Property<String>
-    let gotItButtonTitle = Property("Got It")
+    let gotItButtonTitle = Property("DisplayMnemonic.ViewController.GotItButton.Title".localized)
 
     var gotIt: SafeSignal<Void>?
 
     init(phrase: String) {
-        self.mnemonicLabelText = Property("""
-            This is the mnemonic phrase that you can use to restore your account.
-            Please write it down and store it safely.
-
-            Phrase: \(phrase)
-            """)
+        self.mnemonicLabelText = Property("DisplayMnemonic.ViewController.MnemonicLabel.Text".localized(phrase))
     }
 }
 
@@ -41,9 +36,7 @@ class DisplayMnemonicViewController: UIViewController {
         viewModel.gotIt = ui.gotItButton.reactive.tap
     }
 
-    required init?(coder aDecoder: NSCoder) {
-        die("init(coder:) has not been implemented")
-    }
+    required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 
     override func viewDidLoad() {
         super.viewDidLoad()
