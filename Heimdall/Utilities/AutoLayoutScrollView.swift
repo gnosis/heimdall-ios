@@ -1,20 +1,21 @@
 //
-//  AutoLayoutView.swift
+//  AutoLayoutScrollView.swift
 //  Heimdall
 //
-//  Created by Luis Reisewitz on 06.11.17.
+//  Created by Luis Reisewitz on 14.11.17.
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
 import UIKit
 
-/// A UIView subclass that handles adding constraints automatically.
+/// A UIScrollView subclass that handles adding constraints automatically.
 /// Override setupInitialConstraints/setupSubviews if you need to.
-class AutoLayoutView: UIView, SeparatedView {
+class AutoLayoutScrollView: UIScrollView, SeparatedView {
     var didSetupConstraints = false
 
     required init() {
         super.init(frame: .zero)
+        keyboardDismissMode = .interactive
         backgroundColor = .schemeBackground
         tintColor = .websiteTint
         setupSubviews()
