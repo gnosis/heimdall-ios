@@ -36,6 +36,7 @@
 		A54817561FA75FF100CBC7CC /* CredentialsSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817551FA75FF100CBC7CC /* CredentialsSpec.swift */; };
 		A54817581FA762A500CBC7CC /* NonceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817571FA762A500CBC7CC /* NonceProvider.swift */; };
 		A548175A1FA76EF900CBC7CC /* NetworkingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54817591FA76EF900CBC7CC /* NetworkingProvider.swift */; };
+		A551274F1FBF298300DAF9F8 /* EtherAmountSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A551274E1FBF298300DAF9F8 /* EtherAmountSpec.swift */; };
 		A566D9AC1F97A1A000DBEB9A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A566D9AB1F97A1A000DBEB9A /* AppDelegate.swift */; };
 		A566D9B31F97A1A000DBEB9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A566D9B21F97A1A000DBEB9A /* Assets.xcassets */; };
 		A566D9D01F97A22400DBEB9A /* ethers.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A566D9CC1F97A22400DBEB9A /* ethers.framework */; };
@@ -160,6 +161,7 @@
 		A54817551FA75FF100CBC7CC /* CredentialsSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CredentialsSpec.swift; sourceTree = "<group>"; };
 		A54817571FA762A500CBC7CC /* NonceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonceProvider.swift; sourceTree = "<group>"; };
 		A54817591FA76EF900CBC7CC /* NetworkingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingProvider.swift; sourceTree = "<group>"; };
+		A551274E1FBF298300DAF9F8 /* EtherAmountSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherAmountSpec.swift; sourceTree = "<group>"; };
 		A5589A761FAA1A670007ADBC /* Secrets.stencil */ = {isa = PBXFileReference; lastKnownFileType = text; path = Secrets.stencil; sourceTree = "<group>"; };
 		A566D9A81F97A1A000DBEB9A /* Heimdall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Heimdall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A566D9AB1F97A1A000DBEB9A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				A566D9C21F97A1A000DBEB9A /* Info.plist */,
 				A50EFE751FA0DDF300FC6114 /* DataStoreSpec.swift */,
 				A54817551FA75FF100CBC7CC /* CredentialsSpec.swift */,
+				A551274E1FBF298300DAF9F8 /* EtherAmountSpec.swift */,
 			);
 			path = HeimdallTests;
 			sourceTree = "<group>";
@@ -822,7 +825,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\nmint run krzysztofzablocki/Sourcery \"sourcery --templates ./Heimdall/Other --sources . --output ./Heimdall/Other --args infurakey=$GNS_INFURA_KEY\"\n";
+			shellScript = "#check if env-vars.sh exists\nif [ -f ./env-vars.sh ]\nthen\nsource ./env-vars.sh\nfi\n#no `else` case needed if the CI works as expected\nmint run krzysztofzablocki/Sourcery@0.9.0 \"sourcery --templates ./Heimdall/Other --sources . --output ./Heimdall/Other --args infurakey=$GNS_INFURA_KEY\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -932,6 +935,7 @@
 				A54817561FA75FF100CBC7CC /* CredentialsSpec.swift in Sources */,
 				A5B0E9FD1FAB4341002FF75E /* EtherRPCSpec.swift in Sources */,
 				A50EFE761FA0DDF300FC6114 /* DataStoreSpec.swift in Sources */,
+				A551274F1FBF298300DAF9F8 /* EtherAmountSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

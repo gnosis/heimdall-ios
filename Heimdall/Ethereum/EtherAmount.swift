@@ -9,11 +9,15 @@
 import BigInt
 
 private let etherToWeiFactor = BigInt(1_000_000_000_000_000_000)
-private let minimumEtherDisplayThreshold = BigInt(0.000_1)
+private let minimumEtherDisplayThreshold = 0.000_1
 private let weiSymbol = "Wei"
 private let etherSymbol = "Ξ"
 
 struct EtherAmount {
+    enum Error: String, Swift.Error {
+        case doubleConversionFailed = "Could not represent Wei amount as a Double."
+    }
+
     let wei: BigInt
 
     init(wei: BigInt) {
@@ -21,7 +25,16 @@ struct EtherAmount {
     }
 
     init(ether: BigInt) {
-        wei = ether * etherToWeiFactor
+        self.init(wei: ether * etherToWeiFactor)
+    }
+
+    init(ether: Double) {
+        guard let etherToWeiFactoryDouble = Double(etherToWeiFactor.description) else {
+            die(Error.doubleConversionFailed)
+        }
+        let weiDouble = ether * etherToWeiFactoryDouble
+        let wei = BigInt(weiDouble)
+        self.init(wei: wei)
     }
 }
 
@@ -31,8 +44,19 @@ extension EtherAmount {
         return wei
     }
 
-    var rawEther: BigInt {
-        return wei / etherToWeiFactor
+    /// Converts the internal amount of Wei to the amount of Ether by trying to
+    /// represent them as a Double. If the amount of Wei is too big to be represented
+    /// as a Double, this method `die`s with the error `EtherAmount.Error.weiAmountTooBigForDouble`.
+    /// - Warning:
+    ///     The current max amount of Wei (90 million Ether * 10**18) fits into a Double.
+    ///     Still, this could lead to precision errors. For exact calculations and
+    /// 	sending Ether only ever use the `rawWei` value.
+    var rawEther: Double {
+        guard let weiDouble = Double(wei.description),
+            let etherToWeiFactorDouble = Double(etherToWeiFactor.description) else {
+                die(Error.doubleConversionFailed)
+        }
+        return weiDouble / etherToWeiFactorDouble
     }
 }
 
@@ -43,7 +67,7 @@ extension EtherAmount {
     }
 
     var descriptionAsEther: String {
-        return "\(rawEther) \(etherSymbol)"
+        return "\(String(format: "%.4f", rawEther)) \(etherSymbol)"
     }
 
     var description: String {
