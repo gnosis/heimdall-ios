@@ -27,4 +27,5 @@ extension UIColor {
     @nonobjc static var websiteTint = #colorLiteral(red: 0, green: 0.6509803922, blue: 0.768627451, alpha: 1)
     @nonobjc static var websiteBackground = #colorLiteral(red: 0.09411764706, green: 0.1647058824, blue: 0.2117647059, alpha: 1)
     @nonobjc static var schemeBackground = #colorLiteral(red: 0.8238534331, green: 0.8124054074, blue: 0.7747293711, alpha: 1)
+    @nonobjc static var accentBackground = #colorLiteral(red: 0.7546566332, green: 0.7621284811, blue: 0.7621284811, alpha: 1)
 }

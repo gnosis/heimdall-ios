@@ -19,7 +19,7 @@
 "OnboardingStart.ViewController.EnterMnemonicButton.Title" = "Enter Mnemonic Phrase";
 "OnboardingStart.ViewController.Title" = "Setup Account";
 // ## ImportMnemonic
-"ImportMnemonic.ViewController.Title" = "Enter Mnemonic Phrase";
+"ImportMnemonic.ViewController.Title" = "Import Phrase";
 "ImportMnemonic.ViewController.ImportButton.Title" = "Import";
 // ## DisplayMnemonic
 "DisplayMnemonic.ViewController.MnemonicLabel.Text" = "This is the mnemonic phrase that you can use to restore your account.

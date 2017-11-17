@@ -1,5 +1,5 @@
 //
-//  OnboardingViewController.swift
+//  OnboardingStartViewController.swift
 //  Heimdall
 //
 //  Created by Luis Reisewitz on 10.09.17.

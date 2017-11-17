@@ -18,6 +18,7 @@ class AutoLayoutScrollView: UIScrollView, SeparatedView {
         keyboardDismissMode = .interactive
         backgroundColor = .schemeBackground
         tintColor = .websiteTint
+        alwaysBounceVertical = true
         setupSubviews()
     }
 
