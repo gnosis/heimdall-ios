@@ -22,4 +22,9 @@ class DisplayMnemonicViewController: SeparatedViewController<DisplayMnemonicView
     }
 
     required init?(coder aDecoder: NSCoder) { dieFromCoder() }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        edgesForExtendedLayout = []
+    }
 }
