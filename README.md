@@ -1,4 +1,5 @@
 # heimdall-ios [![Build Status](https://travis-ci.org/gnosis/heimdall-ios.svg?branch=master)](https://travis-ci.org/gnosis/heimdall-ios)
+
 🔐 App to manage and interact with Gnosis MultiSig Wallets https://wallet.gnosis.pm
 
 ## Getting Started
@@ -20,9 +21,9 @@ See [here](https://github.com/Carthage/Carthage#installing-carthage) for install
 
 SwiftLint is run via Mint in an Xcode build phase. No need to install anything apart from Mint. We are currently using version 0.23.1 (specified in build phase). The first build will take significantly longer, as Mint is downloading and compiling SwiftLint.
 
-### Style Guide
+#### [Sourcery](https://github.com/krzysztofzablocki/Sourcery)
 
-If something is underspecified, refer to this [Style Guide](https://github.com/raywenderlich/swift-style-guide) or SwiftLint's defaults.
+Sourcery is used to generate the code for accessing secret keys (e.g. the infura api key). It is run in a pre-compile Xcode script phase. Sourcery is run using Mint, so no need to install anything. We are currently using  
 
 ### Dependencies
 

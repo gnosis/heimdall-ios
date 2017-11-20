@@ -8,7 +8,11 @@
 
 import UIKit
 
-class SeparatedViewController<ViewType: AutoLayoutView>: UIViewController {
+protocol SeparatedView {
+    init()
+}
+
+class SeparatedViewController<ViewType: SeparatedView & UIView>: UIViewController {
     let customView = ViewType()
 
     required init?(coder aDecoder: NSCoder) {

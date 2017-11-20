@@ -13,7 +13,7 @@ class TabCoordinator: BaseCoordinator<Void> {
         case tabBarItemNotOverridden = "TabCoordinator.tabBarItem needs to be overridden."
     }
 
-    let navigationController = UINavigationController()
+    let navigationController: UINavigationController = .largeTitleNavigationController
 
     var tabBarItem: UITabBarItem {
         die(Error.tabBarItemNotOverridden)

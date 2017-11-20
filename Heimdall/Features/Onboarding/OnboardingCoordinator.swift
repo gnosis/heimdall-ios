@@ -12,7 +12,7 @@ import UIKit
 class OnboardingCoordinator: BaseCoordinator<Credentials> {
     let window: UIWindow
     let credentialsRepo: CredentialsRepo
-    let navigationController = UINavigationController()
+    let navigationController: UINavigationController = .largeTitleNavigationController
 
     private let onboardingFinishedSubject = SafePublishSubject<Credentials>()
 
@@ -24,7 +24,7 @@ class OnboardingCoordinator: BaseCoordinator<Credentials> {
 
     override func start() -> Signal<Credentials, NoError> {
         let onboardingStartViewModel = OnboardingStartViewModel()
-        let onboardingStartViewController = OnboardingViewController(viewModel: onboardingStartViewModel)
+        let onboardingStartViewController = OnboardingStartViewController(viewModel: onboardingStartViewModel)
 
         onboardingStartViewModel.createNewAccount?.observeNext { [weak self] _ in
             self?.newAccountTapped()
