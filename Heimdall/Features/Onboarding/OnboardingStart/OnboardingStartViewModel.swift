@@ -8,11 +8,15 @@
 
 import ReactiveKit
 
-class OnboardingStartViewModel {
+class OnboardingStartViewModel: SeparatedViewModel {
+    // MARK: SeparatedViewModel
+    typealias View = OnboardingStartView
+    let title = Property<String?>("OnboardingStart.ViewController.Title".localized)
+
+    // MARK: Custom Stuff
     // VM -> V
     let newAccountButtonTitle = Property("OnboardingStart.ViewController.NewAccountButton.Title".localized)
     let enterMnemonicButtonTitle = Property("OnboardingStart.ViewController.EnterMnemonicButton.Title".localized)
-    let title = Property("OnboardingStart.ViewController.Title".localized)
 
     // VM -> Coord
     var createNewAccount = SafePublishSubject<Void>()

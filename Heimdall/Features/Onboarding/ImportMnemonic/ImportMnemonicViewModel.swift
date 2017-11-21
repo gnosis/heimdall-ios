@@ -8,13 +8,16 @@
 
 import ReactiveKit
 
-class ImportMnemonicViewModel {
+class ImportMnemonicViewModel: SeparatedViewModel {
+    // MARK: SeparatedViewModel
+    typealias View = ImportMnemonicView
+    let title = Property<String?>("ImportMnemonic.ViewController.Title".localized)
+
     let disposeBag = DisposeBag()
 
+    // MARK: Custom Stuff
     let importButtonTitle = Property("ImportMnemonic.ViewController.ImportButton.Title".localized)
-    let title = Property("ImportMnemonic.ViewController.Title".localized)
     let currentMnemonicPhrase = Property<String?>(nil)
-
     let importButtonTap = SafePublishSubject<Void>()
     let importMnemonicPhrase = SafePublishSubject<String>()
 

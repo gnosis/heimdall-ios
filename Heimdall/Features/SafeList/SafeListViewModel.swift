@@ -9,18 +9,20 @@
 import Bond
 import ReactiveKit
 
-class SafeListViewModel {
+class SafeListViewModel: SeparatedViewModel {
+    // MARK: SeparatedViewModel
+    typealias View = SafeListView
+    let title = Property<String?>("Safe.ViewController.Title".localized)
+
+    // MARK: Custom Stuff
     private let disposeBag = DisposeBag()
 
     // Inputs of VC
     let items = Property<[SafeListCellViewModel]>([])
-    let title = Property("Safe.ViewController.Title".localized)
-
     // Outputs of VC
     let addSafeAction = SafePublishSubject<Void>()
     let deleteSafeAction = SafePublishSubject<IndexPath>()
     let openIndexAction = SafePublishSubject<IndexPath>()
-
     // Inputs of Coord
     let openSafeAction = SafePublishSubject<Safe>()
 

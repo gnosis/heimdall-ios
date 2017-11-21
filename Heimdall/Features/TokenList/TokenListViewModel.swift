@@ -10,12 +10,16 @@ import Bond
 import Foundation
 import ReactiveKit
 
-class TokenListViewModel {
+class TokenListViewModel: SeparatedViewModel {
+    // MARK: SeparatedViewModel
+    typealias View = TokenListView
+    let title = Property<String?>("TokenList.ViewController.Title".localized)
+
+    // MARK: Custom Stuff
     private let disposeBag = DisposeBag()
 
     private let displayedBalances = Property<[Balance]>([])
     let items = Property<[TokenListCellViewModel]>([])
-    let title = Property("TokenList.ViewController.Title".localized)
 
     var addToken = SafePublishSubject<Void>()
     var deleteToken = SafePublishSubject<IndexPath>()

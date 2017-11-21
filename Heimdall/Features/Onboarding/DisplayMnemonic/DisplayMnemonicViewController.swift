@@ -8,13 +8,9 @@
 
 import Foundation
 
-class DisplayMnemonicViewController: SeparatedViewController<DisplayMnemonicView> {
-    let viewModel: DisplayMnemonicViewModel
+class DisplayMnemonicViewController: SeparatedViewController<DisplayMnemonicViewModel> {
 
-    init(viewModel: DisplayMnemonicViewModel) {
-        self.viewModel = viewModel
-        super.init()
-
+    override func setup() {
         // Inputs
         viewModel
             .mnemonicLabelText
@@ -33,8 +29,6 @@ class DisplayMnemonicViewController: SeparatedViewController<DisplayMnemonicView
             .bind(to: viewModel.gotIt)
             .dispose(in: disposeBag)
     }
-
-    required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 
     override func viewDidLoad() {
         super.viewDidLoad()

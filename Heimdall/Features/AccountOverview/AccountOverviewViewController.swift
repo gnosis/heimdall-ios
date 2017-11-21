@@ -8,11 +8,8 @@
 
 import Foundation
 
-class AccountOverviewViewController: SeparatedViewController<AccountOverviewView> {
-    init(viewModel: AccountOverviewViewModel) {
-        super.init()
-
-        // Setup Bindings
+class AccountOverviewViewController: SeparatedViewController<AccountOverviewViewModel> {
+    override func setup() {
         viewModel.accountLabelText.bind(to: customView.accountLabel.reactive.text)
             .dispose(in: disposeBag)
         viewModel.balanceLabelText.bind(to: customView.balanceLabel.reactive.text)
@@ -21,6 +18,4 @@ class AccountOverviewViewController: SeparatedViewController<AccountOverviewView
         viewModel.title.bind(to: reactive.title)
             .dispose(in: disposeBag)
     }
-
-    required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 }

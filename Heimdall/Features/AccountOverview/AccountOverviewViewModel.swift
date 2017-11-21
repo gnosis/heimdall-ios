@@ -8,13 +8,16 @@
 
 import ReactiveKit
 
-class AccountOverviewViewModel {
+class AccountOverviewViewModel: SeparatedViewModel {
+    // MARK: SeparatedViewModel
+    typealias View = AccountOverviewView
+    let title = Property<String?>("AccountOverview.ViewController.Title".localized)
+
+    // MARK: Custom Stuff
+    let disposeBag = DisposeBag()
+
     let accountLabelText: Property<String>
     let balanceLabelText: Property<String>
-
-    let title = Property("AccountOverview.ViewController.Title".localized)
-
-    let disposeBag = DisposeBag()
 
     init(credentials: Credentials, rpc: EtherRPC) {
         accountLabelText = Property(

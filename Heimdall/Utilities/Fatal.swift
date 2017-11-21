@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum HeimdallError: String, Swift.Error {
+    case abstractMethodNotOverridden = "This abstract method needs to be overridden"
+}
+
 func die(_ error: Swift.Error, line: Int = #line, function: String = #function, file: String = #file) -> Never {
     NSLog("===================================================================")
     NSLog("die() called from \((file as NSString).lastPathComponent): \(function): \(line)")

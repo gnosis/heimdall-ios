@@ -120,6 +120,7 @@
 		A5EA7BD41FB467A0007B9105 /* kovan.json in Resources */ = {isa = PBXBuildFile; fileRef = A5EA7BD21FB466FB007B9105 /* kovan.json */; };
 		A5EA7BD71FB48792007B9105 /* BalanceRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA7BD61FB48792007B9105 /* BalanceRepo.swift */; };
 		A5EA7BD91FB48828007B9105 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA7BD81FB48828007B9105 /* Balance.swift */; };
+		A5EB28CF1FC46DD600D6D897 /* ViewModelTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EB28CE1FC46DD600D6D897 /* ViewModelTypes.swift */; };
 		A5F2F5FD1FBB131A002EC6A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5DD688B1FBA03930071A938 /* Localizable.strings */; };
 		A5FF48E11FB08C72004EC019 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E01FB08C72004EC019 /* TabCoordinator.swift */; };
 		A5FF48E31FB08C8A004EC019 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E21FB08C8A004EC019 /* TabBarCoordinator.swift */; };
@@ -258,6 +259,7 @@
 		A5EA7BD21FB466FB007B9105 /* kovan.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = kovan.json; sourceTree = "<group>"; };
 		A5EA7BD61FB48792007B9105 /* BalanceRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceRepo.swift; sourceTree = "<group>"; };
 		A5EA7BD81FB48828007B9105 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
+		A5EB28CE1FC46DD600D6D897 /* ViewModelTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTypes.swift; sourceTree = "<group>"; };
 		A5FF48E01FB08C72004EC019 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		A5FF48E21FB08C8A004EC019 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		A5FF48E51FB08CC8004EC019 /* AccountOverviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOverviewCoordinator.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				A5001D901FB0C0AA005A7F0F /* ReactiveUITableViewCell.swift */,
 				A59933031FB9E769003175FA /* SeparatedViewController.swift */,
 				A584E33F1FBB30AA00ABEBBA /* LargeTitleNavigationController.swift */,
+				A5EB28CE1FC46DD600D6D897 /* ViewModelTypes.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -946,6 +949,7 @@
 				A5E96A1B1FB058DD0093B3D9 /* IntX.swift in Sources */,
 				A5E96A1D1FB058E10093B3D9 /* BivrostError.swift in Sources */,
 				A5FF48E31FB08C8A004EC019 /* TabBarCoordinator.swift in Sources */,
+				A5EB28CF1FC46DD600D6D897 /* ViewModelTypes.swift in Sources */,
 				A51180CC1F9C9B80008FC2DB /* EtherRPC.swift in Sources */,
 				A551275D1FBF42BD00DAF9F8 /* ImportMnemonicViewModel.swift in Sources */,
 				A551275F1FBF42E200DAF9F8 /* ImportMnemonicView.swift in Sources */,

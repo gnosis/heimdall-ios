@@ -10,17 +10,12 @@ import Bond
 import ReactiveKit
 import UIKit
 
-class SafeListViewController: SeparatedViewController<SafeListView>, UITableViewDelegate {
+class SafeListViewController: SeparatedViewController<SafeListViewModel>, UITableViewDelegate {
     enum Error: String, Swift.Error {
         case invalidCell
     }
 
-    let viewModel: SafeListViewModel
-
-    init(viewModel: SafeListViewModel) {
-        self.viewModel = viewModel
-        super.init()
-
+    override func setup() {
         // Bind Inputs
         viewModel
             .items
@@ -66,8 +61,6 @@ class SafeListViewController: SeparatedViewController<SafeListView>, UITableView
         // Make sure we get the swipe action calls
         customView.tableView.reactive.delegate.forwardTo = self
     }
-
-    required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 
     // MARK: UITableViewDelegate
     // Easy method of swipe-to-delete, but this needs to be changed if we want

@@ -8,15 +8,9 @@
 
 import ReactiveKit
 
-class OnboardingStartViewController: SeparatedViewController<OnboardingStartView> {
-    let viewModel: OnboardingStartViewModel
+class OnboardingStartViewController: SeparatedViewController<OnboardingStartViewModel> {
 
-    init(viewModel: OnboardingStartViewModel) {
-        // We need to keep a reference to the viewmodel around so as to not
-        // let our bindings deallocate
-        self.viewModel = viewModel
-        super.init()
-
+    override func setup() {
         // Bind Outputs
         customView.newAccountButton.reactive.tap.bind(to: viewModel.createNewAccount)
             .dispose(in: disposeBag)
@@ -31,6 +25,4 @@ class OnboardingStartViewController: SeparatedViewController<OnboardingStartView
         viewModel.title.bind(to: reactive.title)
             .dispose(in: disposeBag)
     }
-
-    required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 }

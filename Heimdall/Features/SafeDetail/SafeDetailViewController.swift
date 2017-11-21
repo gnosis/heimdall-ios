@@ -9,9 +9,10 @@
 import Bond
 import ReactiveKit
 
-class SafeDetailViewModel {
-    let title = Property("")
+class SafeDetailViewModel: SeparatedViewModel {
+    typealias View = SafeDetailView
 
+    let title = Property<String?>("")
     let shareSafeAction = SafePublishSubject<Void>()
 
     init(safe: Safe) {
@@ -24,31 +25,18 @@ class SafeDetailView: AutoLayoutScrollView {
         super.init()
     }
 
-    override func setupSubviews() {
-
-    }
-
-    override func setupInitialConstraints() {
-
-    }
+    override func setupSubviews() {}
+    override func setupInitialConstraints() {}
 }
 
 import UIKit
 
-class SafeDetailViewController: SeparatedViewController<SafeDetailView> {
-    let viewModel: SafeDetailViewModel
-
-    init(viewModel: SafeDetailViewModel) {
-        self.viewModel = viewModel
-        super.init()
-
+class SafeDetailViewController: SeparatedViewController<SafeDetailViewModel> {
+    override func setup() {
         viewModel.title.bind(to: reactive.title)
 
         let shareSafeButton = UIBarButtonItem(barButtonSystemItem: .action, target: nil, action: nil)
         shareSafeButton.reactive.tap.debug().bind(to: viewModel.shareSafeAction)
         navigationItem.rightBarButtonItem = shareSafeButton
-
     }
-
-    required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 }

@@ -8,13 +8,9 @@
 
 import Foundation
 
-class ImportMnemonicViewController: SeparatedViewController<ImportMnemonicView> {
-    let viewModel: ImportMnemonicViewModel
+class ImportMnemonicViewController: SeparatedViewController<ImportMnemonicViewModel> {
 
-    init(viewModel: ImportMnemonicViewModel) {
-        self.viewModel = viewModel
-        super.init()
-
+    override func setup() {
         // Bind Inputs
         viewModel
             .importButtonTitle
@@ -35,8 +31,6 @@ class ImportMnemonicViewController: SeparatedViewController<ImportMnemonicView> 
         customView.importButton.reactive.tap.bind(to: viewModel.importButtonTap)
             .dispose(in: disposeBag)
     }
-
-    required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 
     override func viewDidLoad() {
         super.viewDidLoad()

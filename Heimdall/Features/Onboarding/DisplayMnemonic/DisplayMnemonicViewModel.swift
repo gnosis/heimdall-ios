@@ -8,10 +8,14 @@
 
 import ReactiveKit
 
-class DisplayMnemonicViewModel {
+class DisplayMnemonicViewModel: SeparatedViewModel {
+    // MARK: SeparatedViewModel
+    typealias View = DisplayMnemonicView
+    let title = Property<String?>(nil)
+
+    // MARK: Custom Stuff
     let mnemonicLabelText: Property<String>
     let gotItButtonTitle = Property("DisplayMnemonic.ViewController.GotItButton.Title".localized)
-
     let gotIt = SafePublishSubject<Void>()
 
     init(phrase: String) {

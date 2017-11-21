@@ -10,17 +10,12 @@ import Bond
 import ReactiveKit
 import UIKit
 
-class TokenListViewController: SeparatedViewController<TokenListView> {
+class TokenListViewController: SeparatedViewController<TokenListViewModel> {
     enum Error: String, Swift.Error {
         case invalidCell
     }
 
-    let viewModel: TokenListViewModel
-
-    init(viewModel: TokenListViewModel) {
-        self.viewModel = viewModel
-        super.init()
-
+    override func setup() {
         // Bind Inputs
         viewModel
             .items
@@ -54,8 +49,6 @@ class TokenListViewController: SeparatedViewController<TokenListView> {
         addItem.reactive.tap.bind(to: viewModel.addToken)
             .dispose(in: disposeBag)
     }
-
-    required init?(coder aDecoder: NSCoder) { dieFromCoder() }
 
     // MARK: UITableViewDelegate
     // This needs to be changed if we want to support devices below iOS11.
