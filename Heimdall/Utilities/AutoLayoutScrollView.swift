@@ -30,7 +30,9 @@ class AutoLayoutScrollView: UIScrollView, SeparatedView {
         defer {
             super.updateConstraints()
         }
-        guard !didSetupConstraints else { return }
+        guard !didSetupConstraints else {
+            return
+        }
         setupInitialConstraints()
         didSetupConstraints = true
     }

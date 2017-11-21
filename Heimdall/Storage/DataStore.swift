@@ -36,7 +36,7 @@ protocol DataStore {
 ///
 /// - noSuchEntry: Key is not associated with any object.
 /// - invalidKey: Key contains illegal characters.
-enum DataStoreError: Error {
+internal enum DataStoreError: Error {
     case noSuchEntry
     case invalidKey
 }

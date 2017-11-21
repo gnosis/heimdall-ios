@@ -15,15 +15,15 @@ class TabBarCoordinator: BaseCoordinator<Void> {
             TabBarCoordinator.tabCoordinators is empty. Needs to be set by subclass before .start() is called.
             """
     }
+
     let window: UIWindow
     let tabBarController = UITabBarController()
+    var tabCoordinators: [TabCoordinator] = []
 
     init(with window: UIWindow) {
         self.window = window
         super.init()
     }
-
-    var tabCoordinators: [TabCoordinator] = []
 
     override func start() -> Signal<Void, NoError> {
         guard !tabCoordinators.isEmpty else {

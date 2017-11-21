@@ -37,6 +37,7 @@ import UIKit
 
 class SafeDetailViewController: SeparatedViewController<SafeDetailView> {
     let viewModel: SafeDetailViewModel
+
     init(viewModel: SafeDetailViewModel) {
         self.viewModel = viewModel
         super.init()

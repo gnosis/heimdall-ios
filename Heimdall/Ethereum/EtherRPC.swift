@@ -195,6 +195,6 @@ private extension EtherRPC {
                 }
                 // balance is a bigint, unit is Wei
                 success(returnValue)
-        }
+            }
     }
 }

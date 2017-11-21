@@ -14,7 +14,6 @@ class OnboardingCoordinator: BaseCoordinator<Credentials> {
     let window: UIWindow
     let credentialsRepo: CredentialsRepo
     let navigationController: UINavigationController = .largeTitleNavigationController
-
     private let onboardingFinishedSubject = SafePublishSubject<Credentials>()
 
     init(with window: UIWindow,
@@ -27,12 +26,12 @@ class OnboardingCoordinator: BaseCoordinator<Credentials> {
         let onboardingStartViewModel = OnboardingStartViewModel()
         let onboardingStartViewController = OnboardingStartViewController(viewModel: onboardingStartViewModel)
 
-        onboardingStartViewModel.createNewAccount.bind(to: self) { me, _ in
-            me.newAccountTapped()
+        onboardingStartViewModel.createNewAccount.bind(to: self) { mySelf, _ in
+            mySelf.newAccountTapped()
         }
 
-        onboardingStartViewModel.importMnemonicPhrase.bind(to: self) { me, _ in
-            me.importMnemonicPhrase()
+        onboardingStartViewModel.importMnemonicPhrase.bind(to: self) { mySelf, _ in
+            mySelf.importMnemonicPhrase()
         }
 
         navigationController.rootViewController = onboardingStartViewController
@@ -50,8 +49,8 @@ extension OnboardingCoordinator {
         let viewModel = DisplayMnemonicViewModel(phrase: phrase)
         let viewController = DisplayMnemonicViewController(viewModel: viewModel)
 
-        viewModel.gotIt.bind(to: self) { me, _ in
-            me.importMnemonicPhrase()
+        viewModel.gotIt.bind(to: self) { mySelf, _ in
+            mySelf.importMnemonicPhrase()
         }
 
         navigationController.pushViewController(viewController, animated: true)
@@ -60,8 +59,8 @@ extension OnboardingCoordinator {
     func importMnemonicPhrase() {
         let viewModel = ImportMnemonicViewModel()
         let viewController = ImportMnemonicViewController(viewModel: viewModel)
-        viewModel.importMnemonicPhrase.bind(to: self) { me, phrase in
-            me.importTapped(phrase: phrase)
+        viewModel.importMnemonicPhrase.bind(to: self) { mySelf, phrase in
+            mySelf.importTapped(phrase: phrase)
         }
         navigationController.pushViewController(viewController, animated: true)
     }

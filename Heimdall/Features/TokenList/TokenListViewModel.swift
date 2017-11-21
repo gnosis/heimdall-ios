@@ -25,6 +25,7 @@ class TokenListViewModel {
         // General fetching/refreshing logic
         // We only want to trigger a new refresh if the store contents changed
         // or refreshing is newly `true`. Also immediately trigger a loading call.
+        // swiftlint:disable:next trailing_closure
         combineLatest(refreshing.filter { $0 }.start(with: true), store.contents)
             .flatMapLatest { _, tokens -> Signal<[Balance], NoError> in
                 repo.balances(of: credentials.address, for: tokens)

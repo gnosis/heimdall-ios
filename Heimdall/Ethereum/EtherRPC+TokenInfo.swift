@@ -27,7 +27,7 @@ extension EtherRPC {
                       symbol: $0.1,
                       decimals: $0.2,
                       whitelisted: false)
-        }
+            }
     }
 
     func balance(of address: String, for token: Token) -> Signal<BigUInt, Error> {

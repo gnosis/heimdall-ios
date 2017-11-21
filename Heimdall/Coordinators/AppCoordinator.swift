@@ -9,7 +9,7 @@
 import ReactiveKit
 import UIKit
 
-class AppCoordinator: BaseCoordinator<Void> {
+internal class AppCoordinator: BaseCoordinator<Void> {
     let window: UIWindow
     let secureStore = SecureDataStore()
     let credentialsRepo: CredentialsRepo
