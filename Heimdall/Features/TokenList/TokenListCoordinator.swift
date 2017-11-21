@@ -50,7 +50,7 @@ class TokenListCoordinator: TabCoordinator {
                 return newToken
             }.observeNext { token in
                 _ = try? tokenStore.add(token)
-            }.dispose(in: disposeBag)
+            }.dispose(in: bag)
 
         return Signal.never()
     }

@@ -15,10 +15,23 @@ class DisplayMnemonicViewController: SeparatedViewController<DisplayMnemonicView
         self.viewModel = viewModel
         super.init()
 
-        viewModel.mnemonicLabelText.bind(to: customView.mnemonicLabel.reactive.text)
-        viewModel.gotItButtonTitle.bind(to: customView.gotItButton.reactive.title)
+        // Inputs
+        viewModel
+            .mnemonicLabelText
+            .bind(to: customView.mnemonicLabel.reactive.text)
+            .dispose(in: disposeBag)
+        viewModel
+            .gotItButtonTitle
+            .bind(to: customView.gotItButton.reactive.title)
+            .dispose(in: disposeBag)
 
-        viewModel.gotIt = customView.gotItButton.reactive.tap
+        // Outputs
+        customView
+            .gotItButton
+            .reactive
+            .tap
+            .bind(to: viewModel.gotIt)
+            .dispose(in: disposeBag)
     }
 
     required init?(coder aDecoder: NSCoder) { dieFromCoder() }

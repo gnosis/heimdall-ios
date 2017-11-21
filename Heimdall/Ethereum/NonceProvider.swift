@@ -8,7 +8,7 @@
 
 class NonceProvider {
     func nextNonce() -> UInt {
-        // FIXME: dummy nonce, need to increment and get from blockchain maybe?
+        // TODO: dummy nonce, need to increment and get from blockchain maybe?
         return 12
     }
 }

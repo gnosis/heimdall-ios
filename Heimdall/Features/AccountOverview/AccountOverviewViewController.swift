@@ -14,9 +14,12 @@ class AccountOverviewViewController: SeparatedViewController<AccountOverviewView
 
         // Setup Bindings
         viewModel.accountLabelText.bind(to: customView.accountLabel.reactive.text)
+            .dispose(in: disposeBag)
         viewModel.balanceLabelText.bind(to: customView.balanceLabel.reactive.text)
+            .dispose(in: disposeBag)
 
         viewModel.title.bind(to: reactive.title)
+            .dispose(in: disposeBag)
     }
 
     required init?(coder aDecoder: NSCoder) { dieFromCoder() }

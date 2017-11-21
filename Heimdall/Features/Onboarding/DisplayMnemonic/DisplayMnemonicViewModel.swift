@@ -12,8 +12,7 @@ class DisplayMnemonicViewModel {
     let mnemonicLabelText: Property<String>
     let gotItButtonTitle = Property("DisplayMnemonic.ViewController.GotItButton.Title".localized)
 
-    // FIXME: convert remaingin SafeSignal optionals, they suck
-    var gotIt: SafeSignal<Void>?
+    let gotIt = SafePublishSubject<Void>()
 
     init(phrase: String) {
         self.mnemonicLabelText = Property("DisplayMnemonic.ViewController.MnemonicLabel.Text".localized(phrase))

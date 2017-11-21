@@ -6,6 +6,7 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
+import ReactiveKit
 import UIKit
 
 protocol SeparatedView {
@@ -14,6 +15,7 @@ protocol SeparatedView {
 
 class SeparatedViewController<ViewType: SeparatedView & UIView>: UIViewController {
     let customView = ViewType()
+    let disposeBag = DisposeBag()
 
     required init?(coder aDecoder: NSCoder) {
         dieFromCoder()

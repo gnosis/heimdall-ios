@@ -22,31 +22,49 @@ class SafeListViewController: SeparatedViewController<SafeListView>, UITableView
         super.init()
 
         // Bind Inputs
-        viewModel.items.bind(to: customView.tableView) { safeViewModels, indexPath, tableView -> UITableViewCell in
-            let cellViewModel = safeViewModels[indexPath.row]
-            guard let cell = tableView
-                .dequeueReusableCell(withIdentifier: String(describing: ReactiveUITableViewCell.self))
-                as? ReactiveUITableViewCell,
-                let textLabel = cell.textLabel,
-                let detailTextLabel = cell.detailTextLabel else {
-                    die(Error.invalidCell)
+        viewModel
+            .items
+            .bind(to: customView.tableView) { safeViewModels, indexPath, tableView -> UITableViewCell in
+                let cellViewModel = safeViewModels[indexPath.row]
+                guard let cell = tableView
+                    .dequeueReusableCell(withIdentifier: String(describing: ReactiveUITableViewCell.self))
+                    as? ReactiveUITableViewCell,
+                    let textLabel = cell.textLabel,
+                    let detailTextLabel = cell.detailTextLabel else {
+                        die(Error.invalidCell)
+                }
+                cellViewModel.textLabelText
+                    .bind(to: textLabel)
+                    .dispose(in: cell.reuseBag)
+                cellViewModel.detailTextLabelText
+                    .bind(to: detailTextLabel)
+                    .dispose(in: cell.reuseBag)
+                return cell
             }
-            cellViewModel.textLabelText
-                .bind(to: textLabel)
-                .dispose(in: cell.reuseBag)
-            cellViewModel.detailTextLabelText
-                .bind(to: detailTextLabel)
-                .dispose(in: cell.reuseBag)
-            return cell
-        }
-        // Make sure we get the swipe action calls
-        customView.tableView.reactive.delegate.forwardTo = self
-        viewModel.title.bind(to: reactive.title)
+            .dispose(in: disposeBag)
+        viewModel
+            .title
+            .bind(to: reactive.title)
+            .dispose(in: disposeBag)
 
         // Bind Outputs
         let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
         navigationItem.rightBarButtonItem = addItem
-        addItem.reactive.tap.bind(to: viewModel.addSafe)
+        addItem
+            .reactive
+            .tap
+            .bind(to: viewModel.addSafeAction)
+            .dispose(in: disposeBag)
+
+        customView
+            .tableView
+            .reactive
+            .selectedIndexPath
+            .bind(to: viewModel.openIndexAction)
+            .dispose(in: disposeBag)
+
+        // Make sure we get the swipe action calls
+        customView.tableView.reactive.delegate.forwardTo = self
     }
 
     required init?(coder aDecoder: NSCoder) { dieFromCoder() }
@@ -60,7 +78,7 @@ class SafeListViewController: SeparatedViewController<SafeListView>, UITableView
             let actions = [
                 UIContextualAction(style: .destructive,
                                    title: "Shared.SwipeAction.Delete".localized) { (_, _, handler) in
-                                    self.viewModel.deleteSafe.next(indexPath)
+                                    self.viewModel.deleteSafeAction.next(indexPath)
                                     handler(true)
                 }
             ]

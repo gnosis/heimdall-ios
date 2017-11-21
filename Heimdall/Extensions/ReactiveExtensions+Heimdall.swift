@@ -18,3 +18,23 @@ extension ReactiveExtensions where Base: UIViewController {
         }
     }
 }
+
+extension ReactiveExtensions where Base: UITableView {
+    var selectedIndexPath: SafeSignal<IndexPath> {
+        return delegate
+            .signal(for: #selector(
+                UITableViewDelegate.tableView(_:didSelectRowAt:))
+            ) { (subject: SafePublishSubject<IndexPath>, _: UITableView, indexPath: IndexPath) in
+                subject.next(indexPath)
+        }
+    }
+}
+
+// MARK: - BaseCoordinator Binding Target
+extension BaseCoordinator: DisposeBagProvider {}
+
+extension BaseCoordinator: BindingExecutionContextProvider {
+    var bindingExecutionContext: ExecutionContext {
+        return .immediateOnMain
+    }
+}

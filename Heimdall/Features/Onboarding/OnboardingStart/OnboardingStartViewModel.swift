@@ -15,6 +15,6 @@ class OnboardingStartViewModel {
     let title = Property("OnboardingStart.ViewController.Title".localized)
 
     // VM -> Coord
-    var createNewAccount: SafeSignal<Void>?
-    var importMnemonicPhrase: SafeSignal<Void>?
+    var createNewAccount = SafePublishSubject<Void>()
+    var importMnemonicPhrase = SafePublishSubject<Void>()
 }

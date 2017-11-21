@@ -12,11 +12,17 @@ import ReactiveKit
 class SafeListViewModel {
     private let disposeBag = DisposeBag()
 
+    // Inputs of VC
     let items = Property<[SafeListCellViewModel]>([])
     let title = Property("Safe.ViewController.Title".localized)
 
-    var addSafe = SafePublishSubject<Void>()
-    var deleteSafe = SafePublishSubject<IndexPath>()
+    // Outputs of VC
+    let addSafeAction = SafePublishSubject<Void>()
+    let deleteSafeAction = SafePublishSubject<IndexPath>()
+    let openIndexAction = SafePublishSubject<IndexPath>()
+
+    // Inputs of Coord
+    let openSafeAction = SafePublishSubject<Safe>()
 
     init(store: AppDataStore<Safe>) {
         store.contents
@@ -24,7 +30,7 @@ class SafeListViewModel {
             .bind(to: items)
             .dispose(in: disposeBag)
         // Handle cell deletions
-        deleteSafe
+        deleteSafeAction
             .with(latestFrom: items)
             .observeNext { indexPath, safes in
                 let safe = safes[indexPath.row].safe
@@ -34,6 +40,14 @@ class SafeListViewModel {
                     print(error)
                 }
             }
+            .dispose(in: disposeBag)
+        // Handle cell selection
+        openIndexAction
+            .with(latestFrom: items)
+            .map { indexPath, safes in
+                safes[indexPath.row].safe
+            }
+            .bind(to: openSafeAction)
             .dispose(in: disposeBag)
     }
 }

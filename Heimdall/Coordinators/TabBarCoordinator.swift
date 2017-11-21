@@ -32,7 +32,7 @@ class TabBarCoordinator: BaseCoordinator<Void> {
 
         tabBarController.viewControllers = tabCoordinators.map { $0.navigationController }
         tabCoordinators.forEach {
-            $0.start().observeNext {}.dispose(in: disposeBag)
+            $0.start().observeNext {}.dispose(in: bag)
         }
 
         window.rootViewController = tabBarController

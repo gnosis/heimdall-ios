@@ -28,14 +28,15 @@ class TokenListViewModel {
         combineLatest(refreshing.filter { $0 }.start(with: true), store.contents)
             .flatMapLatest { _, tokens -> Signal<[Balance], NoError> in
                 repo.balances(of: credentials.address, for: tokens)
-                    .map { balances -> [Balance] in
-                        // Filter out unwanted tokens (not custom && zero amount)
-                        balances.filter { !$0.token.whitelisted || $0.amount > 0 }
-                    }.doOn(next: { _ in
-                        // Finish refreshing (for UI & reset purposes)
-                        self.refreshing.next(false)
-                    })
             }
+            .map { balances -> [Balance] in
+                // Filter out unwanted tokens (not custom && zero amount)
+                balances.filter { !$0.token.whitelisted || $0.amount > 0 }
+            }.doOn(next: { _ in
+                // Finish refreshing (for UI & reset purposes)
+                // TODO: This does not end refreshing on errors of the signal
+                self.refreshing.next(false)
+            })
             .bind(to: displayedBalances)
             .dispose(in: disposeBag)
         // Map Balances to cell view models

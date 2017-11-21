@@ -9,6 +9,41 @@
 import ReactiveKit
 import UIKit
 
+class PushableCoordinator: BaseCoordinator<Void> {
+    let navigationController: UINavigationController
+
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+
+    func push(_ viewController: UIViewController) {
+        navigationController.pushViewController(viewController, animated: true)
+    }
+}
+
+class SafeDetailCoordinator: PushableCoordinator {
+    let safe: Safe
+
+    init(navigationController: UINavigationController,
+         safe: Safe) {
+        self.safe = safe
+        super.init(navigationController: navigationController)
+    }
+
+    override func start() -> Signal<Void, NoError> {
+        let viewModel = SafeDetailViewModel(safe: safe)
+        let viewController = SafeDetailViewController(viewModel: viewModel)
+        push(viewController)
+
+        viewModel
+            .shareSafeAction
+            .observeNext {
+                print("share safe \(self.safe)")
+            }.dispose(in: bag)
+        return Signal.never()
+    }
+}
+
 class SafeListCoordinator: TabCoordinator {
     let store: DataStore
 
@@ -28,7 +63,7 @@ class SafeListCoordinator: TabCoordinator {
         navigationController.rootViewController = safeListViewController
 
         safeListViewModel
-            .addSafe
+            .addSafeAction
             .flatMapLatest { _ in
                 self.coordinate(to: AddSafeCoordinator(navigationController: self.navigationController))
             }
@@ -41,7 +76,16 @@ class SafeListCoordinator: TabCoordinator {
             .observeNext { safe in
                 _ = try? safeStore.add(safe)
             }
-            .dispose(in: disposeBag)
+            .dispose(in: bag)
+
+        safeListViewModel
+            .openSafeAction
+            .observeNext { safe in
+                _ = self.coordinate(to:
+                    SafeDetailCoordinator(navigationController: self.navigationController,
+                                          safe: safe))
+            }
+            .dispose(in: bag)
         return Signal.never()
     }
 }

@@ -6,6 +6,7 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
+import Bond
 import ReactiveKit
 import UIKit
 
@@ -26,13 +27,13 @@ class OnboardingCoordinator: BaseCoordinator<Credentials> {
         let onboardingStartViewModel = OnboardingStartViewModel()
         let onboardingStartViewController = OnboardingStartViewController(viewModel: onboardingStartViewModel)
 
-        onboardingStartViewModel.createNewAccount?.observeNext { [weak self] _ in
-            self?.newAccountTapped()
-        }.dispose(in: disposeBag)
+        onboardingStartViewModel.createNewAccount.bind(to: self) { me, _ in
+            me.newAccountTapped()
+        }
 
-        onboardingStartViewModel.importMnemonicPhrase?.observeNext { [weak self] _ in
-            self?.importMnemonicPhrase()
-        }.dispose(in: disposeBag)
+        onboardingStartViewModel.importMnemonicPhrase.bind(to: self) { me, _ in
+            me.importMnemonicPhrase()
+        }
 
         navigationController.rootViewController = onboardingStartViewController
 
@@ -49,9 +50,9 @@ extension OnboardingCoordinator {
         let viewModel = DisplayMnemonicViewModel(phrase: phrase)
         let viewController = DisplayMnemonicViewController(viewModel: viewModel)
 
-        viewModel.gotIt?.observeNext { [weak self] _ in
-            self?.importMnemonicPhrase()
-        }.dispose(in: disposeBag)
+        viewModel.gotIt.bind(to: self) { me, _ in
+            me.importMnemonicPhrase()
+        }
 
         navigationController.pushViewController(viewController, animated: true)
     }
@@ -59,9 +60,9 @@ extension OnboardingCoordinator {
     func importMnemonicPhrase() {
         let viewModel = ImportMnemonicViewModel()
         let viewController = ImportMnemonicViewController(viewModel: viewModel)
-        viewModel.importMnemonicPhrase?.observeNext { [weak self] phrase in
-            self?.importTapped(phrase: phrase)
-        }.dispose(in: disposeBag)
+        viewModel.importMnemonicPhrase.bind(to: self) { me, phrase in
+            me.importTapped(phrase: phrase)
+        }
         navigationController.pushViewController(viewController, animated: true)
     }
 }

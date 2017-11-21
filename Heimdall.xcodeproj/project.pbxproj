@@ -71,6 +71,7 @@
 		A59933021FB9DD05003175FA /* SafeListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59932FC1FB9DCF6003175FA /* SafeListCellViewModel.swift */; };
 		A59933041FB9E769003175FA /* SeparatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59933031FB9E769003175FA /* SeparatedViewController.swift */; };
 		A59933061FB9ED13003175FA /* AddSafeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59933051FB9ED13003175FA /* AddSafeCoordinator.swift */; };
+		A5AC189C1FC332C70069C333 /* SafeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AC189B1FC332C70069C333 /* SafeDetailViewController.swift */; };
 		A5B0E9F91FAA35CB002FF75E /* Secrets.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9F81FAA35CA002FF75E /* Secrets.generated.swift */; };
 		A5B0E9FB1FAB41A8002FF75E /* AppDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9FA1FAB41A8002FF75E /* AppDataStore.swift */; };
 		A5B0E9FD1FAB4341002FF75E /* EtherRPCSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5B0E9FC1FAB4341002FF75E /* EtherRPCSpec.swift */; };
@@ -206,6 +207,7 @@
 		A59932FC1FB9DCF6003175FA /* SafeListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeListCellViewModel.swift; sourceTree = "<group>"; };
 		A59933031FB9E769003175FA /* SeparatedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatedViewController.swift; sourceTree = "<group>"; };
 		A59933051FB9ED13003175FA /* AddSafeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSafeCoordinator.swift; sourceTree = "<group>"; };
+		A5AC189B1FC332C70069C333 /* SafeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeDetailViewController.swift; sourceTree = "<group>"; };
 		A5B0E9F81FAA35CA002FF75E /* Secrets.generated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.generated.swift; sourceTree = "<group>"; };
 		A5B0E9FA1FAB41A8002FF75E /* AppDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataStore.swift; sourceTree = "<group>"; };
 		A5B0E9FC1FAB4341002FF75E /* EtherRPCSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EtherRPCSpec.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 		A57497101FAFD52000D2FC78 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A5AC189A1FC332A20069C333 /* SafeDetail */,
 				A59932F61FB9DCF6003175FA /* SafeList */,
 				A5776C891FB1CF3D00298D1B /* QRCodeScanning */,
 				A5FF48E71FB08D4B004EC019 /* Onboarding */,
@@ -521,6 +524,14 @@
 				A59933051FB9ED13003175FA /* AddSafeCoordinator.swift */,
 			);
 			path = SafeList;
+			sourceTree = "<group>";
+		};
+		A5AC189A1FC332A20069C333 /* SafeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A5AC189B1FC332C70069C333 /* SafeDetailViewController.swift */,
+			);
+			path = SafeDetail;
 			sourceTree = "<group>";
 		};
 		A5DD687D1FBA02310071A938 /* Assets */ = {
@@ -908,6 +919,7 @@
 				A5DD687B1FB9F3EF0071A938 /* Optional+Heimdall.swift in Sources */,
 				A566D9DB1F97B21B00DBEB9A /* AppCoordinator.swift in Sources */,
 				A5E96A131FB058DD0093B3D9 /* Address.swift in Sources */,
+				A5AC189C1FC332C70069C333 /* SafeDetailViewController.swift in Sources */,
 				A5E96A201FB058EA0093B3D9 /* GnosisSafe.swift in Sources */,
 				A5E96A2A1FB058F80093B3D9 /* BaseDecoder.swift in Sources */,
 				A5E96A161FB058DD0093B3D9 /* String.swift in Sources */,

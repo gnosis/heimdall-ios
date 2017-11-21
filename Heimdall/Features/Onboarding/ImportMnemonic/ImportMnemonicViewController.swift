@@ -16,12 +16,24 @@ class ImportMnemonicViewController: SeparatedViewController<ImportMnemonicView> 
         super.init()
 
         // Bind Inputs
-        viewModel.importButtonTitle.bind(to: customView.importButton.reactive.title)
-        viewModel.title.bind(to: reactive.title)
+        viewModel
+            .importButtonTitle
+            .bind(to: customView.importButton.reactive.title)
+            .dispose(in: disposeBag)
+        viewModel
+            .title
+            .bind(to: reactive.title)
+            .dispose(in: disposeBag)
 
         // Bind Outputs
-        customView.mnemonicTextField.reactive.text.bidirectionalBind(to: viewModel.currentMnemonicPhrase)
-        viewModel.importButtonTap = customView.importButton.reactive.tap
+        customView
+            .mnemonicTextField
+            .reactive
+            .text
+            .bidirectionalBind(to: viewModel.currentMnemonicPhrase)
+            .dispose(in: disposeBag)
+        customView.importButton.reactive.tap.bind(to: viewModel.importButtonTap)
+            .dispose(in: disposeBag)
     }
 
     required init?(coder aDecoder: NSCoder) { dieFromCoder() }

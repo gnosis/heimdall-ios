@@ -9,18 +9,18 @@
 import ReactiveKit
 
 class ImportMnemonicViewModel {
+    let disposeBag = DisposeBag()
+
     let importButtonTitle = Property("ImportMnemonic.ViewController.ImportButton.Title".localized)
     let title = Property("ImportMnemonic.ViewController.Title".localized)
     let currentMnemonicPhrase = Property<String?>(nil)
 
-    var importButtonTap: SafeSignal<Void>? {
-        didSet {
-            guard let signal = importButtonTap else {
-                importMnemonicPhrase = nil
-                return
-            }
-            importMnemonicPhrase = combineLatest(signal, currentMnemonicPhrase) { _, phrase in phrase ?? "" }
-        }
+    let importButtonTap = SafePublishSubject<Void>()
+    let importMnemonicPhrase = SafePublishSubject<String>()
+
+    init() {
+        combineLatest(importButtonTap, currentMnemonicPhrase) { _, phrase in phrase ?? "" }
+            .bind(to: importMnemonicPhrase)
+            .dispose(in: disposeBag)
     }
-    var importMnemonicPhrase: SafeSignal<String>?
 }
