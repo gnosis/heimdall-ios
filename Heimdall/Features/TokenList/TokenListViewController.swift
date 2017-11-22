@@ -44,9 +44,7 @@ class TokenListViewController: SeparatedViewController<TokenListViewModel> {
             .dispose(in: disposeBag)
 
         // Bind Outputs
-        let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = addItem
-        addItem.reactive.tap.bind(to: viewModel.addToken)
+        customView.addItem.reactive.tap.bind(to: viewModel.addToken)
             .dispose(in: disposeBag)
     }
 

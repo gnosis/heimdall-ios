@@ -10,7 +10,9 @@ import UIKit
 
 class SafeListView: AutoLayoutView {
     let tableView = UITableView()
+    let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
 
+    // MARK: SeparatedView
     override func setupSubviews() {
         addSubview(tableView)
         tableView.register(ReactiveUITableViewCell.self,
@@ -19,5 +21,9 @@ class SafeListView: AutoLayoutView {
 
     override func setupInitialConstraints() {
         tableView.autoPinEdgesToSuperviewEdges()
+    }
+
+    override var rightBarButtonItem: UIBarButtonItem? {
+        return addItem
     }
 }

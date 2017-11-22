@@ -121,11 +121,15 @@
 		A5EA7BD71FB48792007B9105 /* BalanceRepo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA7BD61FB48792007B9105 /* BalanceRepo.swift */; };
 		A5EA7BD91FB48828007B9105 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EA7BD81FB48828007B9105 /* Balance.swift */; };
 		A5EB28CF1FC46DD600D6D897 /* ViewModelTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EB28CE1FC46DD600D6D897 /* ViewModelTypes.swift */; };
+		A5EB28D11FC47B6B00D6D897 /* SafeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EB28D01FC47B6B00D6D897 /* SafeDetailViewModel.swift */; };
+		A5EB28D31FC47B8500D6D897 /* SafeDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5EB28D21FC47B8500D6D897 /* SafeDetailView.swift */; };
 		A5F2F5FD1FBB131A002EC6A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5DD688B1FBA03930071A938 /* Localizable.strings */; };
 		A5FF48E11FB08C72004EC019 /* TabCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E01FB08C72004EC019 /* TabCoordinator.swift */; };
 		A5FF48E31FB08C8A004EC019 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E21FB08C8A004EC019 /* TabBarCoordinator.swift */; };
 		A5FF48E61FB08CC8004EC019 /* AccountOverviewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E51FB08CC8004EC019 /* AccountOverviewCoordinator.swift */; };
 		A5FF48E91FB0A521004EC019 /* ReactiveExtensions+Heimdall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF48E81FB0A521004EC019 /* ReactiveExtensions+Heimdall.swift */; };
+		A5FF6AA21FC5902A00A9E4B2 /* ShareQRCodeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF6AA11FC5902A00A9E4B2 /* ShareQRCodeCoordinator.swift */; };
+		A5FF6AA41FC5920000A9E4B2 /* UIAlertController+Heimdall.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5FF6AA31FC5920000A9E4B2 /* UIAlertController+Heimdall.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -260,10 +264,14 @@
 		A5EA7BD61FB48792007B9105 /* BalanceRepo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceRepo.swift; sourceTree = "<group>"; };
 		A5EA7BD81FB48828007B9105 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		A5EB28CE1FC46DD600D6D897 /* ViewModelTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelTypes.swift; sourceTree = "<group>"; };
+		A5EB28D01FC47B6B00D6D897 /* SafeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeDetailViewModel.swift; sourceTree = "<group>"; };
+		A5EB28D21FC47B8500D6D897 /* SafeDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafeDetailView.swift; sourceTree = "<group>"; };
 		A5FF48E01FB08C72004EC019 /* TabCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCoordinator.swift; sourceTree = "<group>"; };
 		A5FF48E21FB08C8A004EC019 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		A5FF48E51FB08CC8004EC019 /* AccountOverviewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOverviewCoordinator.swift; sourceTree = "<group>"; };
 		A5FF48E81FB0A521004EC019 /* ReactiveExtensions+Heimdall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ReactiveExtensions+Heimdall.swift"; sourceTree = "<group>"; };
+		A5FF6AA11FC5902A00A9E4B2 /* ShareQRCodeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareQRCodeCoordinator.swift; sourceTree = "<group>"; };
+		A5FF6AA31FC5920000A9E4B2 /* UIAlertController+Heimdall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Heimdall.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +325,7 @@
 				A5FF48E81FB0A521004EC019 /* ReactiveExtensions+Heimdall.swift */,
 				A5DD687A1FB9F3EE0071A938 /* Optional+Heimdall.swift */,
 				A52776F41FBAFEC8001293EA /* String+Heimdall.swift */,
+				A5FF6AA31FC5920000A9E4B2 /* UIAlertController+Heimdall.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -464,7 +473,7 @@
 			children = (
 				A5AC189A1FC332A20069C333 /* SafeDetail */,
 				A59932F61FB9DCF6003175FA /* SafeList */,
-				A5776C891FB1CF3D00298D1B /* QRCodeScanning */,
+				A5776C891FB1CF3D00298D1B /* QRCode */,
 				A5FF48E71FB08D4B004EC019 /* Onboarding */,
 				A5FF48E41FB08CB5004EC019 /* AccountOverview */,
 				A57497111FAFD52A00D2FC78 /* TokenList */,
@@ -497,12 +506,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		A5776C891FB1CF3D00298D1B /* QRCodeScanning */ = {
+		A5776C891FB1CF3D00298D1B /* QRCode */ = {
 			isa = PBXGroup;
 			children = (
 				A5776C8A1FB1CF5700298D1B /* ScanQRCodeCoordinator.swift */,
+				A5FF6AA11FC5902A00A9E4B2 /* ShareQRCodeCoordinator.swift */,
 			);
-			path = QRCodeScanning;
+			path = QRCode;
 			sourceTree = "<group>";
 		};
 		A5946B851F9DDD4C004760A0 /* Other */ = {
@@ -533,6 +543,8 @@
 			isa = PBXGroup;
 			children = (
 				A5AC189B1FC332C70069C333 /* SafeDetailViewController.swift */,
+				A5EB28D01FC47B6B00D6D897 /* SafeDetailViewModel.swift */,
+				A5EB28D21FC47B8500D6D897 /* SafeDetailView.swift */,
 			);
 			path = SafeDetail;
 			sourceTree = "<group>";
@@ -896,6 +908,7 @@
 				A57402B51FA9FF24004387EC /* Dispatch+Heimdall.swift in Sources */,
 				A59932F41FB9DB24003175FA /* Safe.swift in Sources */,
 				A53DCD8A1FAFA8D200A67DBB /* EtherAmount.swift in Sources */,
+				A5FF6AA21FC5902A00A9E4B2 /* ShareQRCodeCoordinator.swift in Sources */,
 				A5E96A2D1FB058FD0093B3D9 /* StaticType.swift in Sources */,
 				A5E276501FB3756C003D45AB /* VerifiedTokenProvider.swift in Sources */,
 				A5E96A191FB058DD0093B3D9 /* VariableArray.swift in Sources */,
@@ -924,6 +937,7 @@
 				A5E96A131FB058DD0093B3D9 /* Address.swift in Sources */,
 				A5AC189C1FC332C70069C333 /* SafeDetailViewController.swift in Sources */,
 				A5E96A201FB058EA0093B3D9 /* GnosisSafe.swift in Sources */,
+				A5EB28D31FC47B8500D6D897 /* SafeDetailView.swift in Sources */,
 				A5E96A2A1FB058F80093B3D9 /* BaseDecoder.swift in Sources */,
 				A5E96A161FB058DD0093B3D9 /* String.swift in Sources */,
 				A53D14091FA1EA77003BB29C /* MnemonicPhrase.swift in Sources */,
@@ -956,8 +970,10 @@
 				A59933061FB9ED13003175FA /* AddSafeCoordinator.swift in Sources */,
 				A574971A1FAFDF9B00D2FC78 /* TokenListViewModel.swift in Sources */,
 				A5E96A251FB058EF0093B3D9 /* StringExtension.swift in Sources */,
+				A5EB28D11FC47B6B00D6D897 /* SafeDetailViewModel.swift in Sources */,
 				A566D9AC1F97A1A000DBEB9A /* AppDelegate.swift in Sources */,
 				A51180CA1F9C9B7B008FC2DB /* CredentialsRepo.swift in Sources */,
+				A5FF6AA41FC5920000A9E4B2 /* UIAlertController+Heimdall.swift in Sources */,
 				A5E96A1C1FB058DD0093B3D9 /* Bytes.swift in Sources */,
 				A5FF48E91FB0A521004EC019 /* ReactiveExtensions+Heimdall.swift in Sources */,
 				A5E96A2C1FB058FD0093B3D9 /* DynamicType.swift in Sources */,

@@ -37,9 +37,12 @@ class SafeDetailCoordinator: PushableCoordinator {
 
         viewModel
             .shareSafeAction
-            .observeNext {
-                print("share safe \(self.safe)")
-            }.dispose(in: bag)
+            .bind(to: self) { mySelf, _ in
+                mySelf.coordinate(to: ShareQRCodeCoordinator(title: mySelf.safe.name ?? mySelf.safe.address,
+                                                             payload: mySelf.safe.address,
+                                                             rootViewController: viewController))
+            }
+            .dispose(in: bag)
         return Signal.never()
     }
 }

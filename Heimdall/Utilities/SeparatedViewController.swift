@@ -13,8 +13,13 @@ import UIKit
 /// instantiated.
 protocol SeparatedView {
     init()
+
+    var rightBarButtonItem: UIBarButtonItem? { get }
 }
 
+/// Our type of view controller. Separated just means that the whole view for
+/// this view controller lives in a separate class. See `SeparatedView` &
+/// `AutoLayoutView` for this.
 class SeparatedViewController<ViewModel: SeparatedViewModel>: UIViewController {
     let customView = ViewModel.View()
     let viewModel: ViewModel
@@ -28,9 +33,11 @@ class SeparatedViewController<ViewModel: SeparatedViewModel>: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
 
-        // Already set up the title in here
+        // Already set up SeparatedView properties
         viewModel.title.bind(to: reactive.title)
             .dispose(in: disposeBag)
+        navigationItem.rightBarButtonItem = customView.rightBarButtonItem
+
         // Now give control to subclass
         setup()
     }

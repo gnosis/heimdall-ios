@@ -21,6 +21,7 @@ private enum SelectMethodResult {
     case cancel
 }
 
+// TODO: Make alert texts configurable ("enter address"/"enter token address")
 class AddAddressCoordinator: BaseCoordinator<AddAddressCoordinatorResult> {
     let navigationController: UINavigationController
 

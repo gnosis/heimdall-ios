@@ -11,6 +11,7 @@ import UIKit
 /// A UIScrollView subclass that handles adding constraints automatically.
 /// Override setupInitialConstraints/setupSubviews if you need to.
 class AutoLayoutScrollView: UIScrollView, SeparatedView {
+    // MARK: UIView Stuff
     var didSetupConstraints = false
 
     required init() {
@@ -37,9 +38,15 @@ class AutoLayoutScrollView: UIScrollView, SeparatedView {
         didSetupConstraints = true
     }
 
+    // MARK: SeparatedView Overridable
     /// Override if you need to add subviews to your subclass.
     func setupSubviews() {}
 
     /// Override to add constraints for your subviews.
     func setupInitialConstraints() {}
+
+    /// Override if you want a right bar button item.
+    var rightBarButtonItem: UIBarButtonItem? {
+        return nil
+    }
 }

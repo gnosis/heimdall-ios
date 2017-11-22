@@ -43,9 +43,7 @@ class SafeListViewController: SeparatedViewController<SafeListViewModel>, UITabl
             .dispose(in: disposeBag)
 
         // Bind Outputs
-        let addItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-        navigationItem.rightBarButtonItem = addItem
-        addItem
+        customView.addItem
             .reactive
             .tap
             .bind(to: viewModel.addSafeAction)
