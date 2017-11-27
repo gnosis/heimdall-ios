@@ -60,3 +60,5 @@ and the private key
 // # Shared Strings
 "Shared.ButtonTitle.Cancel" = "Cancel";
 "Shared.SwipeAction.Delete" = "Delete";
+"Shared.Title.Share" = "Share";
+

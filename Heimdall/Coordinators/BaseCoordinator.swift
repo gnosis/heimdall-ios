@@ -51,7 +51,7 @@ class BaseCoordinator<ResultType> {
     func coordinate<T>(to coordinator: BaseCoordinator<T>) -> SafeSignal<T> {
         store(coordinator: coordinator)
         // swiftlint:disable:next trailing_closure
-        return coordinator.start()
+        return coordinator.start().debug()
             .doOn(completed: {
                 self.free(coordinator: coordinator)
         })

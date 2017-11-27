@@ -9,44 +9,6 @@
 import ReactiveKit
 import UIKit
 
-class PushableCoordinator: BaseCoordinator<Void> {
-    let navigationController: UINavigationController
-
-    init(navigationController: UINavigationController) {
-        self.navigationController = navigationController
-    }
-
-    func push(_ viewController: UIViewController) {
-        navigationController.pushViewController(viewController, animated: true)
-    }
-}
-
-class SafeDetailCoordinator: PushableCoordinator {
-    let safe: Safe
-
-    init(navigationController: UINavigationController,
-         safe: Safe) {
-        self.safe = safe
-        super.init(navigationController: navigationController)
-    }
-
-    override func start() -> Signal<Void, NoError> {
-        let viewModel = SafeDetailViewModel(safe: safe)
-        let viewController = SafeDetailViewController(viewModel: viewModel)
-        push(viewController)
-
-        viewModel
-            .shareSafeAction
-            .bind(to: self) { mySelf, _ in
-                mySelf.coordinate(to: ShareQRCodeCoordinator(title: mySelf.safe.name ?? mySelf.safe.address,
-                                                             payload: mySelf.safe.address,
-                                                             rootViewController: viewController))
-            }
-            .dispose(in: bag)
-        return Signal.never()
-    }
-}
-
 class SafeListCoordinator: TabCoordinator {
     let store: DataStore
 
@@ -83,9 +45,9 @@ class SafeListCoordinator: TabCoordinator {
 
         safeListViewModel
             .openSafeAction
-            .observeNext { safe in
-                _ = self.coordinate(to:
-                    SafeDetailCoordinator(navigationController: self.navigationController,
+            .bind(to: self) { me, safe in
+                _ = me.coordinate(to:
+                    SafeDetailCoordinator(navigationController: me.navigationController,
                                           safe: safe))
             }
             .dispose(in: bag)
