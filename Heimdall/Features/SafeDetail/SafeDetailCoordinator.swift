@@ -26,7 +26,7 @@ class SafeDetailCoordinator: PushableCoordinator {
         viewModel
             .shareSafeAction
             .bind(to: self) { mySelf, _ in
-                _ = mySelf.coordinate(to: ShareCoordinator(payload: mySelf.safe.address,
+                _ = mySelf.coordinate(to: ShareCoordinator(shareable: mySelf.safe,
                                                            rootViewController: viewController))
             }
             .dispose(in: bag)

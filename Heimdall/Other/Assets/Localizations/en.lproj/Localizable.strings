@@ -12,6 +12,7 @@
 "Safe.Add.Alert.Message" = "You can add a name if you wanna";
 "Safe.Add.Alert.NameTextfield.Placeholder" = "Name";
 "Safe.Add.Alert.ConfirmButton.Title" = "Add";
+"Safe.Share.PlaceholderTitle" = "Unnamed Safe";
 
 // # Onboarding
 // ## OnboardingStart
