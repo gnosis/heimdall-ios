@@ -6,8 +6,6 @@
 //  Copyright © 2017 Gnosis. All rights reserved.
 //
 
-import UIKit
-
 class SafeDetailViewController: SeparatedViewController<SafeDetailViewModel> {
     override func setup() {
         viewModel.title.bind(to: reactive.title)

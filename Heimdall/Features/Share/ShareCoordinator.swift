@@ -29,7 +29,7 @@ class ShareCoordinator: BaseCoordinator<Void> {
         let shareViewController = ShareViewController(viewModel: shareViewModel)
         navigationController.rootViewController = shareViewController
 
-        shareViewModel.closeShareAction.debug()
+        shareViewModel.closeShareAction
             .bind(to: self) { me, _ in
                 navigationController.dismiss(animated: true)
                 me.publishSubject.completed(with: ())
