@@ -1,4 +1,6 @@
-# heimdall-ios [![Build Status](https://travis-ci.org/gnosis/heimdall-ios.svg?branch=master)](https://travis-ci.org/gnosis/heimdall-ios)
+# DEPRECATED
+
+## heimdall-ios [![Build Status](https://travis-ci.org/gnosis/heimdall-ios.svg?branch=master)](https://travis-ci.org/gnosis/heimdall-ios)
 
 🔐 App to manage and interact with Gnosis MultiSig Wallets https://wallet.gnosis.pm
 
